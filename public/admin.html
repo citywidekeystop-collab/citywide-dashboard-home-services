@@ -5,63 +5,119 @@
 <title>Citywide Admin Dashboard</title>
 <style>
 body{margin:0;font-family:Arial;background:#eef3fb;color:#07142f}
-.wrap{max-width:1200px;margin:auto;padding:20px}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.logo{font-size:28px;font-weight:1000;color:#005eff}
-.card{background:white;border-radius:22px;padding:20px;margin-bottom:16px;box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.wrap{max-width:1200px;margin:auto;padding:18px}
+.top{background:#061331;color:white;border-radius:24px;padding:22px;margin-bottom:16px}
+.top h1{margin:0;font-size:30px}
+.card{background:white;border-radius:24px;padding:18px;margin-bottom:14px;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .stat b{font-size:34px;color:#005eff}
 .stat span{display:block;font-weight:900}
-table{width:100%;border-collapse:collapse}
-td,th{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left}
-.status{padding:7px 10px;border-radius:999px;background:#e9fff1;color:#00a651;font-weight:900}
-button{background:#005eff;color:white;border:0;border-radius:12px;padding:10px 14px;font-weight:900}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.top{display:block}}
+.job{border-left:6px solid #005eff}
+.row{display:flex;justify-content:space-between;border-bottom:1px solid #e5e7eb;padding:10px 0;font-weight:800}
+.row span{color:#667085}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+button{border:0;border-radius:14px;padding:12px;font-weight:1000;color:white}
+.assign{background:#005eff}
+.progress{background:#f59e0b}
+.complete{background:#00a651}
+.delete{background:#ef4444}
+.empty{color:#667085;font-weight:800}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.actions{grid-template-columns:1fr 1fr}}
 </style>
 </head>
+
 <body>
 
 <div class="wrap">
 
 <div class="top">
-<div class="logo">CITYWIDE ADMIN</div>
-<div>🟢 Live Dispatch Dashboard</div>
+<h1>Citywide Admin Dashboard</h1>
+<p>Live booking + dispatch board</p>
 </div>
 
 <div class="grid">
-<div class="card stat"><b>0</b><span>New Bookings</span></div>
-<div class="card stat"><b>0</b><span>Lock Orders</span></div>
-<div class="card stat"><b>$0</b><span>Paid Deposits</span></div>
-<div class="card stat"><b>0</b><span>Completed Jobs</span></div>
+<div class="card stat"><b id="newCount">0</b><span>New Jobs</span></div>
+<div class="card stat"><b id="totalCount">0</b><span>Total Jobs</span></div>
+<div class="card stat"><b id="completedCount">0</b><span>Completed</span></div>
+<div class="card stat"><b id="revenue">$0</b><span>Revenue</span></div>
 </div>
 
 <div class="card">
-<h2>New Booking Requests</h2>
-<table>
-<tr><th>Customer</th><th>Service</th><th>Time</th><th>Status</th><th>Action</th></tr>
-<tr><td>Example Customer</td><td>Mortise Cylinder</td><td>Today</td><td><span class="status">New</span></td><td><button>Assign</button></td></tr>
-</table>
-</div>
-
-<div class="card">
-<h2>Lock Purchase Requests</h2>
-<table>
-<tr><th>Product</th><th>Style</th><th>Address</th><th>Payment</th></tr>
-<tr><td>Push Bar</td><td>Commercial</td><td>Pending</td><td>Awaiting Deposit</td></tr>
-</table>
-</div>
-
-<div class="card">
-<h2>Provider Board</h2>
-<table>
-<tr><th>Tech</th><th>Status</th><th>Current Job</th><th>Revenue</th></tr>
-<tr><td>Max</td><td><span class="status">Online</span></td><td>Available</td><td>$0</td></tr>
-<tr><td>Dreh</td><td><span class="status">Online</span></td><td>Available</td><td>$0</td></tr>
-<tr><td>Tee</td><td><span class="status">Online</span></td><td>Available</td><td>$0</td></tr>
-</table>
+<h2>Incoming Jobs</h2>
+<div id="jobsList" class="empty">No jobs yet.</div>
 </div>
 
 </div>
+
+<script src="/app.js"></script>
+
+<script>
+function renderAdminJobs(){
+const jobs = getJobs();
+const list = document.getElementById("jobsList");
+
+document.getElementById("totalCount").textContent = jobs.length;
+document.getElementById("newCount").textContent = jobs.filter(j => j.status === "New").length;
+document.getElementById("completedCount").textContent = jobs.filter(j => j.status === "Completed").length;
+document.getElementById("revenue").textContent = "$" + (jobs.filter(j => j.status === "Completed").length * 240);
+
+if(jobs.length === 0){
+list.innerHTML = "No jobs yet.";
+return;
+}
+
+list.innerHTML = jobs.map(job => `
+<div class="card job">
+<h2>${job.product || "Service Request"}</h2>
+<div class="row"><span>Customer</span>${job.name || ""}</div>
+<div class="row"><span>Phone</span>${job.phone || ""}</div>
+<div class="row"><span>Address</span>${job.address || ""}</div>
+<div class="row"><span>Style</span>${job.style || ""}</div>
+<div class="row"><span>Date/Time</span>${job.date || ""} ${job.time || ""}</div>
+<div class="row"><span>Payment</span>${job.payment || ""}</div>
+<div class="row"><span>Status</span>${job.status || "New"}</div>
+<div class="row"><span>Assigned To</span>${job.assignedTo || "Unassigned"}</div>
+<div class="row"><span>Details</span>${job.details || ""}</div>
+
+<div class="actions">
+<button class="assign" onclick="assignJob(${job.id}, 'Max')">Assign Max</button>
+<button class="progress" onclick="updateJobStatus(${job.id}, 'In Progress')">In Progress</button>
+<button class="complete" onclick="updateJobStatus(${job.id}, 'Completed')">Complete</button>
+<button class="delete" onclick="deleteJob(${job.id})">Delete</button>
+</div>
+</div>
+`).join("");
+}
+
+function assignJob(id, tech){
+const jobs = getJobs();
+const job = jobs.find(j => j.id === id);
+if(job){
+job.assignedTo = tech;
+job.status = "Assigned";
+saveJobs(jobs);
+renderAdminJobs();
+}
+}
+
+function updateJobStatus(id, status){
+const jobs = getJobs();
+const job = jobs.find(j => j.id === id);
+if(job){
+job.status = status;
+saveJobs(jobs);
+renderAdminJobs();
+}
+}
+
+function deleteJob(id){
+const jobs = getJobs().filter(j => j.id !== id);
+saveJobs(jobs);
+renderAdminJobs();
+}
+
+renderAdminJobs();
+</script>
 
 </body>
 </html>
