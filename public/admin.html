@@ -1,123 +1,612 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Citywide Admin Dashboard</title>
+<title>Citywide Roadside Lock & Key</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#eef3fb;color:#07142f}
-.wrap{max-width:1200px;margin:auto;padding:18px}
-.top{background:#061331;color:white;border-radius:24px;padding:22px;margin-bottom:16px}
-.top h1{margin:0;font-size:30px}
-.card{background:white;border-radius:24px;padding:18px;margin-bottom:14px;box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.stat b{font-size:34px;color:#005eff}
-.stat span{display:block;font-weight:900}
-.job{border-left:6px solid #005eff}
-.row{display:flex;justify-content:space-between;border-bottom:1px solid #e5e7eb;padding:10px 0;font-weight:800}
-.row span{color:#667085}
-.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
-button{border:0;border-radius:14px;padding:12px;font-weight:1000;color:white}
-.assign{background:#005eff}
-.progress{background:#f59e0b}
-.complete{background:#00a651}
-.delete{background:#ef4444}
-.empty{color:#667085;font-weight:800}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.actions{grid-template-columns:1fr 1fr}}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#eef3fb;
+color:#07142f;
+padding-bottom:120px;
+}
+
+.phone{
+max-width:1400px;
+margin:auto;
+background:white;
+min-height:100vh;
+}
+
+.hero{
+padding:24px;
+background:linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:34px;
+font-weight:1000;
+color:#005eff;
+line-height:.9;
+}
+
+.logo small{
+display:block;
+font-size:10px;
+margin-top:6px;
+color:#07142f;
+}
+
+.online{
+background:white;
+padding:12px;
+border-radius:18px;
+font-size:12px;
+font-weight:900;
+box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+
+.green{
+color:#00b33c;
+}
+
+h1{
+font-size:60px;
+line-height:.92;
+font-weight:1000;
+margin-top:24px;
+}
+
+.blue{
+color:#005eff;
+}
+
+.sub{
+margin-top:18px;
+font-weight:900;
+}
+
+.area{
+font-size:13px;
+color:#667085;
+margin-top:4px;
+}
+
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:24px;
+}
+
+.btn{
+padding:18px;
+border-radius:22px;
+text-decoration:none;
+text-align:center;
+font-weight:1000;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.call{
+background:#005eff;
+color:white;
+}
+
+.text{
+background:white;
+color:#07142f;
+}
+
+.trust{
+margin:16px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+background:white;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+
+.trust div{
+padding:14px 6px;
+text-align:center;
+font-size:11px;
+font-weight:900;
+border-right:1px solid #e5e7eb;
+}
+
+.trust div:last-child{
+border-right:none;
+}
+
+.trust span{
+display:block;
+font-size:22px;
+margin-bottom:6px;
+}
+
+.section-title{
+padding:0 18px;
+font-size:30px;
+font-weight:1000;
+margin:20px 0 14px;
+}
+
+.grid{
+padding:0 14px 14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.card{
+background:white;
+border-radius:24px;
+padding:18px;
+position:relative;
+min-height:220px;
+text-decoration:none;
+color:#07142f;
+box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+.icon-circle{
+width:82px;
+height:82px;
+border-radius:22px;
+background:#005eff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+color:white;
+box-shadow:0 12px 28px rgba(0,94,255,.28);
+}
+
+.card b{
+display:block;
+font-size:24px;
+line-height:1.05;
+margin-top:18px;
+}
+
+.arrow{
+position:absolute;
+right:16px;
+bottom:16px;
+width:36px;
+height:36px;
+border-radius:50%;
+background:#f5f7fb;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:1000;
+font-size:22px;
+}
+
+.products{
+padding:0 14px 14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.product{
+background:white;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+.product-top{
+height:150px;
+background:#edf5ff;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.product-top .icon-circle{
+width:94px;
+height:94px;
+font-size:48px;
+}
+
+.product-body{
+padding:16px;
+}
+
+.product-body b{
+display:block;
+font-size:18px;
+margin-bottom:6px;
+}
+
+.product-body small{
+color:#667085;
+font-weight:700;
+}
+
+.pick{
+margin-top:14px;
+width:100%;
+border:none;
+background:#005eff;
+color:white;
+padding:14px;
+border-radius:16px;
+font-weight:1000;
+}
+
+.booking{
+margin:18px;
+padding:24px;
+background:white;
+border-radius:26px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.booking h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.booking p{
+color:#667085;
+margin-bottom:18px;
+}
+
+.booking form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.booking input,
+.booking select,
+.booking textarea{
+padding:16px;
+border-radius:18px;
+border:1px solid #dbe1ea;
+font-size:16px;
+background:#f8fbff;
+}
+
+.booking textarea{
+min-height:120px;
+resize:none;
+}
+
+.booking button{
+background:#005eff;
+color:white;
+border:none;
+padding:18px;
+border-radius:20px;
+font-size:18px;
+font-weight:1000;
+}
+
+.bottom{
+position:fixed;
+left:50%;
+bottom:10px;
+transform:translateX(-50%);
+width:min(430px,95%);
+background:white;
+padding:12px;
+border-radius:30px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+box-shadow:0 10px 40px rgba(0,0,0,.25);
+z-index:999;
+}
+
+.bottom a{
+text-decoration:none;
+text-align:center;
+font-size:11px;
+font-weight:900;
+color:#07142f;
+}
+
+.bottom span{
+display:block;
+font-size:22px;
+margin-bottom:4px;
+}
+
+.center-call{
+background:#005eff;
+width:68px;
+height:68px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:-34px auto 0;
+color:white !important;
+box-shadow:0 10px 30px rgba(0,94,255,.4);
+}
+
+@media(min-width:900px){
+
+.phone{
+margin:24px auto;
+border-radius:34px;
+overflow:hidden;
+box-shadow:0 20px 70px rgba(0,0,0,.18);
+}
+
+h1{
+font-size:92px;
+}
+
+.grid{
+grid-template-columns:repeat(4,1fr);
+padding:0 28px 28px;
+}
+
+.products{
+grid-template-columns:repeat(4,1fr);
+padding:0 28px 28px;
+}
+
+.section-title{
+padding:0 28px;
+font-size:42px;
+}
+
+.bottom{
+width:720px;
+}
+}
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<div class="phone">
+
+<section class="hero">
 
 <div class="top">
-<h1>Citywide Admin Dashboard</h1>
-<p>Live booking + dispatch board</p>
+<div class="logo">
+CITYWIDE
+<small>ROADSIDE LOCK & KEY</small>
+</div>
+
+<div class="online">
+● <span class="green">Technicians<br>Online</span>
+</div>
+</div>
+
+<h1>
+24/7 LOCKSMITH<br>
+SERVICE WHEN YOU<br>
+<span class="blue">NEED US MOST.</span>
+</h1>
+
+<div class="sub">
+Fast • Reliable • Local
+</div>
+
+<div class="area">
+Harford County • Baltimore County • Baltimore City
+</div>
+
+<div class="buttons">
+<a class="btn call" href="tel:4435781686">
+📞 CALL NOW<br>
+443-578-1686
+</a>
+
+<a class="btn text" href="sms:4435781686">
+💬 TEXT US<br>
+Instant Response
+</a>
+</div>
+
+</section>
+
+<div class="trust">
+<div><span>⏱️</span>24/7 Emergency</div>
+<div><span>📍</span>Fast Response</div>
+<div><span>🛡️</span>Licensed Insured</div>
+<div><span>🏷️</span>Upfront Pricing</div>
+</div>
+
+<div class="section-title">
+What can we help you with?
 </div>
 
 <div class="grid">
-<div class="card stat"><b id="newCount">0</b><span>New Jobs</span></div>
-<div class="card stat"><b id="totalCount">0</b><span>Total Jobs</span></div>
-<div class="card stat"><b id="completedCount">0</b><span>Completed</span></div>
-<div class="card stat"><b id="revenue">$0</b><span>Revenue</span></div>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🔐</div>
+<b>Car<br>Lockout</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🏠</div>
+<b>House<br>Lockout</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🔑</div>
+<b>Rekey<br>Service</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🚘</div>
+<b>Car Key<br>Replacement</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🔒</div>
+<b>Lock<br>Change</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🏢</div>
+<b>Commercial<br>Locksmith</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">🛡️</div>
+<b>Access<br>Control</b>
+<div class="arrow">›</div>
+</a>
+
+<a class="card" href="tel:4435781686">
+<div class="icon-circle">📫</div>
+<b>Mailbox<br>Locks</b>
+<div class="arrow">›</div>
+</a>
+
 </div>
 
-<div class="card">
-<h2>Incoming Jobs</h2>
-<div id="jobsList" class="empty">No jobs yet.</div>
+<div class="section-title">
+Buy A Lock + Schedule Install
+</div>
+
+<div class="products">
+
+<div class="product">
+<div class="product-top">
+<div class="icon-circle">🚪</div>
+</div>
+<div class="product-body">
+<b>Door Knob / Deadbolt</b>
+<small>Residential lock install</small>
+<button class="pick">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-top">
+<div class="icon-circle">🏢</div>
+</div>
+<div class="product-body">
+<b>Commercial Locks</b>
+<small>Storefront & office hardware</small>
+<button class="pick">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-top">
+<div class="icon-circle">🚗</div>
+</div>
+<div class="product-body">
+<b>Auto Keys & Fobs</b>
+<small>Keys, remotes, smart fobs</small>
+<button class="pick">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-top">
+<div class="icon-circle">🧲</div>
+</div>
+<div class="product-body">
+<b>Mag Locks</b>
+<small>Access control magnetic lock</small>
+<button class="pick">Choose</button>
+</div>
 </div>
 
 </div>
 
-<script src="/app.js"></script>
+<div class="booking">
 
-<script>
-function renderAdminJobs(){
-const jobs = getJobs();
-const list = document.getElementById("jobsList");
+<h2>Book Service</h2>
 
-document.getElementById("totalCount").textContent = jobs.length;
-document.getElementById("newCount").textContent = jobs.filter(j => j.status === "New").length;
-document.getElementById("completedCount").textContent = jobs.filter(j => j.status === "Completed").length;
-document.getElementById("revenue").textContent = "$" + (jobs.filter(j => j.status === "Completed").length * 240);
+<p>
+Request locksmith service instantly.
+</p>
 
-if(jobs.length === 0){
-list.innerHTML = "No jobs yet.";
-return;
-}
+<form>
 
-list.innerHTML = jobs.map(job => `
-<div class="card job">
-<h2>${job.product || "Service Request"}</h2>
-<div class="row"><span>Customer</span>${job.name || ""}</div>
-<div class="row"><span>Phone</span>${job.phone || ""}</div>
-<div class="row"><span>Address</span>${job.address || ""}</div>
-<div class="row"><span>Style</span>${job.style || ""}</div>
-<div class="row"><span>Date/Time</span>${job.date || ""} ${job.time || ""}</div>
-<div class="row"><span>Payment</span>${job.payment || ""}</div>
-<div class="row"><span>Status</span>${job.status || "New"}</div>
-<div class="row"><span>Assigned To</span>${job.assignedTo || "Unassigned"}</div>
-<div class="row"><span>Details</span>${job.details || ""}</div>
+<input type="text" placeholder="Full Name">
 
-<div class="actions">
-<button class="assign" onclick="assignJob(${job.id}, 'Max')">Assign Max</button>
-<button class="progress" onclick="updateJobStatus(${job.id}, 'In Progress')">In Progress</button>
-<button class="complete" onclick="updateJobStatus(${job.id}, 'Completed')">Complete</button>
-<button class="delete" onclick="deleteJob(${job.id})">Delete</button>
+<input type="tel" placeholder="Phone Number">
+
+<input type="text" placeholder="Service Address">
+
+<select>
+<option>Select Service</option>
+<option>Car Lockout</option>
+<option>House Lockout</option>
+<option>Rekey Service</option>
+<option>Commercial Locksmith</option>
+</select>
+
+<input type="date">
+
+<input type="time">
+
+<textarea placeholder="Describe your issue"></textarea>
+
+<button type="submit">
+SEND BOOKING REQUEST
+</button>
+
+</form>
+
 </div>
+
 </div>
-`).join("");
-}
 
-function assignJob(id, tech){
-const jobs = getJobs();
-const job = jobs.find(j => j.id === id);
-if(job){
-job.assignedTo = tech;
-job.status = "Assigned";
-saveJobs(jobs);
-renderAdminJobs();
-}
-}
+<nav class="bottom">
 
-function updateJobStatus(id, status){
-const jobs = getJobs();
-const job = jobs.find(j => j.id === id);
-if(job){
-job.status = status;
-saveJobs(jobs);
-renderAdminJobs();
-}
-}
+<a href="/">
+<span>🏠</span>
+Home
+</a>
 
-function deleteJob(id){
-const jobs = getJobs().filter(j => j.id !== id);
-saveJobs(jobs);
-renderAdminJobs();
-}
+<a href="#booking">
+<span>📅</span>
+Book
+</a>
 
-renderAdminJobs();
-</script>
+<a class="center-call" href="tel:4435781686">
+<span>📞</span>
+</a>
+
+<a href="/admin.html">
+<span>🧠</span>
+Admin
+</a>
+
+<a href="/provider.html">
+<span>👷</span>
+Provider
+</a>
+
+</nav>
 
 </body>
 </html>
