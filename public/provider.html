@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citywide Provider Dashboard</title>
+<style>
+body{margin:0;font-family:Arial;background:#eef3fb;color:#07142f;padding-bottom:90px}
+.wrap{max-width:900px;margin:auto;padding:18px}
+.top{background:#061331;color:white;border-radius:24px;padding:22px;margin-bottom:16px}
+.top h1{margin:0;font-size:30px}
+.top p{color:#b9c7e6;font-weight:700}
+.card{background:white;border-radius:24px;padding:18px;margin-bottom:14px;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+.badge{display:inline-block;background:#e9fff1;color:#00a651;padding:8px 12px;border-radius:999px;font-weight:900;font-size:13px}
+.job h2{margin:10px 0}
+.row{display:flex;justify-content:space-between;border-bottom:1px solid #e5e7eb;padding:10px 0;font-weight:800}
+.row span{color:#667085}
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+button,a.btn{border:0;border-radius:16px;padding:14px;text-align:center;text-decoration:none;font-weight:1000;color:white}
+.accept{background:#00a651}
+.complete{background:#005eff}
+.cancel{background:#ef4444}
+.bottom{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(900px,94%);background:white;border-radius:24px;padding:12px;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 10px 35px rgba(0,0,0,.22)}
+.bottom a{text-align:center;text-decoration:none;color:#07142f;font-weight:900;font-size:12px}
+.bottom span{display:block;font-size:22px}
+@media(max-width:650px){.actions{grid-template-columns:1fr}.top h1{font-size:26px}}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="top">
+<h1>Provider Dashboard</h1>
+<p>Citywide Roadside Lock & Key</p>
+<span class="badge">🟢 Online / Available</span>
+</div>
+
+<div class="card job">
+<span class="badge">New Assigned Job</span>
+<h2>Mortise Cylinder Replacement</h2>
+
+<div class="row"><span>Customer</span> Jamie Emche</div>
+<div class="row"><span>Service</span> Residential Service</div>
+<div class="row"><span>Address</span> 403 Bold Ruler Ct, Havre De Grace, MD</div>
+<div class="row"><span>Job Price</span> $240</div>
+<div class="row"><span>Provider Pay</span> Pending</div>
+<div class="row"><span>Status</span> Awaiting Accept</div>
+
+<div class="actions">
+<a class="btn accept" href="tel:4435781686">Accept Job</a>
+<a class="btn complete" href="#">Complete</a>
+<a class="btn cancel" href="#">Cancel</a>
+</div>
+</div>
+
+<div class="card">
+<h2>Today Summary</h2>
+<div class="row"><span>Jobs Assigned</span> 1</div>
+<div class="row"><span>Jobs Completed</span> 0</div>
+<div class="row"><span>Total Revenue</span> $0</div>
+</div>
+
+<div class="card">
+<h2>Old Jobs</h2>
+<p style="color:#667085;font-weight:700;">Completed and cancelled jobs will show here.</p>
+</div>
+
+</div>
+
+<nav class="bottom">
+<a href="#"><span>🏠</span>Home</a>
+<a href="#"><span>📋</span>Jobs</a>
+<a href="tel:4435781686"><span>📞</span>Call</a>
+<a href="#"><span>💰</span>Pay</a>
+</nav>
+
+</body>
+</html>
