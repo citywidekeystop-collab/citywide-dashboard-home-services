@@ -7,426 +7,78 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
-body{
-font-family:Arial,sans-serif;
-background:#f4f8fd;
-color:#07142f;
-padding-bottom:120px;
-}
-
-.phone{
-max-width:1400px;
-margin:26px auto;
-background:white;
-min-height:100vh;
-border-radius:34px;
-padding-left:24px;
-padding-right:24px;
-box-shadow:0 20px 70px rgba(0,0,0,.12);
-}
-
-.hero{
-padding:42px 20px;
-background:linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
-border-radius:34px;
-}
-
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:34px;
-font-weight:1000;
-line-height:.9;
-color:#005eff;
-}
-
-.logo small{
-display:block;
-font-size:10px;
-margin-top:6px;
-color:#07142f;
-letter-spacing:1px;
-}
-
-.online{
-background:white;
-padding:12px;
-border-radius:18px;
-font-size:12px;
-font-weight:900;
-box-shadow:0 8px 24px rgba(0,0,0,.08);
-}
-
+body{font-family:Arial,sans-serif;background:#f4f8fd;color:#07142f;padding-bottom:120px}
+.phone{max-width:1400px;margin:26px auto;background:white;min-height:100vh;border-radius:34px;padding:0 24px;box-shadow:0 20px 70px rgba(0,0,0,.12)}
+.hero{padding:42px 20px;background:linear-gradient(135deg,#fff,#eef5ff,#fff);border-radius:34px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:34px;font-weight:1000;line-height:.9;color:#005eff}
+.logo small{display:block;font-size:10px;margin-top:6px;color:#07142f;letter-spacing:1px}
+.online{background:white;padding:12px;border-radius:18px;font-size:12px;font-weight:900;box-shadow:0 8px 24px rgba(0,0,0,.08)}
 .green{color:#00b33c}
-
-h1{
-font-size:92px;
-line-height:.92;
-font-weight:1000;
-margin-top:26px;
-}
-
+h1{font-size:92px;line-height:.92;font-weight:1000;margin-top:26px}
 .blue{color:#005eff}
-
-.sub{
-margin-top:18px;
-font-weight:900;
-}
-
-.area{
-font-size:13px;
-color:#667085;
-margin-top:4px;
-}
-
-.buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:26px;
-}
-
-.btn{
-padding:18px;
-border-radius:22px;
-text-decoration:none;
-text-align:center;
-font-weight:1000;
-}
-
+.sub{margin-top:18px;font-weight:900}
+.area{font-size:13px;color:#667085;margin-top:4px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.btn{padding:18px;border-radius:22px;text-decoration:none;text-align:center;font-weight:1000}
 .call{background:#005eff;color:white}
-
-.text{
-background:white;
-color:#07142f;
-border:1px solid #e5edf8;
-}
-
-.trust,.badges{
-margin:22px 0;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-}
-
-.trust div,.badges div{
-background:white;
-padding:14px 6px;
-text-align:center;
-font-size:11px;
-font-weight:900;
-border-radius:18px;
-border:1px solid #e8eef7;
-}
-
-.trust span,.badges span{
-display:block;
-font-size:22px;
-margin-bottom:6px;
-}
-
-.section-title{
-font-size:44px;
-font-weight:1000;
-margin:30px 0 24px;
-}
-
-.grid{
-padding:0 0 36px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:40px;
-justify-items:center;
-}
-
-.card{
-width:100%;
-max-width:240px;
-text-decoration:none;
-color:#07142f;
-position:relative;
-text-align:left;
-transition:.2s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-}
-
-.icon-circle{
-width:140px;
-height:140px;
-border-radius:32px;
-background:#005eff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-color:white;
-margin-bottom:16px;
-box-shadow:0 18px 40px rgba(0,94,255,.35);
-}
-
-.card b{
-font-size:22px;
-line-height:1.05;
-display:block;
-}
-
-.arrow{
-margin-top:10px;
-font-size:24px;
-font-weight:1000;
-color:#005eff;
-}
-
-.products{
-padding:0 0 40px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:24px;
-justify-items:center;
-}
-
-.product{
-width:100%;
-max-width:260px;
-background:#f8fbff;
-border-radius:22px;
-padding:16px;
-border:1px solid #e5edf8;
-}
-
-.product-top{
-display:flex;
-justify-content:center;
-margin-bottom:16px;
-}
-
-.product-top .icon-circle{
-margin-bottom:0;
-width:110px;
-height:110px;
-font-size:54px;
-}
-
-.product-body b{
-display:block;
-font-size:18px;
-margin-bottom:6px;
-}
-
-.product-body small{
-color:#667085;
-font-weight:700;
-display:block;
-margin-bottom:14px;
-}
-
-.pick{
-width:100%;
-border:none;
-background:#005eff;
-color:white;
-padding:14px;
-border-radius:16px;
-font-weight:1000;
-}
-
-.booking{
-margin:18px 0;
-padding:24px;
-background:white;
-border-radius:28px;
-border:1px solid #e8eef7;
-}
-
-.booking h2{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.booking p{
-color:#667085;
-margin-bottom:18px;
-}
-
-.booking form{
-display:flex;
-flex-direction:column;
-gap:14px;
-}
-
-.booking input,
-.booking select,
-.booking textarea{
-padding:16px;
-border-radius:18px;
-border:1px solid #dbe1ea;
-font-size:16px;
-background:#f8fbff;
-}
-
-.booking textarea{
-min-height:120px;
-resize:none;
-}
-
-.booking button{
-background:#005eff;
-color:white;
-border:none;
-padding:18px;
-border-radius:20px;
-font-size:18px;
-font-weight:1000;
-}
-
-.bottom{
-position:fixed;
-left:50%;
-bottom:10px;
-transform:translateX(-50%);
-width:min(720px,95%);
-background:white;
-padding:12px;
-border-radius:30px;
-display:grid;
-grid-template-columns:repeat(5,1fr);
-box-shadow:0 10px 40px rgba(0,0,0,.18);
-z-index:999;
-}
-
-.bottom a{
-text-decoration:none;
-text-align:center;
-font-size:11px;
-font-weight:900;
-color:#07142f;
-}
-
-.bottom span{
-display:block;
-font-size:22px;
-margin-bottom:4px;
-}
-
-.center-call{
-background:#005eff;
-width:68px;
-height:68px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:-34px auto 0;
-color:white!important;
-}
+.text{background:white;color:#07142f;border:1px solid #e5edf8}
+.trust,.badges{margin:22px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust div,.badges div{background:white;padding:14px 6px;text-align:center;font-size:11px;font-weight:900;border-radius:18px;border:1px solid #e8eef7}
+.trust span,.badges span{display:block;font-size:22px;margin-bottom:6px}
+.section-title{font-size:44px;font-weight:1000;margin:30px 0 24px}
+.grid,.products{padding:0 0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;justify-items:center}
+.card{width:100%;max-width:240px;text-decoration:none;color:#07142f;transition:.2s}
+.card:hover{transform:translateY(-6px)}
+.icon-circle{width:140px;height:140px;border-radius:32px;background:#005eff;display:flex;align-items:center;justify-content:center;font-size:70px;color:white;margin-bottom:16px;box-shadow:0 18px 40px rgba(0,94,255,.35)}
+.card b{font-size:22px;line-height:1.05;display:block}
+.arrow{margin-top:10px;font-size:24px;font-weight:1000;color:#005eff}
+.product{width:100%;max-width:260px;background:#f8fbff;border-radius:22px;padding:16px;border:1px solid #e5edf8}
+.product-top{display:flex;justify-content:center;margin-bottom:16px}
+.product-top .icon-circle{width:110px;height:110px;font-size:54px;margin-bottom:0}
+.product-body b{display:block;font-size:18px;margin-bottom:6px}
+.product-body small{color:#667085;font-weight:700;display:block;margin-bottom:14px}
+.pick{width:100%;border:none;background:#005eff;color:white;padding:14px;border-radius:16px;font-weight:1000}
+.booking{margin:18px 0;padding:24px;background:white;border-radius:28px;border:1px solid #e8eef7}
+.booking h2{font-size:32px;margin-bottom:10px}
+.booking p{color:#667085;margin-bottom:18px}
+.booking form{display:flex;flex-direction:column;gap:14px}
+.booking input,.booking select,.booking textarea{padding:16px;border-radius:18px;border:1px solid #dbe1ea;font-size:16px;background:#f8fbff}
+.booking textarea{min-height:120px;resize:none}
+.booking-btn{background:linear-gradient(135deg,#005eff,#003ecb);color:white;border:none;padding:20px;border-radius:26px;font-size:20px;font-weight:1000;box-shadow:0 18px 40px rgba(0,94,255,.35);cursor:pointer}
+.booking-btn-top{display:flex;justify-content:space-between;align-items:center;font-size:22px;margin-bottom:6px}
+.booking-btn small{display:block;font-size:12px;font-weight:700;opacity:.9;text-align:left}
+.bottom{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(720px,95%);background:white;padding:12px;border-radius:30px;display:grid;grid-template-columns:repeat(5,1fr);box-shadow:0 10px 40px rgba(0,0,0,.18);z-index:999}
+.bottom a{text-decoration:none;text-align:center;font-size:11px;font-weight:900;color:#07142f}
+.bottom span{display:block;font-size:22px;margin-bottom:4px}
+.center-call{background:#005eff;width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:-34px auto 0;color:white!important}
 
 @media(max-width:899px){
-
-body{
-background:white;
-}
-
-.phone{
-margin:0;
-border-radius:0;
-padding-left:0;
-padding-right:0;
-box-shadow:none;
-}
-
-.hero{
-padding:24px;
-border-radius:0;
-}
-
-h1{
-font-size:58px;
-}
-
-.trust,.badges{
-margin:18px;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-}
-
-.section-title{
-padding:0 18px;
-font-size:30px;
-margin:22px 0 18px;
-}
-
-.grid{
-padding:0 18px 18px;
-grid-template-columns:repeat(2,1fr);
-gap:28px 18px;
-}
-
-.card{
-max-width:none;
-}
-
-.icon-circle{
-width:84px;
-height:84px;
-font-size:42px;
-border-radius:24px;
-}
-
-.products{
-padding:0 18px 18px;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-}
-
-.product{
-max-width:none;
-}
-
-.product-top .icon-circle{
-width:92px;
-height:92px;
-font-size:48px;
-}
-
-.bottom{
-width:min(430px,95%);
-}
-
+body{background:white}
+.phone{margin:0;border-radius:0;padding:0;box-shadow:none}
+.hero{padding:24px;border-radius:0}
+h1{font-size:58px}
+.trust,.badges{margin:18px;grid-template-columns:repeat(4,1fr);gap:10px}
+.section-title{padding:0 18px;font-size:30px;margin:22px 0 18px}
+.grid,.products{padding:0 18px 18px;grid-template-columns:repeat(2,1fr);gap:28px 18px}
+.card,.product{max-width:none}
+.icon-circle{width:84px;height:84px;font-size:42px;border-radius:24px}
+.product-top .icon-circle{width:92px;height:92px;font-size:48px}
+.bottom{width:min(430px,95%)}
 }
 </style>
 </head>
 
 <body>
-
 <div class="phone">
 
 <section class="hero">
-
 <div class="top">
-<div class="logo">
-CITYWIDE
-<small>ROADSIDE LOCK & KEY</small>
+<div class="logo">CITYWIDE<small>ROADSIDE LOCK & KEY</small></div>
+<div class="online">● <span class="green">Technicians<br>Online</span></div>
 </div>
 
-<div class="online">
-● <span class="green">Technicians<br>Online</span>
-</div>
-</div>
-
-<h1>
-24/7 LOCKSMITH<br>
-SERVICE WHEN YOU<br>
-<span class="blue">NEED US MOST.</span>
-</h1>
-
+<h1>24/7 LOCKSMITH<br>SERVICE WHEN YOU<br><span class="blue">NEED US MOST.</span></h1>
 <div class="sub">Fast • Reliable • Local</div>
 <div class="area">Harford County • Baltimore County • Baltimore City</div>
 
@@ -434,7 +86,6 @@ SERVICE WHEN YOU<br>
 <a class="btn call" href="tel:4435781686">📞 CALL NOW<br>443-578-1686</a>
 <a class="btn text" href="sms:4435781686">💬 TEXT US<br>Instant Response</a>
 </div>
-
 </section>
 
 <div class="trust">
@@ -447,97 +98,23 @@ SERVICE WHEN YOU<br>
 <div class="section-title">What can we help you with?</div>
 
 <div class="grid">
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔐</div>
-<b>Car Lockout</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🏠</div>
-<b>House Lockout</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔑</div>
-<b>Rekey Service</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🚘</div>
-<b>Car Key Replacement</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔒</div>
-<b>Lock Change</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🏢</div>
-<b>Commercial Locksmith</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🛡️</div>
-<b>Access Control</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">📫</div>
-<b>Mailbox Locks</b>
-<div class="arrow">→</div>
-</a>
-
+<a class="card" href="tel:4435781686"><div class="icon-circle">🔐</div><b>Car Lockout</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🏠</div><b>House Lockout</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🔑</div><b>Rekey Service</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🚘</div><b>Car Key Replacement</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🔒</div><b>Lock Change</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🏢</div><b>Commercial Locksmith</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">🛡️</div><b>Access Control</b><div class="arrow">→</div></a>
+<a class="card" href="tel:4435781686"><div class="icon-circle">📫</div><b>Mailbox Locks</b><div class="arrow">→</div></a>
 </div>
 
 <div class="section-title">Buy A Lock + Schedule Install</div>
 
 <div class="products">
-
-<div class="product">
-<div class="product-top"><div class="icon-circle">🚪</div></div>
-<div class="product-body">
-<b>Door Knob / Deadbolt</b>
-<small>Residential lock install</small>
-<button class="pick">Choose</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-top"><div class="icon-circle">🏢</div></div>
-<div class="product-body">
-<b>Commercial Locks</b>
-<small>Storefront hardware</small>
-<button class="pick">Choose</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-top"><div class="icon-circle">🚗</div></div>
-<div class="product-body">
-<b>Auto Keys & Fobs</b>
-<small>Keys & smart remotes</small>
-<button class="pick">Choose</button>
-</div>
-</div>
-
-<div class="product">
-<div class="product-top"><div class="icon-circle">🧲</div></div>
-<div class="product-body">
-<b>Mag Locks</b>
-<small>Access control systems</small>
-<button class="pick">Choose</button>
-</div>
-</div>
-
+<div class="product"><div class="product-top"><div class="icon-circle">🚪</div></div><div class="product-body"><b>Door Knob / Deadbolt</b><small>Residential lock install</small><button class="pick">Choose</button></div></div>
+<div class="product"><div class="product-top"><div class="icon-circle">🏢</div></div><div class="product-body"><b>Commercial Locks</b><small>Storefront hardware</small><button class="pick">Choose</button></div></div>
+<div class="product"><div class="product-top"><div class="icon-circle">🚗</div></div><div class="product-body"><b>Auto Keys & Fobs</b><small>Keys & smart remotes</small><button class="pick">Choose</button></div></div>
+<div class="product"><div class="product-top"><div class="icon-circle">🧲</div></div><div class="product-body"><b>Mag Locks</b><small>Access control systems</small><button class="pick">Choose</button></div></div>
 </div>
 
 <div class="booking" id="booking">
@@ -564,30 +141,14 @@ SERVICE WHEN YOU<br>
 <option>Mag Locks</option>
 </select>
 
-<select name="style">
-<option value="">Choose Style / Finish</option>
-<option>Satin Nickel</option>
-<option>Matte Black</option>
-<option>Oil Rubbed Bronze</option>
-<option>Brass / Gold</option>
-<option>Chrome</option>
-<option>Keypad / Electronic</option>
-<option>Not Sure</option>
-</select>
-
 <input type="date" name="preferred_date">
 <input type="time" name="preferred_time">
-
-<select name="payment_option">
-<option value="">Payment Option</option>
-<option>Pay Deposit Online</option>
-<option>Pay In Full Online</option>
-<option>Pay After Estimate Approval</option>
-</select>
-
 <textarea name="details" placeholder="Describe your issue"></textarea>
 
-<button type="submit">SEND BOOKING REQUEST</button>
+<button type="submit" class="booking-btn">
+<div class="booking-btn-top"><span>BOOK SERVICE NOW</span><span>→</span></div>
+<small>Fast Dispatch • Real Locksmiths • 24/7 Emergency</small>
+</button>
 </form>
 </div>
 
@@ -604,19 +165,10 @@ SERVICE WHEN YOU<br>
 <a href="/"><span>🏠</span>Home</a>
 <a href="#booking"><span>📅</span>Book</a>
 <a class="center-call" href="tel:4435781686"><span>📞</span></a>
-<a href="/admin.html"><span>🧠</span>Admin</a>
-<a href="/provider.html"><span>👷</span>Provider</a>
+<a href="sms:4435781686"><span>💬</span>Text</a>
+<a href="#booking"><span>🔒</span>Locks</a>
 </nav>
 
 <script src="/app.js"></script>
-
-<script>
-function pickProduct(product){
-const choice = document.getElementById("productChoice");
-if(choice) choice.value = product;
-document.getElementById("booking").scrollIntoView({behavior:"smooth"});
-}
-</script>
-
 </body>
 </html>
