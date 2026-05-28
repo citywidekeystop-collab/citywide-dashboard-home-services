@@ -4,17 +4,18 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Citywide Roadside Lock & Key</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#eef3fb;
 color:#07142f;
 padding-bottom:120px;
 }
-
 .phone{
 max-width:1400px;
 margin:auto;
@@ -22,18 +23,17 @@ background:white;
 min-height:100vh;
 overflow:hidden;
 }
-
+/* HERO */
 .hero{
 padding:22px;
-background:linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
+background:
+linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
 }
-
 .top{
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
-
 .logo{
 font-size:34px;
 font-weight:1000;
@@ -41,7 +41,6 @@ line-height:.9;
 color:#005eff;
 text-shadow:0 2px 0 #00154b;
 }
-
 .logo small{
 display:block;
 font-size:10px;
@@ -49,7 +48,6 @@ letter-spacing:1px;
 margin-top:6px;
 color:#061331;
 }
-
 .online{
 background:white;
 padding:10px 12px;
@@ -58,9 +56,9 @@ font-size:12px;
 font-weight:1000;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
-
-.green{color:#00b33c}
-
+.green{
+color:#00b33c;
+}
 h1{
 font-size:58px;
 line-height:.92;
@@ -68,27 +66,24 @@ font-weight:1000;
 margin-top:24px;
 margin-bottom:14px;
 }
-
-.blue{color:#005eff}
-
+.blue{
+color:#005eff;
+}
 .sub{
 font-size:16px;
 font-weight:700;
 }
-
 .area{
 font-size:13px;
 color:#4b5563;
 margin-top:4px;
 }
-
 .buttons{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:14px;
 margin-top:22px;
 }
-
 .btn{
 padding:18px;
 border-radius:22px;
@@ -97,10 +92,15 @@ font-weight:1000;
 text-align:center;
 box-shadow:0 12px 30px rgba(0,0,0,.14);
 }
-
-.call{background:#005eff;color:white}
-.text{background:white;color:#07142f}
-
+.call{
+background:#005eff;
+color:white;
+}
+.text{
+background:white;
+color:#07142f;
+}
+/* TRUST */
 .trust{
 margin:16px;
 background:white;
@@ -110,7 +110,6 @@ grid-template-columns:repeat(4,1fr);
 overflow:hidden;
 box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
-
 .trust div{
 padding:14px 6px;
 text-align:center;
@@ -118,26 +117,31 @@ font-size:11px;
 font-weight:900;
 border-right:1px solid #e5e7eb;
 }
-
-.trust div:last-child{border-right:none}
-.trust span{display:block;font-size:24px;margin-bottom:5px}
-
+.trust div:last-child{
+border-right:none;
+}
+.trust span{
+display:block;
+font-size:24px;
+margin-bottom:5px;
+}
+/* SECTION */
 .section-title{
 padding:0 18px;
 font-size:28px;
 font-weight:1000;
 margin:18px 0 12px;
 }
-
+/* SERVICE GRID */
 .grid{
 padding:0 14px 14px;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:14px;
 }
-
 .card{
-background:linear-gradient(145deg,#ffffff,#edf5ff);
+background:
+linear-gradient(145deg,#ffffff,#edf5ff);
 border-radius:24px;
 padding:14px;
 min-height:210px;
@@ -146,7 +150,6 @@ text-decoration:none;
 color:#07142f;
 box-shadow:0 10px 24px rgba(0,0,0,.12);
 }
-
 .service-image{
 width:82px;
 height:82px;
@@ -154,20 +157,17 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 24px rgba(0,94,255,.25);
 }
-
 .service-image img{
 width:100%;
 height:100%;
 object-fit:cover;
 }
-
 .card b{
 display:block;
 font-size:22px;
 line-height:1.05;
 margin-top:16px;
 }
-
 .arrow{
 position:absolute;
 right:14px;
@@ -181,14 +181,13 @@ place-items:center;
 font-weight:1000;
 font-size:20px;
 }
-
+/* PRODUCTS */
 .products{
 padding:0 14px 14px;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:14px;
 }
-
 .product{
 background:white;
 border-radius:24px;
@@ -196,36 +195,30 @@ overflow:hidden;
 box-shadow:0 10px 25px rgba(0,0,0,.13);
 border:1px solid #e8eef8;
 }
-
 .product-img{
 height:150px;
 background:#eaf2ff;
 display:grid;
 place-items:center;
 }
-
 .product-img img{
 width:100%;
 height:100%;
 object-fit:contain;
 padding:12px;
 }
-
 .product-body{
 padding:14px;
 }
-
 .product-body b{
 font-size:17px;
 display:block;
 margin-bottom:6px;
 }
-
 .product-body small{
 color:#667085;
 font-weight:700;
 }
-
 .pick{
 margin-top:12px;
 width:100%;
@@ -236,7 +229,7 @@ padding:12px;
 border-radius:16px;
 font-weight:1000;
 }
-
+/* BOOKING */
 .booking{
 margin:16px;
 background:white;
@@ -244,24 +237,20 @@ padding:22px;
 border-radius:24px;
 box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
-
 .booking h2{
 font-size:28px;
 margin-bottom:10px;
 font-weight:1000;
 }
-
 .booking p{
 color:#667085;
 margin-bottom:18px;
 }
-
 .booking form{
 display:flex;
 flex-direction:column;
 gap:14px;
 }
-
 .booking input,
 .booking select,
 .booking textarea{
@@ -272,12 +261,10 @@ font-size:16px;
 font-family:inherit;
 background:#f8fbff;
 }
-
 .booking textarea{
 min-height:110px;
 resize:none;
 }
-
 .booking button,
 .pay-btn{
 background:#005eff;
@@ -291,34 +278,31 @@ box-shadow:0 10px 25px rgba(0,94,255,.3);
 text-align:center;
 text-decoration:none;
 }
-
 .pay-btn{
 display:block;
 background:#061331;
 margin-top:8px;
 }
-
+/* EMERGENCY */
 .emergency{
 margin:16px;
 padding:20px;
 border-radius:24px;
-background:linear-gradient(90deg,#00154a,#071321);
+background:
+linear-gradient(90deg,#00154a,#071321);
 color:white;
 box-shadow:0 10px 40px rgba(0,0,0,.3);
 }
-
 .emergency-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:12px;
 }
-
 .emergency h2{
 font-size:26px;
 margin-bottom:8px;
 }
-
 .greenbtn{
 background:#11c400;
 padding:14px 16px;
@@ -328,7 +312,7 @@ color:white;
 font-weight:1000;
 white-space:nowrap;
 }
-
+/* BADGES */
 .badges{
 margin:16px;
 background:white;
@@ -338,7 +322,6 @@ grid-template-columns:repeat(4,1fr);
 overflow:hidden;
 box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
-
 .badges div{
 padding:14px 6px;
 text-align:center;
@@ -346,10 +329,15 @@ font-size:11px;
 font-weight:900;
 border-right:1px solid #e5e7eb;
 }
-
-.badges div:last-child{border-right:none}
-.badges span{display:block;font-size:24px;margin-bottom:5px}
-
+.badges div:last-child{
+border-right:none;
+}
+.badges span{
+display:block;
+font-size:24px;
+margin-bottom:5px;
+}
+/* BOTTOM NAV */
 .bottom{
 position:fixed;
 left:50%;
@@ -364,7 +352,6 @@ grid-template-columns:repeat(5,1fr);
 box-shadow:0 10px 40px rgba(0,0,0,.25);
 z-index:999;
 }
-
 .bottom a{
 text-decoration:none;
 text-align:center;
@@ -372,13 +359,11 @@ color:#07142f;
 font-size:11px;
 font-weight:900;
 }
-
 .bottom span{
 display:block;
 font-size:22px;
 margin-bottom:4px;
 }
-
 .center-call{
 background:#005eff;
 color:white!important;
@@ -390,102 +375,240 @@ place-items:center;
 margin:-34px auto 0;
 box-shadow:0 10px 25px rgba(0,94,255,.45);
 }
-
+/* DESKTOP */
 @media(min-width:900px){
 .phone{
 border-radius:34px;
 margin:30px auto;
 box-shadow:0 20px 70px rgba(0,0,0,.18);
 }
-
-.hero{padding:40px}
-h1{font-size:90px}
-
+.hero{
+padding:40px;
+}
+h1{
+font-size:90px;
+}
 .grid,
 .products{
 grid-template-columns:repeat(4,1fr);
 padding:0 30px 30px;
 }
-
 .section-title{
 padding:0 34px;
 font-size:40px;
 }
-
-.bottom{width:720px}
-
-.card{min-height:260px}
-.service-image{width:110px;height:110px}
+.bottom{
+width:720px;
+}
+.card{
+min-height:260px;
+}
+.service-image{
+width:110px;
+height:110px;
+}
 }
 </style>
 </head>
-
 <body>
-
 <div class="phone">
-
 <section class="hero">
 <div class="top">
-<div class="logo">CITYWIDE<small>ROADSIDE LOCK & KEY</small></div>
-<div class="online">● <span class="green">Technicians<br>Online</span></div>
+<div class="logo">
+CITYWIDE
+<small>ROADSIDE LOCK & KEY</small>
 </div>
-
-<h1>24/7 LOCKSMITH<br>SERVICE WHEN YOU<br><span class="blue">NEED US MOST.</span></h1>
-
-<div class="sub">Fast • Reliable • Local</div>
-<div class="area">Harford County • Baltimore County • Baltimore City</div>
-
+<div class="online">
+● <span class="green">Technicians<br>Online</span>
+</div>
+</div>
+<h1>
+24/7 LOCKSMITH<br>
+SERVICE WHEN YOU<br>
+<span class="blue">NEED US MOST.</span>
+</h1>
+<div class="sub">
+Fast • Reliable • Local
+</div>
+<div class="area">
+Harford County • Baltimore County • Baltimore City
+</div>
 <div class="buttons">
-<a class="btn call" href="tel:4435781686">📞 CALL NOW<br>443-578-1686</a>
-<a class="btn text" href="sms:4435781686">💬 TEXT US<br><small>Instant Response</small></a>
+<a class="btn call" href="tel:4435781686">
+📞 CALL NOW<br>
+443-578-1686
+</a>
+<a class="btn text" href="sms:4435781686">
+💬 TEXT US<br>
+<small>Instant Response</small>
+</a>
 </div>
 </section>
-
 <div class="trust">
 <div><span>⏱️</span>24/7<br>Emergency</div>
 <div><span>📍</span>Fast<br>Response</div>
 <div><span>🛡️</span>Licensed<br>Insured</div>
 <div><span>🏷️</span>Upfront<br>Pricing</div>
 </div>
-
-<div class="section-title">What can we help you with?</div>
-
+<div class="section-title">
+What can we help you with?
+</div>
 <div class="grid">
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/car-lockout.jpg"></div><b>Car<br>Lockout</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/house-lockout.jpg"></div><b>House<br>Lockout</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/rekey.jpg"></div><b>Rekey<br>Service</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/car-key.jpg"></div><b>Car Key<br>Replacement</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/lock-change.jpg"></div><b>Lock<br>Change</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/commercial-lock.jpg"></div><b>Commercial<br>Locksmith</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/access-control.jpg"></div><b>Access<br>Control</b><div class="arrow">›</div></a>
-<a class="card" href="tel:4435781686"><div class="service-image"><img src="/images/mailbox-lock.jpg"></div><b>Mailbox<br>Locks</b><div class="arrow">›</div></a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/car-lockout.jpg">
 </div>
-
-<div class="section-title">Buy A Lock + Schedule Install</div>
-
+<b>Car<br>Lockout</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/house-lockout.jpg">
+</div>
+<b>House<br>Lockout</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/rekey.jpg">
+</div>
+<b>Rekey<br>Service</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/car-key.jpg">
+</div>
+<b>Car Key<br>Replacement</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/lock-change.jpg">
+</div>
+<b>Lock<br>Change</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/commercial-lock.jpg">
+</div>
+<b>Commercial<br>Locksmith</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/access-control.jpg">
+</div>
+<b>Access<br>Control</b>
+<div class="arrow">›</div>
+</a>
+<a class="card" href="tel:4435781686">
+<div class="service-image">
+<img src="/images/mailbox-lock.jpg">
+</div>
+<b>Mailbox<br>Locks</b>
+<div class="arrow">›</div>
+</a>
+</div>
+<div class="section-title">
+Buy A Lock + Schedule Install
+</div>
 <div class="products">
-<div class="product"><div class="product-img"><img src="/images/lock-change.jpg"></div><div class="product-body"><b>Door Knob / Deadbolt</b><small>Residential lock install</small><button class="pick" onclick="pickProduct('Door Knob / Deadbolt')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/commercial-lock.jpg"></div><div class="product-body"><b>Commercial Locks</b><small>Storefront & office hardware</small><button class="pick" onclick="pickProduct('Commercial Locks')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/car-key.jpg"></div><div class="product-body"><b>Auto Keys & Fobs</b><small>Keys, remotes, smart fobs</small><button class="pick" onclick="pickProduct('Auto Keys & Fobs')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/mag-lock.png"></div><div class="product-body"><b>Mag Locks</b><small>Access control magnetic lock</small><button class="pick" onclick="pickProduct('Mag Locks')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/access-control.jpg"></div><div class="product-body"><b>Electric Strikes</b><small>Buzz-in door release</small><button class="pick" onclick="pickProduct('Electric Strikes')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/push-paddle.png"></div><div class="product-body"><b>Push Paddle</b><small>Commercial entry paddle</small><button class="pick" onclick="pickProduct('Push Paddle')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/push-bar.png"></div><div class="product-body"><b>Push Bar</b><small>Panic bar / exit device</small><button class="pick" onclick="pickProduct('Push Bar')">Choose</button></div></div>
-<div class="product"><div class="product-img"><img src="/images/mortise-cylinder.jpg"></div><div class="product-body"><b>Mortise Cylinder</b><small>Residential / commercial cylinder</small><button class="pick" onclick="pickProduct('Mortise Cylinder')">Choose</button></div></div>
+<div class="product">
+<div class="product-img">
+<img src="/images/lock-change.jpg">
 </div>
-
+<div class="product-body">
+<b>Door Knob / Deadbolt</b>
+<small>Residential lock install</small>
+<button class="pick" onclick="pickProduct('Door Knob / Deadbolt')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/commercial-lock.jpg">
+</div>
+<div class="product-body">
+<b>Commercial Locks</b>
+<small>Storefront & office hardware</small>
+<button class="pick" onclick="pickProduct('Commercial Locks')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/car-key.jpg">
+</div>
+<div class="product-body">
+<b>Auto Keys & Fobs</b>
+<small>Keys, remotes, smart fobs</small>
+<button class="pick" onclick="pickProduct('Auto Keys & Fobs')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/mag-lock.png">
+</div>
+<div class="product-body">
+<b>Mag Locks</b>
+<small>Access control magnetic lock</small>
+<button class="pick" onclick="pickProduct('Mag Locks')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/access-control.jpg">
+</div>
+<div class="product-body">
+<b>Electric Strikes</b>
+<small>Buzz-in door release</small>
+<button class="pick" onclick="pickProduct('Electric Strikes')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/push-paddle.png">
+</div>
+<div class="product-body">
+<b>Push Paddle</b>
+<small>Commercial entry paddle</small>
+<button class="pick" onclick="pickProduct('Push Paddle')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/push-bar.png">
+</div>
+<div class="product-body">
+<b>Push Bar</b>
+<small>Panic bar / exit device</small>
+<button class="pick" onclick="pickProduct('Push Bar')">Choose</button>
+</div>
+</div>
+<div class="product">
+<div class="product-img">
+<img src="/images/mortise-cylinder.jpg">
+</div>
+<div class="product-body">
+<b>Mortise Cylinder</b>
+<small>Residential / commercial cylinder</small>
+<button class="pick" onclick="pickProduct('Mortise Cylinder')">Choose</button>
+</div>
+</div>
+</div>
 <div class="booking" id="booking">
-<h2>Book Service + Pick Time</h2>
-<p>Select your lock, choose style, pick a time, then submit your request.</p>
-
-<form action="https://formsubmit.co/citywidekeystop@gmail.com" method="POST">
+<h2>
+Book Service + Pick Time
+</h2>
+<p>
+Select your lock, choose style, pick a time, then submit your request.
+</p>
+<form action="https://formsubmit.co/citywidekeystop@gmail.com" method="POST" onsubmit="createBookingFromForm(this)">
 <input type="hidden" name="_subject" value="New Citywide Lock Purchase + Booking Request">
 <input type="hidden" name="_captcha" value="false">
-
 <input type="text" name="name" placeholder="Full Name" required>
 <input type="tel" name="phone" placeholder="Phone Number" required>
 <input type="text" name="address" placeholder="Service Address" required>
-
 <select name="product" id="productChoice" required>
 <option value="">Choose Lock / Product</option>
 <option>Door Knob / Deadbolt</option>
@@ -497,7 +620,6 @@ font-size:40px;
 <option>Push Bar</option>
 <option>Mortise Cylinder</option>
 </select>
-
 <select name="style" required>
 <option value="">Choose Style / Finish</option>
 <option>Satin Nickel</option>
@@ -509,58 +631,76 @@ font-size:40px;
 <option>High Security</option>
 <option>Not Sure - Need Recommendation</option>
 </select>
-
 <input type="date" name="preferred_date" required>
 <input type="time" name="preferred_time" required>
-
 <select name="payment_option" required>
 <option value="">Payment Option</option>
 <option>Pay Deposit Online</option>
 <option>Pay In Full Online</option>
 <option>Pay After Estimate Approval</option>
 </select>
-
 <textarea name="details" placeholder="Describe your issue or product request"></textarea>
-
-<button type="submit">SEND BOOKING REQUEST</button>
-<a class="pay-btn" href="YOUR_STRIPE_PAYMENT_LINK_HERE">PAY / DEPOSIT ONLINE</a>
+<button type="submit">
+SEND BOOKING REQUEST
+</button>
+<a class="pay-btn" href="YOUR_STRIPE_PAYMENT_LINK_HERE">
+PAY / DEPOSIT ONLINE
+</a>
 </form>
 </div>
-
 <div class="emergency">
 <div class="emergency-top">
 <div>
 <h2>24/7 Emergency Service</h2>
 <p>Locked out? Need help now?</p>
-<small>✅ Fast Dispatch ✅ Nearby Techs ✅ Real People 24/7</small>
+<small>
+✅ Fast Dispatch
+✅ Nearby Techs
+✅ Real People 24/7
+</small>
 </div>
-<a class="greenbtn" href="tel:4435781686">CALL NOW<br>443-578-1686</a>
+<a class="greenbtn" href="tel:4435781686">
+CALL NOW<br>
+443-578-1686
+</a>
 </div>
 </div>
-
 <div class="badges">
 <div><span>🔥</span>BBB<br>Accredited</div>
 <div><span>⭐</span>Google<br>5.0 Rating</div>
 <div><span>🛡️</span>Licensed<br>Insured</div>
 <div><span>🏆</span>100%<br>Satisfaction</div>
 </div>
-
 </div>
-
 <nav class="bottom">
-<a href="/"><span>🏠</span>Home</a>
-<a href="#booking"><span>📅</span>Book</a>
-<a class="center-call" href="tel:4435781686"><span>📞</span></a>
-<a href="/admin.html"><span>🧠</span>Admin</a>
-<a href="/provider.html"><span>👷</span>Provider</a>
+<a href="/">
+<span>🏠</span>
+Home
+</a>
+<a href="#booking">
+<span>📅</span>
+Book
+</a>
+<a class="center-call" href="tel:4435781686">
+<span>📞</span>
+</a>
+<a href="/admin.html">
+<span>🧠</span>
+Admin
+</a>
+<a href="/provider.html">
+<span>👷</span>
+Provider
+</a>
 </nav>
-
+<script src="/app.js"></script>
 <script>
 function pickProduct(product){
 document.getElementById("productChoice").value = product;
-document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+document.getElementById("booking").scrollIntoView({
+behavior:"smooth"
+});
 }
 </script>
-
 </body>
 </html>
