@@ -17,24 +17,23 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#eef3fb;
 color:#07142f;
-padding-bottom:100px;
+padding-bottom:120px;
 }
 
 .phone{
-max-width:430px;
+max-width:1400px;
 margin:auto;
 background:white;
 min-height:100vh;
 overflow:hidden;
-position:relative;
 }
 
-/* TOP */
+/* HERO */
 
 .hero{
-padding:20px;
+padding:22px;
 background:
-linear-gradient(135deg,#ffffff 0%,#eef5ff 50%,#ffffff 100%);
+linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
 }
 
 .top{
@@ -72,10 +71,8 @@ box-shadow:0 10px 25px rgba(0,0,0,.15);
 color:#00b33c;
 }
 
-/* HERO */
-
 h1{
-font-size:54px;
+font-size:58px;
 line-height:.92;
 font-weight:1000;
 margin-top:24px;
@@ -89,12 +86,12 @@ color:#005eff;
 .sub{
 font-size:16px;
 font-weight:700;
-margin-bottom:5px;
 }
 
 .area{
 font-size:13px;
 color:#4b5563;
+margin-top:4px;
 }
 
 .buttons{
@@ -153,22 +150,21 @@ font-size:24px;
 margin-bottom:5px;
 }
 
-/* TITLE */
+/* SECTION */
 
 .section-title{
 padding:0 18px;
-font-size:24px;
+font-size:28px;
 font-weight:1000;
-margin-top:8px;
-margin-bottom:10px;
+margin:18px 0 12px;
 }
 
-/* GRID */
+/* SERVICE GRID */
 
 .grid{
 padding:0 14px 14px;
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,1fr);
 gap:14px;
 }
 
@@ -177,43 +173,166 @@ background:
 linear-gradient(145deg,#ffffff,#edf5ff);
 border-radius:24px;
 padding:14px;
-min-height:125px;
+min-height:210px;
 position:relative;
 text-decoration:none;
 color:#07142f;
 box-shadow:0 10px 24px rgba(0,0,0,.12);
 }
 
-.icon{
-width:46px;
-height:46px;
-border-radius:50%;
-background:#005eff;
-color:white;
-display:grid;
-place-items:center;
-font-size:24px;
-box-shadow:0 0 22px rgba(0,94,255,.4);
+.service-image{
+width:82px;
+height:82px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 24px rgba(0,94,255,.25);
+}
+
+.service-image img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .card b{
 display:block;
-font-size:20px;
+font-size:22px;
 line-height:1.05;
-margin-top:14px;
+margin-top:16px;
 }
 
 .arrow{
 position:absolute;
-right:12px;
-bottom:12px;
-width:30px;
-height:30px;
+right:14px;
+bottom:14px;
+width:36px;
+height:36px;
 border-radius:50%;
 background:white;
 display:grid;
 place-items:center;
 font-weight:1000;
+font-size:20px;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:0 14px 14px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.product{
+background:white;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.13);
+border:1px solid #e8eef8;
+}
+
+.product-img{
+height:150px;
+background:#eaf2ff;
+display:grid;
+place-items:center;
+}
+
+.product-img img{
+width:100%;
+height:100%;
+object-fit:contain;
+padding:12px;
+}
+
+.product-body{
+padding:14px;
+}
+
+.product-body b{
+font-size:17px;
+display:block;
+margin-bottom:6px;
+}
+
+.product-body small{
+color:#667085;
+font-weight:700;
+}
+
+.pick{
+margin-top:12px;
+width:100%;
+border:0;
+background:#005eff;
+color:white;
+padding:12px;
+border-radius:16px;
+font-weight:1000;
+}
+
+/* BOOKING */
+
+.booking{
+margin:16px;
+background:white;
+padding:22px;
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.booking h2{
+font-size:28px;
+margin-bottom:10px;
+font-weight:1000;
+}
+
+.booking p{
+color:#667085;
+margin-bottom:18px;
+}
+
+.booking form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.booking input,
+.booking select,
+.booking textarea{
+padding:16px;
+border-radius:18px;
+border:1px solid #dbe1ea;
+font-size:16px;
+font-family:inherit;
+background:#f8fbff;
+}
+
+.booking textarea{
+min-height:110px;
+resize:none;
+}
+
+.booking button,
+.pay-btn{
+background:#005eff;
+color:white;
+border:none;
+padding:18px;
+border-radius:20px;
+font-size:18px;
+font-weight:1000;
+box-shadow:0 10px 25px rgba(0,94,255,.3);
+text-align:center;
+text-decoration:none;
+}
+
+.pay-btn{
+display:block;
+background:#061331;
+margin-top:8px;
 }
 
 /* EMERGENCY */
@@ -240,10 +359,6 @@ font-size:26px;
 margin-bottom:8px;
 }
 
-.emergency p{
-margin-bottom:10px;
-}
-
 .greenbtn{
 background:#11c400;
 padding:14px 16px;
@@ -259,7 +374,7 @@ white-space:nowrap;
 .badges{
 margin:16px;
 background:white;
-border-radius:24px;
+border-radius:22px;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 overflow:hidden;
@@ -329,10 +444,9 @@ box-shadow:0 10px 25px rgba(0,94,255,.45);
 
 /* DESKTOP */
 
-@media (min-width:900px){
+@media(min-width:900px){
 
 .phone{
-max-width:1350px;
 border-radius:34px;
 margin:30px auto;
 box-shadow:0 20px 70px rgba(0,0,0,.18);
@@ -342,36 +456,32 @@ box-shadow:0 20px 70px rgba(0,0,0,.18);
 padding:40px;
 }
 
-.grid{
+h1{
+font-size:90px;
+}
+
+.grid,
+.products{
 grid-template-columns:repeat(4,1fr);
 padding:0 30px 30px;
 }
 
 .section-title{
 padding:0 34px;
-font-size:36px;
+font-size:40px;
 }
 
 .bottom{
 width:720px;
 }
 
-h1{
-font-size:84px;
-}
-
 .card{
-min-height:190px;
+min-height:260px;
 }
 
-.card b{
-font-size:26px;
-}
-
-.icon{
-width:60px;
-height:60px;
-font-size:30px;
+.service-image{
+width:110px;
+height:110px;
 }
 
 }
@@ -429,12 +539,10 @@ Harford County • Baltimore County • Baltimore City
 </section>
 
 <div class="trust">
-
 <div><span>⏱️</span>24/7<br>Emergency</div>
 <div><span>📍</span>Fast<br>Response</div>
 <div><span>🛡️</span>Licensed<br>Insured</div>
 <div><span>🏷️</span>Upfront<br>Pricing</div>
-
 </div>
 
 <div class="section-title">
@@ -444,52 +552,235 @@ What can we help you with?
 <div class="grid">
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🔓</div>
+<div class="service-image">
+<img src="/images/car-lockout.jpg">
+</div>
 <b>Car<br>Lockout</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🏠</div>
+<div class="service-image">
+<img src="/images/house-lockout.jpg">
+</div>
 <b>House<br>Lockout</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🔑</div>
+<div class="service-image">
+<img src="/images/rekey.jpg">
+</div>
 <b>Rekey<br>Service</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🚗</div>
+<div class="service-image">
+<img src="/images/car-key.jpg">
+</div>
 <b>Car Key<br>Replacement</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🔒</div>
+<div class="service-image">
+<img src="/images/lock-change.jpg">
+</div>
 <b>Lock<br>Change</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">💼</div>
+<div class="service-image">
+<img src="/images/commercial-lock.jpg">
+</div>
 <b>Commercial<br>Locksmith</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">🛡️</div>
+<div class="service-image">
+<img src="/images/access-control.jpg">
+</div>
 <b>Access<br>Control</b>
 <div class="arrow">›</div>
 </a>
 
 <a class="card" href="tel:4435781686">
-<div class="icon">📮</div>
+<div class="service-image">
+<img src="/images/mailbox-lock.jpg">
+</div>
 <b>Mailbox<br>Locks</b>
 <div class="arrow">›</div>
 </a>
+
+</div>
+
+<div class="section-title">
+Buy A Lock + Schedule Install
+</div>
+
+<div class="products">
+
+<div class="product">
+<div class="product-img">
+<img src="/images/lock-change.jpg">
+</div>
+<div class="product-body">
+<b>Door Knob / Deadbolt</b>
+<small>Residential lock install</small>
+<button class="pick" onclick="pickProduct('Door Knob / Deadbolt')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/commercial-lock.jpg">
+</div>
+<div class="product-body">
+<b>Commercial Locks</b>
+<small>Storefront & office hardware</small>
+<button class="pick" onclick="pickProduct('Commercial Locks')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/car-key.jpg">
+</div>
+<div class="product-body">
+<b>Auto Keys & Fobs</b>
+<small>Keys, remotes, smart fobs</small>
+<button class="pick" onclick="pickProduct('Auto Keys & Fobs')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/mag-lock.png">
+</div>
+<div class="product-body">
+<b>Mag Locks</b>
+<small>Access control magnetic lock</small>
+<button class="pick" onclick="pickProduct('Mag Locks')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/access-control.jpg">
+</div>
+<div class="product-body">
+<b>Electric Strikes</b>
+<small>Buzz-in door release</small>
+<button class="pick" onclick="pickProduct('Electric Strikes')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/push-paddle.png">
+</div>
+<div class="product-body">
+<b>Push Paddle</b>
+<small>Commercial entry paddle</small>
+<button class="pick" onclick="pickProduct('Push Paddle')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/push-bar.png">
+</div>
+<div class="product-body">
+<b>Push Bar</b>
+<small>Panic bar / exit device</small>
+<button class="pick" onclick="pickProduct('Push Bar')">Choose</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-img">
+<img src="/images/mortise-cylinder.jpg">
+</div>
+<div class="product-body">
+<b>Mortise Cylinder</b>
+<small>Residential / commercial cylinder</small>
+<button class="pick" onclick="pickProduct('Mortise Cylinder')">Choose</button>
+</div>
+</div>
+
+</div>
+
+<div class="booking" id="booking">
+
+<h2>
+Book Service + Pick Time
+</h2>
+
+<p>
+Select your lock, choose style, pick a time, then submit your request.
+</p>
+
+<form action="https://formsubmit.co/citywidekeystop@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Citywide Lock Purchase + Booking Request">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<input type="text" name="address" placeholder="Service Address" required>
+
+<select name="product" id="productChoice" required>
+<option value="">Choose Lock / Product</option>
+<option>Door Knob / Deadbolt</option>
+<option>Commercial Locks</option>
+<option>Auto Keys & Fobs</option>
+<option>Mag Locks</option>
+<option>Electric Strikes</option>
+<option>Push Paddle</option>
+<option>Push Bar</option>
+<option>Mortise Cylinder</option>
+</select>
+
+<select name="style" required>
+<option value="">Choose Style / Finish</option>
+<option>Satin Nickel</option>
+<option>Matte Black</option>
+<option>Oil Rubbed Bronze</option>
+<option>Brass / Gold</option>
+<option>Chrome</option>
+<option>Keypad / Electronic</option>
+<option>High Security</option>
+<option>Not Sure - Need Recommendation</option>
+</select>
+
+<input type="date" name="preferred_date" required>
+
+<input type="time" name="preferred_time" required>
+
+<select name="payment_option" required>
+<option value="">Payment Option</option>
+<option>Pay Deposit Online</option>
+<option>Pay In Full Online</option>
+<option>Pay After Estimate Approval</option>
+</select>
+
+<textarea name="details" placeholder="Describe your issue or product request"></textarea>
+
+<button type="submit">
+SEND BOOKING REQUEST
+</button>
+
+<a class="pay-btn" href="YOUR_STRIPE_PAYMENT_LINK_HERE">
+PAY / DEPOSIT ONLINE
+</a>
+
+</form>
 
 </div>
 
@@ -500,7 +791,11 @@ What can we help you with?
 <div>
 <h2>24/7 Emergency Service</h2>
 <p>Locked out? Need help now?</p>
-<small>✅ Fast Dispatch &nbsp; ✅ Nearby Techs &nbsp; ✅ Real People 24/7</small>
+<small>
+✅ Fast Dispatch
+✅ Nearby Techs
+✅ Real People 24/7
+</small>
 </div>
 
 <a class="greenbtn" href="tel:4435781686">
@@ -513,12 +808,10 @@ CALL NOW<br>
 </div>
 
 <div class="badges">
-
 <div><span>🔥</span>BBB<br>Accredited</div>
 <div><span>⭐</span>Google<br>5.0 Rating</div>
 <div><span>🛡️</span>Licensed<br>Insured</div>
 <div><span>🏆</span>100%<br>Satisfaction</div>
-
 </div>
 
 </div>
@@ -530,9 +823,9 @@ CALL NOW<br>
 Home
 </a>
 
-<a href="#">
-<span>🔑</span>
-Services
+<a href="#booking">
+<span>📅</span>
+Book
 </a>
 
 <a class="center-call" href="tel:4435781686">
@@ -544,12 +837,23 @@ Services
 Text
 </a>
 
-<a href="#">
-<span>📍</span>
-Areas
+<a href="#booking">
+<span>🔒</span>
+Locks
 </a>
 
 </nav>
+
+<script>
+
+function pickProduct(product){
+document.getElementById("productChoice").value = product;
+document.getElementById("booking").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+</script>
 
 </body>
 </html>
