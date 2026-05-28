@@ -1,846 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Citywide Roadside Lock & Key</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+box-sizing: border-box;
 }
 
-body{
-font-family:Arial,sans-serif;
-background:#f4f8fd;
-color:#07142f;
-padding-bottom:120px;
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #ffffff;
+color: #07142e;
+padding-bottom: 105px;
 }
 
-.phone{
-max-width:1400px;
-margin:26px auto;
-background:white;
-min-height:100vh;
-border-radius:34px;
-padding:0 24px;
-box-shadow:0 20px 70px rgba(0,0,0,.12);
+.page {
+max-width: 1100px;
+margin: auto;
+padding: 22px;
 }
 
-.hero{
-padding:42px 20px;
-background:linear-gradient(135deg,#fff,#eef5ff,#fff);
-border-radius:34px;
+.logo {
+font-weight: 900;
+color: #1263ff;
+font-size: 22px;
+letter-spacing: .5px;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.logo small {
+display: block;
+color: #07142e;
+font-size: 10px;
+letter-spacing: 1px;
 }
 
-.logo{
-font-size:34px;
-font-weight:1000;
-line-height:.9;
-color:#005eff;
+.hero {
+padding: 30px 0 20px;
 }
 
-.logo small{
-display:block;
-font-size:10px;
-margin-top:6px;
-color:#07142f;
-letter-spacing:1px;
+.hero h1 {
+font-size: 46px;
+line-height: 1.02;
+margin: 18px 0 12px;
+font-weight: 900;
+letter-spacing: -1px;
 }
 
-.online{
-background:white;
-padding:12px;
-border-radius:18px;
-font-size:12px;
-font-weight:900;
-box-shadow:0 8px 24px rgba(0,0,0,.08);
+.hero h1 span {
+color: #1263ff;
 }
 
-.green{
-color:#00b33c;
+.hero p {
+font-size: 15px;
+color: #5b6475;
+font-weight: 700;
+margin-bottom: 18px;
 }
 
-h1{
-font-size:92px;
-line-height:.92;
-font-weight:1000;
-margin-top:26px;
+.hero-buttons {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
 }
 
-.blue{
-color:#005eff;
+.btn {
+border: none;
+border-radius: 18px;
+padding: 16px;
+font-size: 15px;
+font-weight: 900;
+text-align: center;
+text-decoration: none;
+display: block;
+cursor: pointer;
 }
 
-.sub{
-margin-top:18px;
-font-weight:900;
+.btn-blue {
+background: #1263ff;
+color: white;
 }
 
-.area{
-font-size:13px;
-color:#667085;
-margin-top:4px;
+.btn-light {
+background: #f3f6fb;
+color: #07142e;
+border: 1px solid #dfe6f2;
 }
 
-.buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-margin-top:26px;
+.section-title {
+font-size: 28px;
+line-height: 1.15;
+margin: 34px 0 18px;
+font-weight: 900;
+letter-spacing: -.5px;
 }
 
-.btn{
-padding:18px;
-border-radius:22px;
-text-decoration:none;
-text-align:center;
-font-weight:1000;
+.services {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 18px;
 }
 
-.call{
-background:#005eff;
-color:white;
+.service {
+padding: 6px 0;
 }
 
-.text{
-background:white;
-color:#07142f;
-border:1px solid #e5edf8;
+.icon {
+width: 86px;
+height: 86px;
+background: #1263ff;
+border-radius: 24px;
+display: grid;
+place-items: center;
+color: white;
+font-size: 38px;
+margin-bottom: 12px;
+box-shadow: 0 12px 25px rgba(18, 99, 255, .18);
 }
 
-.trust,.badges{
-margin:22px 0;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
+.service h3 {
+font-size: 22px;
+line-height: 1.1;
+margin: 0 0 10px;
+font-weight: 900;
 }
 
-.trust div,.badges div{
-background:white;
-padding:14px 6px;
-text-align:center;
-font-size:11px;
-font-weight:900;
-border-radius:18px;
-border:1px solid #e8eef7;
+.arrow {
+color: #1263ff;
+font-size: 30px;
+font-weight: 900;
 }
 
-.trust span,.badges span{
-display:block;
-font-size:22px;
-margin-bottom:6px;
+.lock-shop {
+margin-top: 42px;
+padding: 0;
 }
 
-.section-title{
-font-size:44px;
-font-weight:1000;
-margin:30px 0 24px;
+.lock-shop h2 {
+font-size: 34px;
+line-height: 1.12;
+margin: 0 0 10px;
+font-weight: 900;
+letter-spacing: -1px;
+text-align: left;
 }
 
-.grid,.products{
-padding:0 0 40px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:36px;
-justify-items:center;
+.benefits {
+font-size: 15px;
+line-height: 1.45;
+font-weight: 800;
+color: #07142e;
+margin: 0 0 8px;
 }
 
-.card{
-width:100%;
-max-width:240px;
-text-decoration:none;
-color:#07142f;
-transition:.2s;
+.short-desc {
+font-size: 14px;
+line-height: 1.45;
+color: #5b6475;
+font-weight: 700;
+margin: 0 0 22px;
+max-width: 600px;
 }
 
-.card:hover{
-transform:translateY(-6px);
+.lock-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
 }
 
-.icon-circle{
-width:140px;
-height:140px;
-border-radius:32px;
-background:#005eff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-color:white;
-margin-bottom:16px;
-box-shadow:0 18px 40px rgba(0,94,255,.35);
+.lock-card {
+background: #fbfdff;
+border: 1px solid #e1e8f3;
+border-radius: 22px;
+padding: 18px;
+min-height: 250px;
 }
 
-.card b{
-font-size:22px;
-line-height:1.05;
-display:block;
+.lock-card .icon {
+width: 90px;
+height: 90px;
+border-radius: 24px;
+margin: 0 auto 16px;
+font-size: 42px;
 }
 
-.arrow{
-margin-top:10px;
-font-size:24px;
-font-weight:1000;
-color:#005eff;
+.lock-card h3 {
+font-size: 19px;
+line-height: 1.15;
+margin: 0 0 8px;
+font-weight: 900;
 }
 
-.product{
-width:100%;
-max-width:280px;
-background:#f8fbff;
-border-radius:22px;
-padding:16px;
-border:1px solid #e5edf8;
+.lock-card p {
+font-size: 13px;
+line-height: 1.35;
+color: #6b7280;
+font-weight: 700;
+margin: 0 0 14px;
 }
 
-.product-top{
-display:flex;
-justify-content:center;
-margin-bottom:16px;
+.select {
+width: 100%;
+border: 1px solid #d9e2ef;
+border-radius: 14px;
+padding: 12px;
+font-size: 14px;
+font-weight: 800;
+margin-bottom: 12px;
+background: white;
+color: #07142e;
 }
 
-.product-top .icon-circle{
-width:110px;
-height:110px;
-font-size:54px;
-margin-bottom:0;
+.small-btn {
+width: 100%;
+background: #1263ff;
+color: white;
+border: none;
+border-radius: 16px;
+padding: 13px;
+font-size: 14px;
+font-weight: 900;
+cursor: pointer;
 }
 
-.product-body b{
-display:block;
-font-size:18px;
-margin-bottom:6px;
+.warranty {
+font-size: 12px;
+color: #138a36;
+font-weight: 900;
+margin-top: 10px;
 }
 
-.product-body small{
-color:#667085;
-font-weight:700;
-display:block;
-margin-bottom:14px;
+.bottom-nav {
+position: fixed;
+left: 14px;
+right: 14px;
+bottom: 16px;
+background: white;
+border: 1px solid #e1e8f3;
+border-radius: 28px;
+box-shadow: 0 12px 35px rgba(0,0,0,.12);
+display: grid;
+grid-template-columns: 1fr 1fr 82px 1fr 1fr;
+align-items: center;
+padding: 12px 8px;
+z-index: 999;
 }
 
-.lock-select{
-width:100%;
-padding:14px;
-border-radius:16px;
-border:1px solid #dbe1ea;
-background:white;
-margin-bottom:14px;
-font-weight:700;
-font-size:15px;
+.nav-item {
+text-align: center;
+font-size: 12px;
+font-weight: 900;
+color: #07142e;
+text-decoration: none;
 }
 
-.pick{
-width:100%;
-border:none;
-background:#005eff;
-color:white;
-padding:14px;
-border-radius:16px;
-font-weight:1000;
-cursor:pointer;
+.nav-item span {
+display: block;
+font-size: 22px;
+margin-bottom: 3px;
 }
 
-.booking{
-margin:18px 0;
-padding:24px;
-background:white;
-border-radius:28px;
-border:1px solid #e8eef7;
+.call-float {
+width: 72px;
+height: 72px;
+background: #1263ff;
+color: white;
+border-radius: 50%;
+display: grid;
+place-items: center;
+font-size: 28px;
+text-decoration: none;
+margin: -34px auto 0;
+box-shadow: 0 12px 30px rgba(18, 99, 255, .35);
 }
 
-.booking h2{
-font-size:32px;
-margin-bottom:10px;
+@media (max-width: 600px) {
+.page {
+padding: 18px;
 }
 
-.booking p{
-color:#667085;
-margin-bottom:18px;
+.hero h1 {
+font-size: 39px;
 }
 
-.booking form{
-display:flex;
-flex-direction:column;
-gap:14px;
+.section-title {
+font-size: 25px;
 }
 
-.booking input,
-.booking select,
-.booking textarea{
-padding:16px;
-border-radius:18px;
-border:1px solid #dbe1ea;
-font-size:16px;
-background:#f8fbff;
+.services {
+gap: 22px;
 }
 
-.booking textarea{
-min-height:120px;
-resize:none;
+.icon {
+width: 78px;
+height: 78px;
+font-size: 34px;
 }
 
-.field-label{
-font-size:15px;
-font-weight:900;
-color:#07142f;
-margin-top:6px;
-margin-bottom:-4px;
+.service h3 {
+font-size: 21px;
 }
 
-.booking-btn{
-background:linear-gradient(135deg,#005eff,#003ecb);
-color:white;
-border:none;
-padding:20px;
-border-radius:26px;
-font-size:20px;
-font-weight:1000;
-box-shadow:0 18px 40px rgba(0,94,255,.35);
-cursor:pointer;
+.lock-shop h2 {
+font-size: 30px;
+line-height: 1.12;
 }
 
-.booking-btn-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:22px;
-margin-bottom:6px;
+.benefits {
+font-size: 14px;
 }
 
-.booking-btn small{
-display:block;
-font-size:12px;
-font-weight:700;
-opacity:.9;
-text-align:left;
+.short-desc {
+font-size: 13.5px;
 }
 
-.bottom{
-position:fixed;
-left:50%;
-bottom:10px;
-transform:translateX(-50%);
-width:min(720px,95%);
-background:white;
-padding:12px;
-border-radius:30px;
-display:grid;
-grid-template-columns:repeat(5,1fr);
-box-shadow:0 10px 40px rgba(0,0,0,.18);
-z-index:999;
+.lock-grid {
+gap: 12px;
 }
 
-.bottom a{
-text-decoration:none;
-text-align:center;
-font-size:11px;
-font-weight:900;
-color:#07142f;
+.lock-card {
+padding: 14px;
+border-radius: 20px;
 }
 
-.bottom span{
-display:block;
-font-size:22px;
-margin-bottom:4px;
+.lock-card .icon {
+width: 76px;
+height: 76px;
+font-size: 34px;
 }
 
-.center-call{
-background:#005eff;
-width:68px;
-height:68px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:-34px auto 0;
-color:white!important;
+.lock-card h3 {
+font-size: 17px;
 }
 
-@media(max-width:899px){
-
-body{
-background:white;
+.lock-card p {
+font-size: 12px;
 }
-
-.phone{
-margin:0;
-border-radius:0;
-padding:0;
-box-shadow:none;
 }
-
-.hero{
-padding:24px;
-border-radius:0;
-}
-
-h1{
-font-size:58px;
-}
-
-.trust,.badges{
-margin:18px;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-}
-
-.section-title{
-padding:0 18px;
-font-size:30px;
-margin:22px 0 18px;
-}
-
-.grid,.products{
-padding:0 18px 18px;
-grid-template-columns:repeat(2,1fr);
-gap:28px 18px;
-}
-
-.card,.product{
-max-width:none;
-}
-
-.icon-circle{
-width:84px;
-height:84px;
-font-size:42px;
-border-radius:24px;
-}
-
-.product-top .icon-circle{
-width:92px;
-height:92px;
-font-size:48px;
-}
-
-.bottom{
-width:min(430px,95%);
-}
-
-}
-
 </style>
 </head>
 
 <body>
+<main class="page">
 
-<div class="phone">
-
-<section class="hero">
-
-<div class="top">
-
+<header>
 <div class="logo">
 CITYWIDE
 <small>ROADSIDE LOCK & KEY</small>
 </div>
+</header>
 
-<div class="online">
-● <span class="green">24/7 Dispatch<br>By NLN</span>
+<section class="hero">
+<h1>24/7 LOCKSMITH SERVICE WHEN YOU <span>NEED US MOST.</span></h1>
+<p>Fast • Reliable • Local<br>Harford County • Baltimore County • Baltimore City</p>
+
+<div class="hero-buttons">
+<a class="btn btn-blue" href="tel:4435781686">📞 CALL NOW<br>443-578-1686</a>
+<a class="btn btn-light" href="sms:4435781686">💬 TEXT US<br>Instant Response</a>
 </div>
-
-</div>
-
-<h1>
-24/7 LOCKSMITH<br>
-SERVICE WHEN YOU<br>
-<span class="blue">NEED US MOST.</span>
-</h1>
-
-<div class="sub">
-Fast • Reliable • Local
-</div>
-
-<div class="area">
-Harford County • Baltimore County • Baltimore City
-</div>
-
-<div class="buttons">
-
-<a class="btn call" href="tel:4435781686">
-📞 CALL NOW<br>
-443-578-1686
-</a>
-
-<a class="btn text" href="sms:4435781686">
-💬 TEXT US<br>
-Instant Response
-</a>
-
-</div>
-
 </section>
 
-<div class="trust">
-
-<div><span>⏱️</span>24/7 Emergency</div>
-<div><span>📍</span>Fast Response</div>
-<div><span>🛡️</span>Licensed Insured</div>
-<div><span>🏷️</span>Upfront Pricing</div>
-
+<section class="services">
+<div class="service">
+<div class="icon">🚗</div>
+<h3>Car Lockouts</h3>
+<div class="arrow">→</div>
 </div>
 
-<div class="section-title">
-What can we help you with?
+<div class="service">
+<div class="icon">🏠</div>
+<h3>House Lockouts</h3>
+<div class="arrow">→</div>
 </div>
 
-<div class="grid">
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔐</div>
-<b>Car Lockout</b>
+<div class="service">
+<div class="icon">🛡️</div>
+<h3>Access Control</h3>
 <div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🏠</div>
-<b>House Lockout</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔑</div>
-<b>Rekey Service</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🚘</div>
-<b>Car Key Replacement</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🔒</div>
-<b>Lock Change</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🏢</div>
-<b>Commercial Locksmith</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">🛡️</div>
-<b>Access Control</b>
-<div class="arrow">→</div>
-</a>
-
-<a class="card" href="tel:4435781686">
-<div class="icon-circle">📫</div>
-<b>Mailbox Locks</b>
-<div class="arrow">→</div>
-</a>
-
 </div>
 
-<div class="section-title">
-Shop Locks Here & Book Installation
+<div class="service">
+<div class="icon">📫</div>
+<h3>Mailbox Locks</h3>
+<div class="arrow">→</div>
+</div>
+</section>
 
+<section class="lock-shop" id="locks">
+<h2>Shop Locks Here & Book Installation</h2>
+
+<p class="benefits">
 🔒 Lock Included • 🚚 Delivery • 🛠️ Installation • ✅ Warranty
-
-Choose your lock style, pick a date, and checkout online.</div>
-
-<div class="products">
-
-<div class="product">
-
-<div class="product-top">
-<div class="icon-circle">🚪</div>
-</div>
-
-<div class="product-body">
-
-<b>Door Knob / Deadbolt</b>
-
-<small>
-Choose residential hardware
-</small>
-
-<select class="lock-select" onchange="pickProduct(this.value)">
-<option value="">Choose Lock Style</option>
-<option>Kwikset Deadbolt</option>
-<option>Schlage Deadbolt</option>
-<option>Keypad Deadbolt</option>
-<option>Smart WiFi Lock</option>
-<option>Lever Handle Lock</option>
-<option>Matte Black Deadbolt</option>
-<option>Satin Nickel Lock</option>
-</select>
-
-<button class="pick" onclick="pickProduct('Residential Lock Install')">
-Schedule Install
-</button>
-
-</div>
-
-</div>
-
-<div class="product">
-
-<div class="product-top">
-<div class="icon-circle">🏢</div>
-</div>
-
-<div class="product-body">
-
-<b>Commercial Locks</b>
-
-<small>
-Storefront & office hardware
-</small>
-
-<select class="lock-select" onchange="pickProduct(this.value)">
-<option value="">Choose Hardware</option>
-<option>Storefront Adams Rite</option>
-<option>Panic Push Bar</option>
-<option>Push Paddle</option>
-<option>Mortise Lock</option>
-<option>Commercial Deadbolt</option>
-</select>
-
-<button class="pick" onclick="pickProduct('Commercial Locksmith')">
-Schedule Install
-</button>
-
-</div>
-
-</div>
-
-<div class="product">
-
-<div class="product-top">
-<div class="icon-circle">🚗</div>
-</div>
-
-<div class="product-body">
-
-<b>Auto Keys & Fobs</b>
-
-<small>
-Smart keys & remotes
-</small>
-
-<select class="lock-select" onchange="pickProduct(this.value)">
-<option value="">Choose Key Type</option>
-<option>Push Start Smart Key</option>
-<option>Flip Key</option>
-<option>Remote Head Key</option>
-<option>Programming Service</option>
-<option>Spare Car Key</option>
-</select>
-
-<button class="pick" onclick="pickProduct('Car Key Replacement')">
-Book Key Service
-</button>
-
-</div>
-
-</div>
-
-<div class="product">
-
-<div class="product-top">
-<div class="icon-circle">🧲</div>
-</div>
-
-<div class="product-body">
-
-<b>Access Control</b>
-
-<small>
-Maglocks & entry systems
-</small>
-
-<select class="lock-select" onchange="pickProduct(this.value)">
-<option value="">Choose System</option>
-<option>Mag Lock</option>
-<option>Electric Strike</option>
-<option>RFID Reader</option>
-<option>Bluetooth Access</option>
-<option>Door Buzzer System</option>
-</select>
-
-<button class="pick" onclick="pickProduct('Access Control')">
-Get Estimate
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="booking" id="booking">
-
-<h2>Book Service</h2>
-
-<p>
-Request locksmith service instantly.
 </p>
 
-<form action="https://formsubmit.co/citywidekeystop@gmail.com" method="POST">
+<p class="short-desc">
+Choose your lock style, pick a date, and checkout online. We supply the lock, bring it to your location, professionally install it, and back it with our warranty.
+</p>
 
-<input type="hidden" name="_subject" value="New Citywide Booking Request">
+<div class="lock-grid">
 
-<input type="hidden" name="_captcha" value="false">
+<div class="lock-card">
+<div class="icon">🚪</div>
+<h3>Door Knob / Deadbolt</h3>
+<p>Choose residential hardware for your home, apartment, or rental property.</p>
 
-<input type="text" name="name" placeholder="Full Name" required>
+<select class="select">
+<option>Choose Lock Style</option>
+<option>Standard Door Knob</option>
+<option>Single Cylinder Deadbolt</option>
+<option>Keypad Lock</option>
+<option>Smart Lock</option>
+</select>
 
-<input type="tel" name="phone" placeholder="Phone Number" required>
+<button class="small-btn" onclick="bookInstall('Door Knob / Deadbolt')">Book Installation</button>
+<div class="warranty">✅ Warranty Included</div>
+</div>
 
-<input type="text" name="address" placeholder="Service Address" required>
+<div class="lock-card">
+<div class="icon">🏢</div>
+<h3>Commercial Locks</h3>
+<p>Storefront, office, mortise cylinders, panic bars, and business hardware.</p>
 
-<label class="field-label">Select Service / Product</label>
-<select name="product" id="productChoice" required>
-
-<option value="">Select Service / Product</option>
-
-<option>Car Lockout</option>
-<option>House Lockout</option>
-<option>Rekey Service</option>
-<option>Lock Change</option>
-<option>Commercial Locksmith</option>
-<option>Door Knob / Deadbolt</option>
-<option>Commercial Locks</option>
-<option>Auto Keys & Fobs</option>
-<option>Access Control</option>
-<option>Mag Locks</option>
-<option>Electric Strike</option>
-<option>Push Paddle</option>
-<option>Push Bar</option>
+<select class="select">
+<option>Choose Hardware</option>
+<option>Commercial Lever</option>
 <option>Mortise Cylinder</option>
-
+<option>Panic Bar</option>
+<option>Storefront Lock</option>
 </select>
 
-<select name="style">
+<button class="small-btn" onclick="bookInstall('Commercial Lock')">Book Installation</button>
+<div class="warranty">✅ Warranty Included</div>
+</div>
 
-<option value="">Choose Style / Finish</option>
+<div class="lock-card">
+<div class="icon">🔢</div>
+<h3>Keypad Locks</h3>
+<p>Upgrade to keyless entry for homes, rentals, offices, and businesses.</p>
 
-<option>Satin Nickel</option>
-<option>Matte Black</option>
-<option>Oil Rubbed Bronze</option>
-<option>Brass / Gold</option>
-<option>Chrome</option>
-<option>Keypad / Electronic</option>
-<option>Smart WiFi Lock</option>
-<option>Commercial Grade</option>
-<option>Not Sure</option>
-
+<select class="select">
+<option>Choose Keypad</option>
+<option>Basic Keypad</option>
+<option>Smart Keypad</option>
+<option>Wi-Fi Smart Lock</option>
 </select>
 
-<label class="field-label">
-Preferred Service Date
-</label>
+<button class="small-btn" onclick="bookInstall('Keypad Lock')">Book Installation</button>
+<div class="warranty">✅ Warranty Included</div>
+</div>
 
-<input type="date" name="preferred_date" required>
+<div class="lock-card">
+<div class="icon">🔐</div>
+<h3>Rekey / Lock Change</h3>
+<p>Need new keys or want old keys to stop working? We can help.</p>
 
-<label class="field-label">
-Preferred Service Time
-</label>
-
-<input type="time" name="preferred_time" required>
-
-<select name="payment_option">
-
-<option value="">Choose Payment Option</option>
-
-<option>Pay Deposit Online</option>
-<option>Pay In Full Online</option>
-<option>Pay After Estimate</option>
-<option>Need Financing Options</option>
-
+<select class="select">
+<option>Choose Service</option>
+<option>Rekey Existing Lock</option>
+<option>Replace Lock</option>
+<option>Multiple Locks Same Key</option>
 </select>
 
-<textarea name="details" placeholder="Describe your issue"></textarea>
-
-<button type="submit" class="booking-btn">
-
-<div class="booking-btn-top">
-<span>BOOK SERVICE NOW</span>
-<span>→</span>
-</div>
-
-<small>
-Fast Dispatch • Real Locksmiths • 24/7 Emergency
-</small>
-
-</button>
-
-</form>
-
-</div>
-
-<div class="badges">
-
-<div><span>🔥</span>BBB Accredited</div>
-<div><span>⭐</span>5.0 Rating</div>
-<div><span>🛡️</span>Licensed</div>
-<div><span>🏆</span>Satisfaction</div>
-
+<button class="small-btn" onclick="bookInstall('Rekey / Lock Change')">Book Installation</button>
+<div class="warranty">✅ Warranty Included</div>
 </div>
 
 </div>
+</section>
 
-<nav class="bottom">
+</main>
 
-<a href="/">
-<span>🏠</span>
-Home
-</a>
-
-<a href="#booking">
-<span>📅</span>
-Book
-</a>
-
-<a class="center-call" href="tel:4435781686">
-<span>📞</span>
-</a>
-
-<a href="sms:4435781686">
-<span>💬</span>
-Text
-</a>
-
-<a href="#booking">
-<span>🔒</span>
-Locks
-</a>
-
+<nav class="bottom-nav">
+<a class="nav-item" href="#top"><span>🏠</span>Home</a>
+<a class="nav-item" href="#locks"><span>📅</span>Book</a>
+<a class="call-float" href="tel:4435781686">📞</a>
+<a class="nav-item" href="sms:4435781686"><span>💬</span>Text</a>
+<a class="nav-item" href="#locks"><span>🔒</span>Locks</a>
 </nav>
 
 <script>
-
-function pickProduct(product){
-
-const choice=document.getElementById("productChoice");
-
-if(choice && product){
-choice.value=product;
+function bookInstall(service) {
+const phone = "4435781686";
+const msg = encodeURIComponent(
+"Hi Citywide, I want to book installation for: " + service
+);
+window.location.href = "sms:" + phone + "?&body=" + msg;
 }
-
-document.getElementById("booking")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
 </script>
-
 </body>
 </html>
