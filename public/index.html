@@ -6,12 +6,7 @@
 <title>Citywide Roadside Lock & Key</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:Arial,sans-serif;
@@ -22,16 +17,19 @@ padding-bottom:120px;
 
 .phone{
 max-width:1400px;
-margin:auto;
+margin:26px auto;
 background:white;
 min-height:100vh;
+border-radius:34px;
+padding-left:24px;
+padding-right:24px;
+box-shadow:0 20px 70px rgba(0,0,0,.12);
 }
 
-/* HERO */
-
 .hero{
-padding:24px;
+padding:42px 20px;
 background:linear-gradient(135deg,#ffffff,#eef5ff,#ffffff);
+border-radius:34px;
 }
 
 .top{
@@ -64,20 +62,16 @@ font-weight:900;
 box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
-.green{
-color:#00b33c;
-}
+.green{color:#00b33c}
 
 h1{
-font-size:58px;
+font-size:92px;
 line-height:.92;
 font-weight:1000;
 margin-top:26px;
 }
 
-.blue{
-color:#005eff;
-}
+.blue{color:#005eff}
 
 .sub{
 margin-top:18px;
@@ -89,8 +83,6 @@ font-size:13px;
 color:#667085;
 margin-top:4px;
 }
-
-/* BUTTONS */
 
 .buttons{
 display:grid;
@@ -107,10 +99,7 @@ text-align:center;
 font-weight:1000;
 }
 
-.call{
-background:#005eff;
-color:white;
-}
+.call{background:#005eff;color:white}
 
 .text{
 background:white;
@@ -118,16 +107,14 @@ color:#07142f;
 border:1px solid #e5edf8;
 }
 
-/* TRUST */
-
-.trust{
-margin:18px;
+.trust,.badges{
+margin:22px 0;
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:10px;
+gap:14px;
 }
 
-.trust div{
+.trust div,.badges div{
 background:white;
 padding:14px 6px;
 text-align:center;
@@ -137,47 +124,52 @@ border-radius:18px;
 border:1px solid #e8eef7;
 }
 
-.trust span{
+.trust span,.badges span{
 display:block;
 font-size:22px;
 margin-bottom:6px;
 }
 
-/* SECTION */
-
 .section-title{
-padding:0 18px;
-font-size:30px;
+font-size:44px;
 font-weight:1000;
-margin:22px 0 18px;
+margin:30px 0 24px;
 }
 
-/* SERVICES */
-
 .grid{
-padding:0 18px 18px;
+padding:0 0 36px;
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:28px 18px;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+justify-items:center;
 }
 
 .card{
+width:100%;
+max-width:240px;
 text-decoration:none;
 color:#07142f;
 position:relative;
+text-align:left;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-6px);
 }
 
 .icon-circle{
-width:84px;
-height:84px;
-border-radius:24px;
+width:140px;
+height:140px;
+border-radius:32px;
 background:#005eff;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:42px;
+font-size:70px;
 color:white;
 margin-bottom:16px;
+box-shadow:0 18px 40px rgba(0,94,255,.35);
 }
 
 .card b{
@@ -193,16 +185,17 @@ font-weight:1000;
 color:#005eff;
 }
 
-/* PRODUCTS */
-
 .products{
-padding:0 18px 18px;
+padding:0 0 40px;
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+justify-items:center;
 }
 
 .product{
+width:100%;
+max-width:260px;
 background:#f8fbff;
 border-radius:22px;
 padding:16px;
@@ -217,9 +210,9 @@ margin-bottom:16px;
 
 .product-top .icon-circle{
 margin-bottom:0;
-width:92px;
-height:92px;
-font-size:48px;
+width:110px;
+height:110px;
+font-size:54px;
 }
 
 .product-body b{
@@ -245,10 +238,8 @@ border-radius:16px;
 font-weight:1000;
 }
 
-/* BOOKING */
-
 .booking{
-margin:18px;
+margin:18px 0;
 padding:24px;
 background:white;
 border-radius:28px;
@@ -296,39 +287,12 @@ font-size:18px;
 font-weight:1000;
 }
 
-/* BADGES */
-
-.badges{
-margin:18px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-}
-
-.badges div{
-background:white;
-padding:14px 6px;
-text-align:center;
-font-size:11px;
-font-weight:900;
-border-radius:18px;
-border:1px solid #e8eef7;
-}
-
-.badges span{
-display:block;
-font-size:22px;
-margin-bottom:6px;
-}
-
-/* BOTTOM NAV */
-
 .bottom{
 position:fixed;
 left:50%;
 bottom:10px;
 transform:translateX(-50%);
-width:min(430px,95%);
+width:min(720px,95%);
 background:white;
 padding:12px;
 border-radius:30px;
@@ -364,52 +328,79 @@ margin:-34px auto 0;
 color:white!important;
 }
 
-/* DESKTOP */
+@media(max-width:899px){
 
-@media(min-width:900px){
+body{
+background:white;
+}
 
 .phone{
-margin:26px auto;
-border-radius:38px;
-overflow:hidden;
-box-shadow:0 20px 70px rgba(0,0,0,.12);
+margin:0;
+border-radius:0;
+padding-left:0;
+padding-right:0;
+box-shadow:none;
 }
 
 .hero{
-padding:42px;
+padding:24px;
+border-radius:0;
 }
 
 h1{
-font-size:92px;
+font-size:58px;
 }
 
-.grid{
+.trust,.badges{
+margin:18px;
 grid-template-columns:repeat(4,1fr);
-padding:0 32px 32px;
-}
-
-.products{
-grid-template-columns:repeat(4,1fr);
-padding:0 32px 32px;
+gap:10px;
 }
 
 .section-title{
-padding:0 32px;
-font-size:44px;
+padding:0 18px;
+font-size:30px;
+margin:22px 0 18px;
 }
 
-.bottom{
-width:720px;
+.grid{
+padding:0 18px 18px;
+grid-template-columns:repeat(2,1fr);
+gap:28px 18px;
+}
+
+.card{
+max-width:none;
 }
 
 .icon-circle{
-width:110px;
-height:110px;
-font-size:54px;
+width:84px;
+height:84px;
+font-size:42px;
+border-radius:24px;
+}
+
+.products{
+padding:0 18px 18px;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.product{
+max-width:none;
+}
+
+.product-top .icon-circle{
+width:92px;
+height:92px;
+font-size:48px;
+}
+
+.bottom{
+width:min(430px,95%);
 }
 
 }
-
 </style>
 </head>
 
@@ -420,7 +411,6 @@ font-size:54px;
 <section class="hero">
 
 <div class="top">
-
 <div class="logo">
 CITYWIDE
 <small>ROADSIDE LOCK & KEY</small>
@@ -429,7 +419,6 @@ CITYWIDE
 <div class="online">
 ● <span class="green">Technicians<br>Online</span>
 </div>
-
 </div>
 
 <h1>
@@ -438,42 +427,24 @@ SERVICE WHEN YOU<br>
 <span class="blue">NEED US MOST.</span>
 </h1>
 
-<div class="sub">
-Fast • Reliable • Local
-</div>
-
-<div class="area">
-Harford County • Baltimore County • Baltimore City
-</div>
+<div class="sub">Fast • Reliable • Local</div>
+<div class="area">Harford County • Baltimore County • Baltimore City</div>
 
 <div class="buttons">
-
-<a class="btn call" href="tel:4435781686">
-📞 CALL NOW<br>
-443-578-1686
-</a>
-
-<a class="btn text" href="sms:4435781686">
-💬 TEXT US<br>
-Instant Response
-</a>
-
+<a class="btn call" href="tel:4435781686">📞 CALL NOW<br>443-578-1686</a>
+<a class="btn text" href="sms:4435781686">💬 TEXT US<br>Instant Response</a>
 </div>
 
 </section>
 
 <div class="trust">
-
 <div><span>⏱️</span>24/7 Emergency</div>
 <div><span>📍</span>Fast Response</div>
 <div><span>🛡️</span>Licensed Insured</div>
 <div><span>🏷️</span>Upfront Pricing</div>
-
 </div>
 
-<div class="section-title">
-What can we help you with?
-</div>
+<div class="section-title">What can we help you with?</div>
 
 <div class="grid">
 
@@ -527,9 +498,7 @@ What can we help you with?
 
 </div>
 
-<div class="section-title">
-Buy A Lock + Schedule Install
-</div>
+<div class="section-title">Buy A Lock + Schedule Install</div>
 
 <div class="products">
 
@@ -571,82 +540,83 @@ Buy A Lock + Schedule Install
 
 </div>
 
-<div class="booking">
-
+<div class="booking" id="booking">
 <h2>Book Service</h2>
+<p>Request locksmith service instantly.</p>
 
-<p>
-Request locksmith service instantly.
-</p>
+<form action="https://formsubmit.co/citywidekeystop@gmail.com" method="POST" onsubmit="createBookingFromForm(this)">
+<input type="hidden" name="_subject" value="New Citywide Booking Request">
+<input type="hidden" name="_captcha" value="false">
 
-<form>
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="text" name="address" placeholder="Service Address" required>
 
-<input type="text" placeholder="Full Name">
-
-<input type="tel" placeholder="Phone Number">
-
-<input type="text" placeholder="Service Address">
-
-<select>
-<option>Select Service</option>
+<select name="product" id="productChoice" required>
+<option value="">Select Service</option>
 <option>Car Lockout</option>
 <option>House Lockout</option>
 <option>Rekey Service</option>
+<option>Lock Change</option>
 <option>Commercial Locksmith</option>
+<option>Door Knob / Deadbolt</option>
+<option>Auto Keys & Fobs</option>
+<option>Mag Locks</option>
 </select>
 
-<input type="date">
+<select name="style">
+<option value="">Choose Style / Finish</option>
+<option>Satin Nickel</option>
+<option>Matte Black</option>
+<option>Oil Rubbed Bronze</option>
+<option>Brass / Gold</option>
+<option>Chrome</option>
+<option>Keypad / Electronic</option>
+<option>Not Sure</option>
+</select>
 
-<input type="time">
+<input type="date" name="preferred_date">
+<input type="time" name="preferred_time">
 
-<textarea placeholder="Describe your issue"></textarea>
+<select name="payment_option">
+<option value="">Payment Option</option>
+<option>Pay Deposit Online</option>
+<option>Pay In Full Online</option>
+<option>Pay After Estimate Approval</option>
+</select>
 
-<button type="submit">
-SEND BOOKING REQUEST
-</button>
+<textarea name="details" placeholder="Describe your issue"></textarea>
 
+<button type="submit">SEND BOOKING REQUEST</button>
 </form>
-
 </div>
 
 <div class="badges">
-
 <div><span>🔥</span>BBB Accredited</div>
 <div><span>⭐</span>5.0 Rating</div>
 <div><span>🛡️</span>Licensed</div>
 <div><span>🏆</span>Satisfaction</div>
-
 </div>
 
 </div>
 
 <nav class="bottom">
-
-<a href="/">
-<span>🏠</span>
-Home
-</a>
-
-<a href="#booking">
-<span>📅</span>
-Book
-</a>
-
-<a class="center-call" href="tel:4435781686">
-<span>📞</span>
-</a>
-
-<a href="/admin.html">
-<span>🧠</span>
-Admin
-</a>
-
-<a href="/provider.html">
-<span>👷</span>
-Provider
-</a>
-
+<a href="/"><span>🏠</span>Home</a>
+<a href="#booking"><span>📅</span>Book</a>
+<a class="center-call" href="tel:4435781686"><span>📞</span></a>
+<a href="/admin.html"><span>🧠</span>Admin</a>
+<a href="/provider.html"><span>👷</span>Provider</a>
 </nav>
+
+<script src="/app.js"></script>
+
+<script>
+function pickProduct(product){
+const choice = document.getElementById("productChoice");
+if(choice) choice.value = product;
+document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
