@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Citywide Roadside Lock & Key | 24/7 Locksmith</title>
+<title>Citywide Lock & Key | 24/7 Locksmith</title>
 
 <style>
 *{box-sizing:border-box}
@@ -13,83 +13,85 @@ margin:0;
 font-family:Arial,Helvetica,sans-serif;
 background:#f7faff;
 color:#06142f;
-padding-bottom:110px;
+padding-bottom:115px;
 }
 
 .top-alert{
 position:sticky;
 top:0;
-z-index:999;
-background:#06142f;
-color:white;
+z-index:9999;
+background:#03153d;
+padding:12px 15px;
 text-align:center;
-padding:10px 14px;
-font-size:14px;
 font-weight:900;
+font-size:14px;
+line-height:1.25;
 }
+.top-alert a{color:white;text-decoration:none}
 
 .page{
 max-width:1180px;
 margin:auto;
-padding:18px;
+padding:16px;
 }
 
 .hero{
-background:
-radial-gradient(circle at top right, rgba(18,99,255,.22), transparent 34%),
-linear-gradient(135deg,#ffffff 0%,#eef5ff 100%);
+background:linear-gradient(135deg,#ffffff 0%,#eef5ff 100%);
 border:1px solid #dfe8f6;
 border-radius:32px;
-padding:28px;
+padding:26px;
 box-shadow:0 20px 55px rgba(11,31,68,.08);
 margin-top:16px;
+text-align:center;
 }
 
-.logo{
-font-size:24px;
-font-weight:1000;
-color:#1263ff;
-letter-spacing:.5px;
-margin-bottom:22px;
+.logo-wrap{
+display:flex;
+justify-content:center;
+margin-bottom:16px;
 }
 
-.logo span{
+.logo-wrap img{
+width:120px;
+height:auto;
 display:block;
-font-size:10px;
-color:#06142f;
-letter-spacing:1.3px;
 }
 
-.hero-grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:26px;
-align-items:center;
+.hero-badge{
+display:inline-block;
+background:#fff;
+padding:9px 15px;
+border-radius:999px;
+font-size:13px;
+font-weight:900;
+border:1px solid #e1e8f3;
+margin-bottom:18px;
 }
 
 h1{
-font-size:56px;
-line-height:1;
+font-size:36px;
+line-height:1.05;
 margin:0 0 14px;
-letter-spacing:-2px;
+letter-spacing:-1px;
 font-weight:1000;
 }
-
 h1 strong{color:#1263ff}
 
 .hero-sub{
 color:#5f6b7a;
-font-size:17px;
+font-size:14px;
 line-height:1.45;
 font-weight:800;
-margin:0 0 22px;
+margin:0 auto 22px;
+max-width:760px;
 }
 
 .hero-actions{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr;
 gap:14px;
-margin-bottom:18px;
+margin:0 auto 18px;
+max-width:760px;
 }
 
 .btn{
@@ -117,6 +119,7 @@ color:#06142f;
 .trust-row{
 display:flex;
 flex-wrap:wrap;
+justify-content:center;
 gap:8px;
 margin-top:16px;
 }
@@ -137,12 +140,14 @@ border:1px solid #e1e8f3;
 border-radius:28px;
 padding:22px;
 box-shadow:0 16px 40px rgba(11,31,68,.08);
+margin:22px auto 0;
+max-width:650px;
+text-align:center;
 }
 
 .hero-card h2{
 font-size:24px;
 margin:0 0 8px;
-line-height:1.1;
 }
 
 .hero-card p{
@@ -162,16 +167,17 @@ color:#1263ff;
 }
 
 .section-title{
-font-size:34px;
+font-size:32px;
 line-height:1.1;
 margin:38px 0 18px;
 letter-spacing:-1px;
 font-weight:1000;
+text-align:center;
 }
 
 .services{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:16px;
 }
 
@@ -179,9 +185,14 @@ gap:16px;
 background:white;
 border:1px solid #e1e8f3;
 border-radius:28px;
-padding:20px;
+padding:22px;
 box-shadow:0 12px 34px rgba(11,31,68,.06);
-min-height:190px;
+min-height:205px;
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
 
 .icon{
@@ -192,53 +203,45 @@ background:#1263ff;
 display:grid;
 place-items:center;
 font-size:34px;
-margin-bottom:14px;
+margin:0 auto 14px;
 box-shadow:0 14px 28px rgba(18,99,255,.22);
 }
 
 .service h3{
 font-size:20px;
-margin:0 0 12px;
+margin:0 0 14px;
 line-height:1.1;
 font-weight:1000;
+text-align:center;
 }
 
-.arrow{
+.quote-link{
 color:#1263ff;
-font-size:26px;
-font-weight:1000;
+font-size:14px;
+font-weight:900;
+text-decoration:none;
+text-transform:lowercase;
 }
 
 .reviews{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
-}
-
-.review{
 background:white;
 border:1px solid #e1e8f3;
-border-radius:26px;
-padding:20px;
+border-radius:28px;
+padding:22px;
 box-shadow:0 12px 34px rgba(11,31,68,.06);
+text-align:center;
 }
 
 .stars{
 color:#f5b301;
-font-size:18px;
+font-size:22px;
 margin-bottom:8px;
 }
 
-.review p{
-margin:0 0 10px;
-color:#26364f;
+.reviews p{
+font-size:16px;
 font-weight:800;
-line-height:1.4;
-}
-
-.review small{
-color:#6b7280;
-font-weight:900;
+color:#5f6b7a;
 }
 
 .lock-shop{
@@ -248,36 +251,28 @@ border-radius:32px;
 padding:26px;
 box-shadow:0 18px 50px rgba(11,31,68,.07);
 margin-top:38px;
+text-align:center;
 }
 
 .lock-shop h2{
-font-size:36px;
+font-size:32px;
 line-height:1.05;
 margin:0 0 8px;
-letter-spacing:-1px;
 font-weight:1000;
 }
 
-.benefits{
-font-size:15px;
-font-weight:1000;
-margin:0 0 8px;
-color:#06142f;
-line-height:1.4;
-}
-
-.short-desc{
-margin:0 0 22px;
-max-width:700px;
-color:#5f6b7a;
-font-size:15px;
-line-height:1.45;
+.lock-sub{
+font-size:14px;
+line-height:1.6;
 font-weight:800;
+color:#5f6b7a;
+margin:8px auto 22px;
+max-width:760px;
 }
 
 .lock-grid{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:16px;
 }
 
@@ -286,13 +281,16 @@ background:#fbfdff;
 border:1px solid #e1e8f3;
 border-radius:26px;
 padding:18px;
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 .lock-card .icon{
-margin:0 auto 14px;
-width:82px;
-height:82px;
-font-size:38px;
+width:70px;
+height:70px;
+font-size:32px;
 }
 
 .lock-card h3{
@@ -307,7 +305,8 @@ color:#667085;
 font-size:13px;
 line-height:1.35;
 font-weight:800;
-margin:0 0 12px;
+margin:0 auto 12px;
+max-width:240px;
 }
 
 .price{
@@ -338,29 +337,6 @@ padding:13px;
 font-weight:1000;
 cursor:pointer;
 box-shadow:0 10px 22px rgba(18,99,255,.22);
-}
-
-.process{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
-margin-top:18px;
-}
-
-.step{
-background:white;
-border:1px solid #e1e8f3;
-border-radius:26px;
-padding:20px;
-font-weight:900;
-box-shadow:0 12px 34px rgba(11,31,68,.06);
-}
-
-.step b{
-display:block;
-color:#1263ff;
-font-size:26px;
-margin-bottom:8px;
 }
 
 .bottom-nav{
@@ -408,30 +384,24 @@ font-size:30px;
 box-shadow:0 14px 35px rgba(18,99,255,.38);
 }
 
-@media(max-width:900px){
-.hero-grid{grid-template-columns:1fr}
-.services{grid-template-columns:repeat(2,1fr)}
-.reviews{grid-template-columns:1fr}
-.lock-grid{grid-template-columns:repeat(2,1fr)}
-.process{grid-template-columns:1fr}
+@media(min-width:900px){
+.hero-actions{grid-template-columns:1fr 1fr}
+.services{grid-template-columns:repeat(4,1fr)}
+.lock-grid{grid-template-columns:repeat(4,1fr)}
+h1{font-size:54px}
+.logo-wrap img{width:150px}
 }
 
 @media(max-width:600px){
 .page{padding:14px}
 .hero{padding:22px;border-radius:28px}
-h1{font-size:40px}
-.hero-sub{font-size:14px}
-.hero-actions{grid-template-columns:1fr}
 .section-title{font-size:28px}
-.service{padding:16px;min-height:160px}
+.service{padding:18px;min-height:190px}
 .service h3{font-size:18px}
-.icon{width:66px;height:66px;font-size:30px}
 .lock-shop{padding:20px;border-radius:28px}
 .lock-shop h2{font-size:28px}
-.benefits{font-size:13px}
-.short-desc{font-size:13px}
+.lock-sub{font-size:13px}
 .lock-card{padding:14px;border-radius:22px}
-.lock-card .icon{width:70px;height:70px;font-size:32px}
 .lock-card h3{font-size:16px}
 .lock-card p{font-size:12px}
 }
@@ -441,26 +411,29 @@ h1{font-size:40px}
 <body>
 
 <div class="top-alert">
+<a href="tel:4437819117">
 🚨 Locked out now? Tap to call Citywide 24/7 — 443-781-9117
+</a>
 </div>
 
 <main class="page" id="top">
 
 <section class="hero">
+<div class="hero-badge">⭐ Same Day Service</div>
+
 <div class="logo-wrap">
-<img src="/logo26.png" alt="Citywide Lock & Key" style="width:90px !important;height:auto !important;display:block;margin:0 auto 10px auto;">
+<img src="/logo26.png" alt="Citywide Lock & Key">
 </div>
 
-<div class="hero-grid">
-<div>
 <h1>24/7 LOCKSMITH SERVICE WHEN YOU <strong>NEED US MOST.</strong></h1>
+
 <p class="hero-sub">
 Fast, reliable, local locksmith service for car lockouts, house lockouts, lock changes, rekeys, smart locks, and commercial hardware.
 </p>
 
 <div class="hero-actions">
-<a class="btn btn-blue" href="tel:4435781686">📞 CALL NOW<br>443-781-9117</a>
-<a class="btn btn-white" href="sms:4435781686">💬 TEXT US<br>Instant Response</a>
+<a class="btn btn-blue" href="tel:4437819117">📞 CALL NOW<br>443-781-9117</a>
+<a class="btn btn-white" href="sms:4437819117">💬 TEXT US<br>Instant Response</a>
 </div>
 
 <div class="trust-row">
@@ -469,13 +442,11 @@ Fast, reliable, local locksmith service for car lockouts, house lockouts, lock c
 <span class="trust">✓ Same-Day Service</span>
 <span class="trust">✓ Warranty Included</span>
 </div>
-</div>
 
 <div class="hero-card">
 <h2>Need service today?</h2>
 <p>Call or text Citywide and get a locksmith dispatched quickly in Harford County, Baltimore County, and Baltimore City.</p>
 <div class="price-box">Fast Response • Local Techs</div>
-</div>
 </div>
 </section>
 
@@ -485,69 +456,49 @@ Fast, reliable, local locksmith service for car lockouts, house lockouts, lock c
 <div class="service">
 <div class="icon">🚗</div>
 <h3>Car Lockouts</h3>
-<div class="arrow">→</div>
+<a class="quote-link" href="sms:4437819117?&body=Hi Citywide, I need a quote for a car lockout.">get quote now →</a>
 </div>
 
 <div class="service">
 <div class="icon">🏠</div>
 <h3>House Lockouts</h3>
-<div class="arrow">→</div>
+<a class="quote-link" href="sms:4437819117?&body=Hi Citywide, I need a quote for a house lockout.">get quote now →</a>
 </div>
 
 <div class="service">
 <div class="icon">🛡️</div>
 <h3>Access Control</h3>
-<div class="arrow">→</div>
+<a class="quote-link" href="sms:4437819117?&body=Hi Citywide, I need a quote for access control.">get quote now →</a>
 </div>
 
 <div class="service">
 <div class="icon">📫</div>
 <h3>Mailbox Locks</h3>
-<div class="arrow">→</div>
+<a class="quote-link" href="sms:4437819117?&body=Hi Citywide, I need a quote for mailbox lock service.">get quote now →</a>
 </div>
 </section>
 
 <h2 class="section-title">Trusted Local Locksmith</h2>
 
 <section class="reviews">
-<div class="review">
 <div class="stars">★★★★★</div>
 <p>Fast response, professional service, and the job was done right.</p>
-<small>— Harford County Customer</small>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>Needed a lock changed same day. Citywide handled everything.</p>
-<small>— Baltimore County Customer</small>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>Great communication and clean installation.</p>
-<small>— Bel Air Customer</small>
-</div>
 </section>
 
 <section class="lock-shop" id="locks">
-<h2>Shop Locks Here & Book Installation</h2>
+<h2>Shop Locks & Schedule Professional Installation</h2>
 
-<p class="benefits">
-🔒 Lock Included • 🚚 Delivery • 🛠️ Installation • ✅ Warranty
-</p>
-
-<p class="short-desc">
+<p class="lock-sub">
+🔒 Lock Included • 🚚 Delivery Included • 🛠️ Installation Included • ✅ Warranty Included<br>
 Choose your lock style, pick a date, and checkout online. We supply the lock, bring it to your location, professionally install it, and back it with our warranty.
 </p>
 
 <div class="lock-grid">
-
 <div class="lock-card">
 <div class="icon">🚪</div>
 <h3>Door Knob / Deadbolt</h3>
 <p>Residential hardware for homes, apartments, rentals, and offices.</p>
 <div class="price">Lock + Install Package</div>
-
 <select>
 <option>Choose Lock Style</option>
 <option>Standard Door Knob</option>
@@ -555,7 +506,6 @@ Choose your lock style, pick a date, and checkout online. We supply the lock, br
 <option>Keypad Lock</option>
 <option>Smart Lock</option>
 </select>
-
 <button class="small-btn" onclick="bookInstall('Door Knob / Deadbolt')">Book Installation</button>
 </div>
 
@@ -564,7 +514,6 @@ Choose your lock style, pick a date, and checkout online. We supply the lock, br
 <h3>Commercial Locks</h3>
 <p>Storefront, office, mortise cylinders, panic bars, and hardware.</p>
 <div class="price">Commercial Install Package</div>
-
 <select>
 <option>Choose Hardware</option>
 <option>Commercial Lever</option>
@@ -572,7 +521,6 @@ Choose your lock style, pick a date, and checkout online. We supply the lock, br
 <option>Panic Bar</option>
 <option>Storefront Lock</option>
 </select>
-
 <button class="small-btn" onclick="bookInstall('Commercial Lock')">Book Installation</button>
 </div>
 
@@ -581,14 +529,12 @@ Choose your lock style, pick a date, and checkout online. We supply the lock, br
 <h3>Keypad Locks</h3>
 <p>Upgrade to keyless entry for homes, rentals, and businesses.</p>
 <div class="price">Keypad + Install Package</div>
-
 <select>
 <option>Choose Keypad</option>
 <option>Basic Keypad</option>
 <option>Smart Keypad</option>
 <option>Wi-Fi Smart Lock</option>
 </select>
-
 <button class="small-btn" onclick="bookInstall('Keypad Lock')">Book Installation</button>
 </div>
 
@@ -597,36 +543,14 @@ Choose your lock style, pick a date, and checkout online. We supply the lock, br
 <h3>Rekey / Lock Change</h3>
 <p>Make old keys stop working or replace outdated locks.</p>
 <div class="price">Same-Day Service Available</div>
-
 <select>
 <option>Choose Service</option>
 <option>Rekey Existing Lock</option>
 <option>Replace Lock</option>
 <option>Multiple Locks Same Key</option>
 </select>
-
 <button class="small-btn" onclick="bookInstall('Rekey / Lock Change')">Book Installation</button>
 </div>
-
-</div>
-</section>
-
-<h2 class="section-title">How It Works</h2>
-
-<section class="process">
-<div class="step">
-<b>1</b>
-Choose the lock or service you need.
-</div>
-
-<div class="step">
-<b>2</b>
-Pick your installation date and time.
-</div>
-
-<div class="step">
-<b>3</b>
-Citywide brings the lock and installs it professionally.
 </div>
 </section>
 
@@ -635,16 +559,15 @@ Citywide brings the lock and installs it professionally.
 <nav class="bottom-nav">
 <a class="nav-item" href="#top"><span>🏠</span>Home</a>
 <a class="nav-item" href="#locks"><span>📅</span>Book</a>
-<a class="call-float" href="tel:4435781686">📞</a>
-<a class="nav-item" href="sms:4435781686"><span>💬</span>Text</a>
+<a class="call-float" href="tel:4437819117">📞</a>
+<a class="nav-item" href="sms:4437819117"><span>💬</span>Text</a>
 <a class="nav-item" href="#locks"><span>🔒</span>Locks</a>
 </nav>
 
 <script>
-function bookInstall(service) {
-const phone = "4435781686";
+function bookInstall(service){
 const msg = encodeURIComponent("Hi Citywide, I want to book installation for: " + service);
-window.location.href = "sms:" + phone + "?&body=" + msg;
+window.location.href = "sms:4437819117?&body=" + msg;
 }
 </script>
 
