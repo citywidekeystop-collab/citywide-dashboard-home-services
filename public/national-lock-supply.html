@@ -795,30 +795,47 @@ Panic Bars
 <script>
 let cartCount = 2;
 
-function toggleMenu(){
+window.toggleMenu = function(){
 const menu = document.getElementById("mobileMenu");
+if (!menu) {
+alert("Menu missing: mobileMenu");
+return;
+}
 menu.classList.toggle("open");
-}
+};
 
-function focusSearch(){
-document.getElementById("searchInput").focus();
-window.scrollTo({top:0,behavior:"smooth"});
+window.focusSearch = function(){
+const search = document.getElementById("searchInput");
+if (search) {
+search.focus();
+} else {
+alert("Search missing: searchInput");
 }
+};
 
-function addToCart(){
+window.addToCart = function(){
 cartCount++;
-document.getElementById("cartCount").innerText = cartCount;
+
+const count = document.getElementById("cartCount");
+if (count) count.innerText = cartCount;
+
 showToast("Added to cart");
+};
+
+window.showToast = function(message){
+const toast = document.getElementById("toast");
+if (!toast) {
+alert(message);
+return;
 }
 
-function showToast(message){
-const toast = document.getElementById("toast");
 toast.innerText = message;
 toast.classList.add("show");
+
 setTimeout(function(){
 toast.classList.remove("show");
 },1600);
-}
+};
 </script>
 
 </body>
