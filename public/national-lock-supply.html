@@ -1,181 +1,626 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>National Lock Supply</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-font-family:Arial,sans-serif;
+*{
+box-sizing:border-box;
 margin:0;
-background:#f5f7fb;
+padding:0;
+font-family:Arial, sans-serif;
 }
 
-header{
-background:#003b8f;
+body{
+background:#f3f6fb;
+color:#07152c;
+padding-bottom:85px;
+}
+
+.topbar{
+background:#0057c8;
 color:white;
-padding:20px;
-text-align:center;
+padding:10px 12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px;
+font-weight:bold;
+}
+
+.header{
+background:white;
+padding:16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 3px 18px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:99;
+}
+
+.logo{
+line-height:1;
+}
+
+.logo strong{
+font-size:22px;
+color:#003b8f;
+letter-spacing:.5px;
+}
+
+.logo span{
+display:block;
+font-size:11px;
+color:#111827;
+font-weight:bold;
+margin-top:3px;
+}
+
+.header-icons{
+display:flex;
+gap:14px;
+font-size:23px;
+}
+
+.search-wrap{
+background:white;
+padding:14px 16px;
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.search-box{
+display:flex;
+border:1px solid #d7dce6;
+border-radius:14px;
+overflow:hidden;
+background:#f8fafc;
+}
+
+.search-box input{
+flex:1;
+border:none;
+padding:15px;
+background:#f8fafc;
+font-size:16px;
+outline:none;
+}
+
+.search-box button{
+border:none;
+background:#0057c8;
+color:white;
+padding:0 18px;
+font-size:20px;
 }
 
 .hero{
-padding:50px 20px;
-text-align:center;
-background:#07152c;
+background:
+linear-gradient(135deg, rgba(7,21,44,.98), rgba(0,57,140,.82)),
+radial-gradient(circle at top right, #1d4ed8, transparent 45%);
 color:white;
+padding:42px 20px 36px;
+text-align:left;
+}
+
+.hero-badge{
+display:inline-block;
+background:rgba(255,255,255,.13);
+border:1px solid rgba(255,255,255,.2);
+padding:8px 12px;
+border-radius:999px;
+font-size:13px;
+font-weight:bold;
+margin-bottom:18px;
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:10px;
+font-size:42px;
+line-height:1.05;
+margin-bottom:14px;
+letter-spacing:-1px;
+}
+
+.hero h2{
+color:#fbbf24;
+font-size:21px;
+margin-bottom:13px;
+}
+
+.hero p{
+color:#e5e7eb;
+font-size:16px;
+line-height:1.5;
+}
+
+.hero-buttons{
+display:flex;
+gap:10px;
+margin-top:22px;
 }
 
 .btn{
+border:none;
+border-radius:14px;
+padding:14px 16px;
+font-weight:900;
+font-size:15px;
+cursor:pointer;
+}
+
+.btn-blue{
 background:#0057c8;
 color:white;
-padding:12px 20px;
-border:none;
-border-radius:8px;
-margin:5px;
+box-shadow:0 8px 22px rgba(0,87,200,.35);
+}
+
+.btn-white{
+background:white;
+color:#07152c;
+}
+
+.trust-strip{
+margin:-18px 16px 18px;
+background:white;
+border-radius:18px;
+padding:14px;
+box-shadow:0 10px 25px rgba(0,0,0,.10);
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+text-align:center;
+}
+
+.trust-item{
+font-size:12px;
+color:#334155;
 font-weight:bold;
+}
+
+.trust-item span{
+display:block;
+font-size:23px;
+margin-bottom:4px;
+}
+
+.section{
+padding:18px 16px;
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:14px;
+}
+
+.section-head h2{
+font-size:22px;
+}
+
+.section-head a{
+color:#0057c8;
+text-decoration:none;
+font-weight:bold;
+font-size:14px;
+}
+
+.category-row{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding-bottom:5px;
+}
+
+.cat{
+min-width:120px;
+background:white;
+border-radius:18px;
+padding:14px 10px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.07);
+font-weight:bold;
+font-size:13px;
+}
+
+.cat-icon{
+font-size:28px;
+margin-bottom:8px;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:20px;
+grid-template-columns:1fr;
+gap:18px;
+padding:4px 16px 20px;
 }
 
 .card{
 background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-text-align:center;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 10px 28px rgba(0,0,0,.09);
+border:1px solid #e8edf5;
 }
 
-.card img{
-width:100%;
-height:180px;
+.product-img-wrap{
+background:#fff;
+height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:22px;
+}
+
+.product-img-wrap img{
+max-width:100%;
+max-height:230px;
 object-fit:contain;
 }
 
+.card-body{
+padding:18px;
+}
+
+.card h3{
+font-size:23px;
+margin-bottom:8px;
+color:#0f172a;
+}
+
+.desc{
+font-size:14px;
+color:#64748b;
+line-height:1.45;
+margin-bottom:12px;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+margin:12px 0;
+}
+
 .price{
-font-size:24px;
-font-weight:bold;
-color:green;
+font-size:31px;
+font-weight:900;
+color:#087b22;
 }
 
 .install{
 color:#0057c8;
+font-weight:900;
+font-size:15px;
+text-align:right;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin:12px 0;
+}
+
+.badge{
+background:#eef6ff;
+color:#0057c8;
+border-radius:999px;
+padding:7px 10px;
+font-size:12px;
 font-weight:bold;
 }
 
-footer{
+.actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:14px;
+}
+
+.action-btn{
+border:none;
+padding:13px;
+border-radius:14px;
+font-weight:900;
+font-size:14px;
+}
+
+.add{
 background:#07152c;
 color:white;
-padding:20px;
+}
+
+.install-btn{
+background:#0057c8;
+color:white;
+}
+
+.quote-box{
+margin:8px 16px 24px;
+background:linear-gradient(135deg,#07152c,#0057c8);
+color:white;
+border-radius:24px;
+padding:22px;
+box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.quote-box h2{
+font-size:24px;
+margin-bottom:8px;
+}
+
+.quote-box p{
+color:#dbeafe;
+line-height:1.5;
+margin-bottom:16px;
+}
+
+.quote-box a{
+display:block;
+background:white;
+color:#0057c8;
 text-align:center;
+padding:14px;
+border-radius:14px;
+font-weight:900;
+text-decoration:none;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:white;
+border-top:1px solid #e5e7eb;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+padding:8px 4px 10px;
+z-index:999;
+box-shadow:0 -8px 25px rgba(0,0,0,.08);
+}
+
+.nav-item{
+text-align:center;
+font-size:11px;
+color:#334155;
+font-weight:bold;
+}
+
+.nav-item span{
+display:block;
+font-size:23px;
+margin-bottom:2px;
+}
+
+@media(min-width:760px){
+.products{
+grid-template-columns:repeat(3,1fr);
+max-width:1200px;
+margin:auto;
+}
+
+.hero,
+.section,
+.search-wrap{
+max-width:1200px;
+margin:auto;
+}
+
+.hero{
+border-radius:0 0 28px 28px;
+}
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-<h1>NATIONAL LOCK SUPPLY</h1>
-<p>Locks • Hardware • Access Control</p>
+<div class="topbar">
+<div>☎ 443-578-1686</div>
+<div>🚚 Ship Nationwide</div>
+</div>
+
+<header class="header">
+<div class="logo">
+<strong>NATIONAL LOCK SUPPLY</strong>
+<span>LOCKS • HARDWARE • ACCESS CONTROL</span>
+</div>
+
+<div class="header-icons">
+<span>👤</span>
+<span>🛒</span>
+</div>
 </header>
 
-<section class="hero">
-<h1>Buy Locks Online</h1>
-<h2>Ship Nationwide</h2>
-<p>Professional Installation Available Starting At $99</p>
+<div class="search-wrap">
+<div class="search-box">
+<input placeholder="Search smart locks, deadbolts, hardware...">
+<button>🔍</button>
+</div>
+</div>
 
-<button class="btn">Shop Locks</button>
-<button class="btn">Book Installation</button>
+<section class="hero">
+<div class="hero-badge">Professional installation starting at $99</div>
+<h1>Buy Locks Online. Ship Nationwide.</h1>
+<h2>Local installation available in Maryland.</h2>
+<p>Shop smart locks, keypad deadbolts, commercial hardware, access control parts, and book professional installation.</p>
+
+<div class="hero-buttons">
+<button class="btn btn-blue" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Locks</button>
+<button class="btn btn-white" onclick="location.href='tel:4435781686'">Book Install</button>
+</div>
 </section>
 
+<div class="trust-strip">
+<div class="trust-item"><span>🔒</span>Secure</div>
+<div class="trust-item"><span>🚚</span>Shipping</div>
+<div class="trust-item"><span>🛠️</span>Install</div>
+</div>
+
+<section class="section">
+<div class="section-head">
+<h2>Shop by Category</h2>
+<a href="#products">View All</a>
+</div>
+
+<div class="category-row">
+<div class="cat"><div class="cat-icon">🔐</div>Smart Locks</div>
+<div class="cat"><div class="cat-icon">🚪</div>Deadbolts</div>
+<div class="cat"><div class="cat-icon">⌨️</div>Keypads</div>
+<div class="cat"><div class="cat-icon">🏢</div>Commercial</div>
+<div class="cat"><div class="cat-icon">⚡</div>Access Control</div>
+</div>
+</section>
+
+<section class="section" id="products">
+<div class="section-head">
+<h2>Featured Products</h2>
+<a href="#">Best Sellers</a>
+</div>
+</section>
 
 <section class="products">
 
 <div class="card">
-<img src="/images/IMG_9119.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9119.jpg"></div>
+<div class="card-body">
 <h3>Smart Keypad Deadbolt</h3>
+<p class="desc">Keyless smart deadbolt for homes, rentals, and offices. Clean keypad access with professional install option.</p>
+<div class="price-row">
 <div class="price">$249</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
+</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
+</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
+</div>
+</div>
 </div>
 
 <div class="card">
-<img src="/images/IMG_9120.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9120.jpg"></div>
+<div class="card-body">
 <h3>Matte Black Deadbolt</h3>
+<p class="desc">Modern matte black deadbolt set for residential doors. Great upgrade for front or rear entry doors.</p>
+<div class="price-row">
 <div class="price">$89</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
+</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
+</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
+</div>
+</div>
 </div>
 
 <div class="card">
-<img src="/images/IMG_9122.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9122.jpg"></div>
+<div class="card-body">
 <h3>Touchscreen Smart Deadbolt</h3>
+<p class="desc">Touchscreen keypad deadbolt with sleek finish. Ideal for homeowners wanting keyless entry.</p>
+<div class="price-row">
 <div class="price">$249</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
+</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
+</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
+</div>
+</div>
 </div>
 
 <div class="card">
-<img src="/images/IMG_9123.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9123.jpg"></div>
+<div class="card-body">
 <h3>Bronze Smart Deadbolt</h3>
+<p class="desc">Premium bronze keypad deadbolt with clean modern design and smart-lock style entry.</p>
+<div class="price-row">
 <div class="price">$249</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
+</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
+</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
+</div>
+</div>
 </div>
 
 <div class="card">
-<img src="/images/IMG_9124.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9124.jpg"></div>
+<div class="card-body">
 <h3>WiFi Smart Deadbolt</h3>
+<p class="desc">Smart WiFi deadbolt with app control style features and professional setup available.</p>
+<div class="price-row">
 <div class="price">$269</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
+</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
+</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
+</div>
+</div>
 </div>
 
 <div class="card">
-<img src="/images/IMG_9126.jpg">
+<div class="product-img-wrap"><img src="/images/IMG_9126.jpg"></div>
+<div class="card-body">
 <h3>Keypad Deadbolt</h3>
+<p class="desc">Reliable keypad deadbolt for simple code access without needing a traditional key every time.</p>
+<div class="price-row">
 <div class="price">$189</div>
-<div class="install">Install Starting At $99</div>
+<div class="install">Install<br>from $99</div>
 </div>
-
-<div class="card">
-<img src="/images/IMG_9127.jpg">
-<h3>Satin Keypad Deadbolt</h3>
-<div class="price">$189</div>
-<div class="install">Install Starting At $99</div>
+<div class="badges">
+<span class="badge">Ships Nationwide</span>
+<span class="badge">Install Available</span>
 </div>
-
-<div class="card">
-<img src="/images/IMG_9128.jpg">
-<h3>Bright Brass Keypad Deadbolt</h3>
-<div class="price">$189</div>
-<div class="install">Install Starting At $99</div>
+<div class="actions">
+<button class="action-btn add">Add to Cart</button>
+<button class="action-btn install-btn">Book Install</button>
 </div>
-
-<div class="card">
-<img src="/images/IMG_9130.jpg">
-<h3>Connected Smart Deadbolt</h3>
-<div class="price">$229</div>
-<div class="install">Install Starting At $99</div>
 </div>
-
-<div class="card">
-<img src="/images/IMG_9131.jpg">
-<h3>Smart Deadbolt System</h3>
-<div class="price">$249</div>
-<div class="install">Install Starting At $99</div>
 </div>
 
 </section>
 
-<footer>
-Powered By Citywide Lock & Key
-</footer>
+<div class="quote-box">
+<h2>Need professional installation?</h2>
+<p>National Lock Supply ships nationwide. Maryland installation is powered by Citywide Lock & Key.</p>
+<a href="tel:4435781686">Call 443-578-1686</a>
+</div>
+
+<nav class="bottom-nav">
+<div class="nav-item"><span>🏠</span>Home</div>
+<div class="nav-item"><span>🔍</span>Shop</div>
+<div class="nav-item"><span>📅</span>Install</div>
+<div class="nav-item"><span>🛒</span>Cart</div>
+<div class="nav-item"><span>☰</span>More</div>
+</nav>
 
 </body>
 </html>
