@@ -1,593 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>National Lock Supply</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{background:#f5f7fb;color:#101828;padding-bottom:95px}
+.top{background:#07111f;color:white;padding:9px 10px;display:flex;justify-content:space-around;font-size:12px;font-weight:800}
+.header{background:white;padding:18px 22px 14px;display:flex;align-items:center;justify-content:space-between}
+.menu,.icon{font-size:30px}
+.logo{text-align:center;font-weight:900;line-height:1}
+.logo b{font-size:25px;letter-spacing:.5px}
+.logo span{display:block;color:#0057c8;font-size:12px;letter-spacing:5px;margin-top:4px}
+.cart{position:relative;font-size:31px}
+.cart small{position:absolute;right:-10px;top:-9px;background:#0057c8;color:white;width:22px;height:22px;border-radius:50%;font-size:12px;display:grid;place-items:center}
+.search{margin:0 24px 22px;background:white;border-radius:28px;padding:15px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+.search input{border:0;outline:0;width:100%;font-size:17px;color:#555}
+.hero{margin:0 24px 22px;border-radius:22px;min-height:305px;background:linear-gradient(90deg,rgba(5,13,25,.95),rgba(5,13,25,.72)),url('/images/IMG_9119.jpg');background-size:cover;background-position:right center;color:white;padding:38px 30px;box-shadow:0 14px 32px rgba(0,0,0,.18)}
+.kicker{color:#0b84ff;font-size:13px;font-weight:900;margin-bottom:16px}
+.hero h1{font-size:39px;line-height:1.08;margin-bottom:17px;letter-spacing:-1px}
+.hero p{font-size:17px;line-height:1.45;color:#e7eaf0;margin-bottom:26px;max-width:340px}
+.btns{display:flex;gap:12px}
+.btn{border:0;border-radius:10px;padding:15px 23px;font-weight:900;font-size:14px}
+.blue{background:#0066e6;color:white}
+.outline{background:transparent;color:white;border:1.5px solid white}
+.trust{margin:0 24px 28px;background:white;border-radius:20px;padding:18px 12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;box-shadow:0 12px 28px rgba(0,0,0,.09)}
+.trust div{text-align:center;font-size:12px;color:#5f6672;font-weight:700}
+.trust strong{display:block;color:#111827;font-size:12px;margin-top:6px}
+.trust .i{font-size:25px}
+.section{padding:0 24px 18px}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.head h2{font-size:22px;font-weight:950}
+.head a{font-size:14px;color:#0057c8;font-weight:800;text-decoration:none}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;overflow-x:auto}
+.cat{background:white;min-width:105px;border-radius:14px;text-align:center;padding:12px 8px;box-shadow:0 8px 20px rgba(0,0,0,.06);font-size:12px;font-weight:800}
+.cat img{height:58px;max-width:72px;object-fit:contain;margin-bottom:8px}
+.products{padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:white;border-radius:18px;padding:16px;box-shadow:0 12px 28px rgba(0,0,0,.08);position:relative}
+.fav{position:absolute;right:15px;top:14px;font-size:24px;color:#98a2b3}
+.label{position:absolute;left:14px;top:14px;border:1px solid #0066e6;color:#0066e6;border-radius:6px;padding:3px 6px;font-size:10px;font-weight:900}
+.card img{width:100%;height:170px;object-fit:contain;margin-top:12px}
+.card h3{font-size:18px;line-height:1.25;margin:12px 0 4px}
+.sub{font-size:14px;color:#475467;margin-bottom:11px}
+.stars{color:#ffb000;font-size:15px;margin-bottom:12px}
+.price{font-size:23px;font-weight:950;margin-bottom:14px}
+.add,.book{width:100%;border-radius:8px;padding:13px;border:0;font-weight:950;font-size:14px}
+.add{background:#0066e6;color:white;margin-bottom:10px}
+.book{background:white;color:#0066e6;border:1.5px solid #0066e6}
+.finance{margin:24px;background:#06111f;color:white;border-radius:18px;padding:25px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 14px 35px rgba(0,0,0,.18)}
+.finance h3{font-size:24px;margin-bottom:5px}
+.finance p{color:#d0d5dd;font-size:16px}
+.finance button{background:transparent;color:white;border:1.5px solid white;border-radius:10px;padding:14px 28px;font-weight:900}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:white;display:grid;grid-template-columns:1fr 1fr 1fr;box-shadow:0 -10px 25px rgba(0,0,0,.12);z-index:999}
+.bottom a{text-align:center;padding:17px 5px;text-decoration:none;color:#111827;font-weight:900;font-size:14px}
+.bottom .mid{background:#0066e6;color:white}
+.bottom span{display:block;font-size:13px;margin-top:5px;font-weight:800}
 
-body{
-background:#f5f5f7;
-color:#1d1d1f;
-padding-bottom:88px;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-.top-pill{
-margin:12px;
-background:#111;
-color:white;
-border-radius:999px;
-padding:10px 14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:13px;
-font-weight:700;
-}
-
-.header{
-position:sticky;
-top:0;
-z-index:100;
-backdrop-filter:blur(18px);
-background:rgba(245,245,247,.86);
-padding:14px 16px;
-border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.header-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.brand{
-line-height:1.05;
-}
-
-.brand strong{
-font-size:18px;
-letter-spacing:-.4px;
-}
-
-.brand span{
-display:block;
-font-size:11px;
-color:#6e6e73;
-font-weight:700;
-margin-top:3px;
-}
-
-.icon-row{
-display:flex;
-gap:14px;
-font-size:22px;
-}
-
-.search{
-margin-top:14px;
-background:white;
-border-radius:16px;
-padding:13px 14px;
-display:flex;
-gap:10px;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.04);
-}
-
-.search span{
-color:#86868b;
-}
-
-.search input{
-border:none;
-background:transparent;
-outline:none;
-font-size:16px;
-width:100%;
-}
-
-.hero{
-margin:14px 12px;
-background:linear-gradient(180deg,#fff,#f8f8fb);
-border-radius:32px;
-padding:34px 22px 26px;
-text-align:center;
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-overflow:hidden;
-}
-
-.hero-kicker{
-color:#0071e3;
-font-size:14px;
-font-weight:800;
-margin-bottom:10px;
-}
-
-.hero h1{
-font-size:42px;
-line-height:.98;
-letter-spacing:-1.8px;
-margin-bottom:12px;
-}
-
-.hero p{
-color:#6e6e73;
-font-size:17px;
-line-height:1.42;
-max-width:360px;
-margin:auto;
-}
-
-.hero-lock{
-width:100%;
-max-height:260px;
-object-fit:contain;
-margin:18px 0 10px;
-filter:drop-shadow(0 18px 22px rgba(0,0,0,.18));
-}
-
-.hero-actions{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-top:16px;
-}
-
-.btn{
-border:none;
-border-radius:999px;
-padding:12px 18px;
-font-weight:800;
-font-size:15px;
-}
-
-.blue{
-background:#0071e3;
-color:white;
-}
-
-.light{
-background:#e8e8ed;
-color:#1d1d1f;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin:0 12px 16px;
-}
-
-.stat{
-background:white;
-border-radius:22px;
-padding:14px 8px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,.05);
-}
-
-.stat strong{
-display:block;
-font-size:17px;
-}
-
-.stat span{
-font-size:12px;
-color:#6e6e73;
-font-weight:700;
-}
-
-.section{
-padding:12px;
-}
-
-.section-head{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin:8px 4px 14px;
-}
-
-.section-head h2{
-font-size:27px;
-letter-spacing:-.8px;
-}
-
-.section-head a{
-color:#0071e3;
-font-weight:700;
-font-size:14px;
-}
-
-.categories{
-display:flex;
-gap:10px;
-overflow-x:auto;
-padding-bottom:8px;
-}
-
-.cat{
-min-width:124px;
-background:white;
-border-radius:22px;
-padding:16px 12px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,.05);
-}
-
-.cat .emoji{
-font-size:28px;
-margin-bottom:7px;
-}
-
-.cat strong{
-display:block;
-font-size:13px;
-}
-
-.products{
-display:grid;
-grid-template-columns:1fr;
-gap:16px;
-padding:0 12px 18px;
-}
-
-.card{
-background:white;
-border-radius:30px;
-overflow:hidden;
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-}
-
-.img-box{
-background:linear-gradient(180deg,#fbfbfd,#f5f5f7);
-height:270px;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:22px;
-}
-
-.img-box img{
-max-width:100%;
-max-height:235px;
-object-fit:contain;
-filter:drop-shadow(0 12px 16px rgba(0,0,0,.14));
-}
-
-.card-info{
-padding:20px;
-}
-
-.tag{
-color:#bf4800;
-font-size:13px;
-font-weight:800;
-margin-bottom:6px;
-}
-
-.card h3{
-font-size:26px;
-letter-spacing:-.8px;
-margin-bottom:6px;
-}
-
-.desc{
-color:#6e6e73;
-line-height:1.42;
-font-size:15px;
-margin-bottom:16px;
-}
-
-.price-line{
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-top:1px solid #e5e5ea;
-padding-top:16px;
-}
-
-.price{
-font-size:28px;
-font-weight:900;
-letter-spacing:-.7px;
-}
-
-.install{
-text-align:right;
-color:#0071e3;
-font-size:14px;
-font-weight:900;
-}
-
-.card-actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:16px;
-}
-
-.card-actions button{
-border:none;
-border-radius:999px;
-padding:13px 10px;
-font-weight:900;
-font-size:14px;
-}
-
-.install-card{
-margin:8px 12px 22px;
-background:#1d1d1f;
-color:white;
-border-radius:32px;
-padding:26px 20px;
-box-shadow:0 12px 35px rgba(0,0,0,.14);
-}
-
-.install-card h2{
-font-size:30px;
-letter-spacing:-1px;
-margin-bottom:8px;
-}
-
-.install-card p{
-color:#d2d2d7;
-line-height:1.45;
-margin-bottom:18px;
-}
-
-.install-card .blue{
-display:block;
-text-align:center;
-}
-
-.bottom-nav{
-position:fixed;
-left:10px;
-right:10px;
-bottom:10px;
-z-index:999;
-background:rgba(255,255,255,.92);
-backdrop-filter:blur(18px);
-border:1px solid rgba(0,0,0,.08);
-border-radius:26px;
-display:grid;
-grid-template-columns:repeat(5,1fr);
-padding:9px 4px;
-box-shadow:0 10px 35px rgba(0,0,0,.16);
-}
-
-.nav-item{
-text-align:center;
-font-size:10px;
-color:#6e6e73;
-font-weight:800;
-}
-
-.nav-item span{
-display:block;
-font-size:21px;
-margin-bottom:2px;
-}
-
-@media(min-width:760px){
-.page{
-max-width:1160px;
-margin:auto;
-}
-
-.products{
-grid-template-columns:repeat(3,1fr);
-}
-
-.hero h1{
-font-size:64px;
-}
+@media(max-width:750px){
+.top{font-size:11px}
+.logo b{font-size:19px}
+.logo span{font-size:10px}
+.hero{padding:30px 24px;background-position:center}
+.hero h1{font-size:34px}
+.trust{grid-template-columns:repeat(2,1fr)}
+.cats{display:flex}
+.products{grid-template-columns:1fr}
+.card img{height:210px}
+.finance{display:block}
+.finance button{margin-top:16px;width:100%}
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
-
-<div class="top-pill">
-<span>☎ 443-578-1686</span>
-<span>Install from $99</span>
+<div class="top">
+<div>🚚 Free Shipping Nationwide</div>
+<div>|</div>
+<div>🛠️ Professional Installation from $99</div>
+<div>|</div>
+<div>⭐ 5.0 (120+ Reviews)</div>
 </div>
 
 <header class="header">
-<div class="header-row">
-<div class="brand">
-<strong>National Lock Supply</strong>
-<span>Locks • Hardware • Access Control</span>
+<div class="menu">☰</div>
+<div class="logo">
+<b>🔒 NATIONAL</b>
+<span>LOCK SUPPLY</span>
 </div>
-<div class="icon-row">
-<span>🔍</span>
-<span>🛒</span>
-</div>
-</div>
-
-<div class="search">
-<span>🔎</span>
-<input placeholder="Search smart locks, deadbolts, keypads...">
+<div style="display:flex;gap:20px;align-items:center">
+<div class="icon">⌕</div>
+<div class="cart">🛒<small>2</small></div>
 </div>
 </header>
 
+<div class="search">
+<span>🔍</span>
+<input placeholder="Search smart locks, deadbolts, hardware..." />
+</div>
+
 <section class="hero">
-<div class="hero-kicker">Ship nationwide. Install locally.</div>
-<h1>Locks made simple.</h1>
-<p>Buy smart locks, keypad deadbolts, and commercial hardware with professional installation available.</p>
-
-<img class="hero-lock" src="/images/IMG_9119.jpg" alt="Smart lock">
-
-<div class="hero-actions">
-<button class="btn blue" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Locks</button>
-<button class="btn light" onclick="location.href='tel:4435781686'">Book Install</button>
+<div class="kicker">LOCKS. HARDWARE. ACCESS CONTROL.</div>
+<h1>Premium Locks.<br>Delivered Fast.</h1>
+<p>Shop top brands with expert installation available in Maryland.</p>
+<div class="btns">
+<button class="btn blue">SHOP LOCKS</button>
+<button class="btn outline">BOOK INSTALL</button>
 </div>
 </section>
 
-<div class="stats">
-<div class="stat"><strong>Nationwide</strong><span>Shipping</span></div>
-<div class="stat"><strong>$99+</strong><span>Install</span></div>
-<div class="stat"><strong>Pro</strong><span>Support</span></div>
-</div>
+<section class="trust">
+<div><div class="i">🚚</div><strong>FREE SHIPPING</strong>Nationwide</div>
+<div><div class="i">🛡️</div><strong>WARRANTY</strong>1 Year Included</div>
+<div><div class="i">🛠️</div><strong>PRO INSTALL</strong>From $99</div>
+<div><div class="i">🏅</div><strong>SATISFACTION</strong>Guaranteed</div>
+</section>
 
 <section class="section">
-<div class="section-head">
-<h2>Categories</h2>
-<a href="#shop">View all</a>
+<div class="head">
+<h2>SHOP BY CATEGORY</h2>
+<a>View All ›</a>
 </div>
 
-<div class="categories">
-<div class="cat"><div class="emoji">🔐</div><strong>Smart Locks</strong></div>
-<div class="cat"><div class="emoji">🚪</div><strong>Deadbolts</strong></div>
-<div class="cat"><div class="emoji">⌨️</div><strong>Keypads</strong></div>
-<div class="cat"><div class="emoji">🏢</div><strong>Commercial</strong></div>
-<div class="cat"><div class="emoji">⚡</div><strong>Access Control</strong></div>
+<div class="cats">
+<div class="cat"><img src="/images/IMG_9119.jpg">Smart Locks</div>
+<div class="cat"><img src="/images/IMG_9120.jpg">Deadbolts</div>
+<div class="cat"><img src="/images/IMG_9130.jpg">Keypads</div>
+<div class="cat"><img src="/images/IMG_9122.jpg">Commercial</div>
+<div class="cat"><img src="/images/IMG_9131.jpg">Access Control</div>
+<div class="cat"><img src="/images/IMG_9132.jpg">Panic Bars</div>
 </div>
 </section>
 
-<section class="section" id="shop">
-<div class="section-head">
-<h2>Featured locks</h2>
-<a href="#">Best sellers</a>
+<section class="section">
+<div class="head">
+<h2>FEATURED PRODUCTS</h2>
+<a>Best Sellers ›</a>
 </div>
 </section>
 
 <section class="products">
-
 <div class="card">
-<div class="img-box"><img src="/images/IMG_9119.jpg"></div>
-<div class="card-info">
-<div class="tag">Best Seller</div>
-<h3>Smart Keypad Deadbolt</h3>
-<p class="desc">Clean keypad access for homes, rentals, and offices. Professional installation available.</p>
-<div class="price-line">
-<div class="price">$249</div>
-<div class="install">Install<br>from $99</div>
-</div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
+<div class="label">BEST SELLER</div><div class="fav">♡</div>
+<img src="/images/IMG_9119.jpg">
+<h3>Schlage Encode<br>Smart WiFi Deadbolt</h3>
+<div class="stars">★★★★★ <span style="color:#667085">(42)</span></div>
+<div class="price">$249.00</div>
+<button class="add">ADD TO CART</button>
+<button class="book">BOOK INSTALL</button>
 </div>
 
 <div class="card">
-<div class="img-box"><img src="/images/IMG_9120.jpg"></div>
-<div class="card-info">
-<div class="tag">Modern Finish</div>
+<div class="fav">♡</div>
+<img src="/images/IMG_9120.jpg">
 <h3>Matte Black Deadbolt</h3>
-<p class="desc">Premium matte black deadbolt for front doors, rear doors, rentals, and upgrades.</p>
-<div class="price-line">
-<div class="price">$89</div>
-<div class="install">Install<br>from $99</div>
-</div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
+<div class="sub">Single Cylinder</div>
+<div class="stars">★★★★★ <span style="color:#667085">(31)</span></div>
+<div class="price">$89.00</div>
+<button class="add">ADD TO CART</button>
+<button class="book">BOOK INSTALL</button>
 </div>
 
 <div class="card">
-<div class="img-box"><img src="/images/IMG_9122.jpg"></div>
-<div class="card-info">
-<div class="tag">Touchscreen</div>
+<div class="fav">♡</div>
+<img src="/images/IMG_9130.jpg">
 <h3>Touchscreen Deadbolt</h3>
-<p class="desc">Sleek touchscreen lock with keypad entry and a clean premium look.</p>
-<div class="price-line">
-<div class="price">$249</div>
-<div class="install">Install<br>from $99</div>
+<div class="sub">Keypad Lock</div>
+<div class="stars">★★★★★ <span style="color:#667085">(28)</span></div>
+<div class="price">$249.00</div>
+<button class="add">ADD TO CART</button>
+<button class="book">BOOK INSTALL</button>
 </div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<div class="img-box"><img src="/images/IMG_9123.jpg"></div>
-<div class="card-info">
-<div class="tag">Premium</div>
-<h3>Bronze Smart Deadbolt</h3>
-<p class="desc">Bronze keypad deadbolt for customers wanting a darker premium finish.</p>
-<div class="price-line">
-<div class="price">$249</div>
-<div class="install">Install<br>from $99</div>
-</div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<div class="img-box"><img src="/images/IMG_9124.jpg"></div>
-<div class="card-info">
-<div class="tag">WiFi Ready</div>
-<h3>WiFi Smart Deadbolt</h3>
-<p class="desc">Smart deadbolt option for app-style access and professional setup.</p>
-<div class="price-line">
-<div class="price">$269</div>
-<div class="install">Install<br>from $99</div>
-</div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
-</div>
-
-<div class="card">
-<div class="img-box"><img src="/images/IMG_9126.jpg"></div>
-<div class="card-info">
-<div class="tag">Keyless</div>
-<h3>Keypad Deadbolt</h3>
-<p class="desc">Simple keypad deadbolt for code entry and everyday residential use.</p>
-<div class="price-line">
-<div class="price">$189</div>
-<div class="install">Install<br>from $99</div>
-</div>
-<div class="card-actions">
-<button class="light">Add to Cart</button>
-<button class="blue">Book Install</button>
-</div>
-</div>
-</div>
-
 </section>
 
-<section class="install-card">
-<h2>Need it installed?</h2>
-<p>Maryland installation powered by Citywide Lock & Key. Smart locks, keypad deadbolts, rekeys, fresh installs, and commercial hardware.</p>
-<a class="btn blue" href="tel:4435781686">Call 443-578-1686</a>
+<section class="finance">
+<div>
+<div style="color:#98a2b3;font-size:13px;font-weight:900">FINANCING AVAILABLE</div>
+<h3>Buy Today, Pay Later</h3>
+<p>Easy monthly payments at checkout.</p>
+</div>
+<button>LEARN MORE</button>
 </section>
 
-</div>
-
-<nav class="bottom-nav">
-<div class="nav-item"><span>🏠</span>Home</div>
-<div class="nav-item"><span>🔐</span>Shop</div>
-<div class="nav-item"><span>📅</span>Install</div>
-<div class="nav-item"><span>🛒</span>Cart</div>
-<div class="nav-item"><span>☰</span>More</div>
+<nav class="bottom">
+<a href="tel:4435781686">☎ CALL NOW<span>443-578-1686</span></a>
+<a class="mid" href="sms:4435781686">💬 TEXT US<span>Quick Response</span></a>
+<a href="tel:4435781686">📅 BOOK INSTALL<span>From $99</span></a>
 </nav>
 
 </body>
