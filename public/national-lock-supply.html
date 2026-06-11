@@ -120,20 +120,69 @@ top:76px;
 z-index:45;
 }
 
+.mobile-menu{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(5,11,22,.55);
+z-index:2000;
+padding:18px;
+}
+
 .mobile-menu.open{
 display:block;
 }
 
-.mobile-menu a{
-display:block;
-padding:14px 0;
-font-size:17px;
-font-weight:900;
-border-bottom:1px solid #f1f5f9;
+.menu-panel{
+background:white;
+border-radius:26px;
+padding:22px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-.mobile-menu a:last-child{
-border-bottom:0;
+.menu-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.menu-top strong{
+display:block;
+font-size:22px;
+font-weight:950;
+color:#101828;
+}
+
+.menu-top span{
+display:block;
+font-size:12px;
+color:#667085;
+font-weight:800;
+margin-top:4px;
+}
+
+.menu-top button{
+width:42px;
+height:42px;
+border:none;
+border-radius:50%;
+background:#f1f5f9;
+font-size:28px;
+font-weight:900;
+}
+
+.menu-panel a{
+display:block;
+padding:18px 10px;
+font-size:21px;
+font-weight:900;
+border-bottom:1px solid #edf0f5;
+color:#101828;
+}
+
+.menu-panel a:last-child{
+border-bottom:none;
 }
 
 .search-wrap{
@@ -592,11 +641,21 @@ grid-template-columns:1fr;
 </div>
 
 <div id="mobileMenu" class="mobile-menu">
+<div class="menu-panel">
+<div class="menu-top">
+<div>
+<strong>National Lock Supply</strong>
+<span>Locks • Hardware • Access Control</span>
+</div>
+<button onclick="toggleMenu()">×</button>
+</div>
+
 <a href="#products" onclick="toggleMenu()">🔒 Shop Locks</a>
 <a href="#categories" onclick="toggleMenu()">🧰 Categories</a>
 <a href="tel:4435781686">📞 Call Now</a>
 <a href="sms:4435781686">💬 Text Us</a>
 <a href="tel:4435781686">📅 Book Service</a>
+</div>
 </div>
 
 <header class="app-header">
