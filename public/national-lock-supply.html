@@ -1,132 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>National Lock Supply</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>NLS | National Lock Supply</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#fff;padding-bottom:85px}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+
+.app{
+max-width:430px;
+margin:0 auto;
+background:#050505;
+min-height:100vh;
+overflow:hidden;
 }
 
-html{
-scroll-behavior:smooth;
+.header{
+background:#030303;
+padding:22px 18px 16px;
 }
 
-body{
-background:#f4f7fb;
-color:#101828;
-padding-bottom:105px;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-.top-strip{
-background:#050b16;
-color:white;
-padding:9px 10px;
-display:flex;
-justify-content:space-around;
-align-items:center;
-font-size:12px;
-font-weight:800;
-gap:8px;
-}
-
-.app-header{
-background:white;
-padding:18px 22px 14px;
+.top-icons{
 display:flex;
 align-items:center;
 justify-content:space-between;
-box-shadow:0 8px 24px rgba(0,0,0,.06);
-position:sticky;
-top:0;
-z-index:50;
+margin-bottom:16px;
 }
 
-.menu-btn{
-font-size:32px;
-color:#111827;
-cursor:pointer;
-}
-
-.logo{
-text-align:center;
-line-height:1;
-}
-
-.logo-main{
-font-size:28px;
-font-weight:950;
-letter-spacing:.5px;
-}
-
-.logo-sub{
-display:block;
-color:#0057c8;
-font-size:12px;
-letter-spacing:5px;
-margin-top:4px;
+.menu{
+font-size:36px;
+color:#d99b23;
 font-weight:900;
 }
 
-.header-icons{
-display:flex;
-gap:18px;
-align-items:center;
-font-size:28px;
+.logo img{
+width:135px;
+display:block;
+margin:auto;
 }
 
-.search-icon{
-cursor:pointer;
+.right-icons{
+display:flex;
+gap:22px;
+font-size:30px;
+color:#d99b23;
+align-items:center;
 }
 
 .cart{
 position:relative;
-cursor:pointer;
 }
 
-.cart-count{
+.cart span{
 position:absolute;
-top:-8px;
-right:-11px;
-background:#0057c8;
-color:white;
+top:-10px;
+right:-12px;
+background:#d99b23;
+color:#000;
 width:22px;
 height:22px;
 border-radius:50%;
+font-size:13px;
 display:grid;
 place-items:center;
-font-size:12px;
 font-weight:900;
 }
 
-.mobile-menu{
-display:none;
+.search{
+display:flex;
+background:#1b1b1b;
+border-radius:6px;
+overflow:hidden;
+margin-top:18px;
+border:1px solid #2b2b2b;
+}
+
+.search input{
+flex:1;
+background:#1b1b1b;
+border:0;
+outline:0;
+padding:17px 15px;
+font-size:16px;
+color:white;
+}
+
+.search button{
+width:65px;
+border:0;
+background:#d99b23;
+font-size:30px;
+}
+
+.shipping{
+background:#d99b23;
+color:#090909;
+font-weight:900;
+text-align:center;
+padding:12px 8px;
+font-size:17px;
+}
+
+.hero{
+min-height:560px;
+background:
+linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.78) 45%,rgba(0,0,0,.15) 100%),
+url("/images/IMG_9119.jpg");
+background-size:cover;
+background-position:right center;
+padding:38px 22px;
+}
+
+.kicker{
+color:#d99b23;
+font-size:20px;
+font-weight:900;
+line-height:1.15;
+letter-spacing:1px;
+margin-bottom:18px;
+}
+
+.hero h1{
+font-size:44px;
+line-height:.98;
+font-weight:1000;
+letter-spacing:-1px;
+max-width:285px;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#d99b23;
+display:block;
+}
+
+.hero p{
+font-size:19px;
+line-height:1.45;
+max-width:270px;
+margin-bottom:25px;
+}
+
+.btns{
+display:flex;
+flex-direction:column;
+gap:11px;
+max-width:285px;
+}
+
+.gold-btn{
+background:#d99b23;
+color:#070707;
+border:0;
+border-radius:6px;
+padding:17px;
+font-size:15px;
+font-weight:1000;
+text-align:center;
+}
+
+.outline-btn{
+background:transparent;
+color:white;
+border:1px solid #d99b23;
+border-radius:6px;
+padding:16px;
+font-size:15px;
+font-weight:1000;
+text-align:center;
+}
+
+.trust{
 background:white;
-padding:12px 24px 18px;
-border-bottom:1px solid #e5e7eb;
-box-shadow:0 12px 25px rgba(0,0,0,.08);
-position:sticky;
-top:76px;
-z-index:45;
+color:#101010;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+padding:20px 8px;
+gap:6px;
+}
+
+.trust div{
+text-align:center;
+font-size:12px;
+font-weight:700;
+}
+
+.trust .ico{
+font-size:28px;
+display:block;
+margin-bottom:7px;
+}
+
+.trust strong{
+display:block;
+font-size:12px;
+font-weight:1000;
+margin-bottom:5px;
+}
+
+.categories{
+background:white;
+color:#111;
+padding:28px 18px 26px;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.section-title h2{
+font-size:24px;
+font-weight:1000;
+letter-spacing:-.5px;
+}
+
+.section-title a{
+color:#b87900;
+font-weight:800;
+}
+
+.cat-scroll{
+display:flex;
+gap:13px;
+overflow-x:auto;
+padding-bottom:4px;
+}
+
+.cat{
+min-width:135px;
+background:#f5f5f5;
+border-radius:6px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.cat img{
+width:100%;
+height:130px;
+object-fit:cover;
+display:block;
+}
+
+.cat-content{
+padding:12px 8px;
+text-align:center;
+}
+
+.cat strong{
+display:block;
+font-size:14px;
+font-weight:1000;
+margin-bottom:8px;
+}
+
+.cat span{
+color:#c28200;
+font-size:14px;
+font-weight:800;
 }
 
 .mobile-menu{
 display:none;
 position:fixed;
 inset:0;
-background:rgba(5,11,22,.55);
-z-index:2000;
-padding:18px;
+background:rgba(0,0,0,.78);
+z-index:9999;
+padding:26px;
 }
 
 .mobile-menu.open{
@@ -134,427 +281,60 @@ display:block;
 }
 
 .menu-panel{
-background:white;
-border-radius:26px;
-padding:22px;
-box-shadow:0 20px 60px rgba(0,0,0,.25);
+background:#080808;
+border:1px solid #d99b23;
+border-radius:18px;
+padding:20px;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
 .menu-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:15px;
+margin-bottom:18px;
 }
 
-.menu-top strong{
-display:block;
-font-size:22px;
-font-weight:950;
-color:#101828;
+.menu-top img{
+width:120px;
 }
 
-.menu-top span{
-display:block;
-font-size:12px;
-color:#667085;
-font-weight:800;
-margin-top:4px;
-}
-
-.menu-top button{
-width:42px;
-height:42px;
-border:none;
+.close{
+background:#1d1d1d;
+color:white;
+border:1px solid #555;
+width:44px;
+height:44px;
 border-radius:50%;
-background:#f1f5f9;
-font-size:28px;
-font-weight:900;
+font-size:30px;
 }
 
 .menu-panel a{
 display:block;
-padding:18px 10px;
-font-size:21px;
+padding:17px 8px;
+border-bottom:1px solid #222;
+font-size:20px;
 font-weight:900;
-border-bottom:1px solid #edf0f5;
-color:#101828;
 }
 
-.menu-panel a:last-child{
-border-bottom:none;
-}
-
-.search-wrap{
-background:white;
-padding:0 24px 22px;
-}
-
-.search-box{
-background:#f7f8fb;
-border:1px solid #e5e7eb;
-border-radius:999px;
-display:flex;
-align-items:center;
-gap:12px;
-padding:15px 18px;
-box-shadow:inset 0 1px 4px rgba(0,0,0,.04);
-}
-
-.search-box span{
-font-size:21px;
-color:#667085;
-}
-
-.search-box input{
-border:0;
-outline:0;
-background:transparent;
-width:100%;
-font-size:16px;
-color:#344054;
-}
-
-.hero{
-margin:0 24px 22px;
-border-radius:24px;
-min-height:320px;
-background:
-linear-gradient(90deg,rgba(3,8,18,.96),rgba(3,8,18,.68)),
-url('/images/IMG_9119.jpg');
-background-size:cover;
-background-position:right center;
-color:white;
-padding:42px 32px;
-box-shadow:0 18px 45px rgba(0,0,0,.22);
-overflow:hidden;
-}
-
-.hero-kicker{
-color:#0b84ff;
-font-size:13px;
-font-weight:950;
-letter-spacing:.3px;
-margin-bottom:18px;
-}
-
-.hero h1{
-font-size:42px;
-line-height:1.04;
-letter-spacing:-1.4px;
-margin-bottom:18px;
-max-width:360px;
-}
-
-.hero p{
-color:#e5e7eb;
-font-size:17px;
-line-height:1.48;
-max-width:350px;
-margin-bottom:28px;
-}
-
-.hero-actions{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.btn{
-border:none;
-border-radius:12px;
-padding:15px 24px;
-font-weight:950;
-font-size:14px;
-cursor:pointer;
-display:inline-block;
+.menu-panel .gold-link{
+background:#d99b23;
+color:#000;
+border-radius:8px;
 text-align:center;
-}
-
-.btn-blue{
-background:linear-gradient(135deg,#0071ff,#004fd1);
-color:white;
-box-shadow:0 10px 22px rgba(0,87,200,.32);
-}
-
-.btn-outline{
-background:rgba(255,255,255,.04);
-color:white;
-border:1.5px solid rgba(255,255,255,.85);
-}
-
-.trust-row{
-margin:0 24px 30px;
-background:white;
-border-radius:22px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px;
-padding:18px 12px;
-box-shadow:0 14px 30px rgba(0,0,0,.09);
-}
-
-.trust-item{
-text-align:center;
-font-size:12px;
-color:#667085;
-font-weight:700;
-}
-
-.trust-icon{
-font-size:26px;
-margin-bottom:7px;
-}
-
-.trust-item strong{
-display:block;
-color:#111827;
-font-size:12px;
-margin-bottom:3px;
-}
-
-.section{
-padding:0 24px 20px;
-}
-
-.section-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:14px;
-}
-
-.section-head h2{
-font-size:23px;
-font-weight:950;
-letter-spacing:-.4px;
-}
-
-.section-head a{
-color:#0057c8;
-font-weight:900;
-font-size:14px;
-}
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:10px;
-overflow-x:auto;
-}
-
-.cat-card{
-min-width:104px;
-background:white;
-border-radius:16px;
-padding:12px 8px;
-text-align:center;
-box-shadow:0 9px 22px rgba(0,0,0,.07);
-font-size:12px;
-font-weight:900;
-cursor:pointer;
-}
-
-.cat-card img{
-height:58px;
-max-width:75px;
-object-fit:contain;
 margin-bottom:8px;
 }
 
-.products-grid{
-padding:0 24px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
-}
-
-.product-card{
-background:white;
-border-radius:22px;
-padding:16px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-position:relative;
-}
-
-.badge{
-position:absolute;
-top:14px;
-left:14px;
-background:white;
-color:#0057c8;
-border:1px solid #0057c8;
-border-radius:8px;
-padding:4px 8px;
-font-size:10px;
-font-weight:900;
-}
-
-.favorite{
-position:absolute;
-top:14px;
-right:14px;
-font-size:22px;
-color:#98a2b3;
-}
-
-.product-card img{
-width:100%;
-height:190px;
-object-fit:contain;
-margin-top:15px;
-}
-
-.product-title{
+.call-big{
+display:block;
+background:#d99b23;
+color:#000;
+border-radius:10px;
+text-align:center;
+padding:17px;
 font-size:20px;
-font-weight:900;
-line-height:1.25;
-margin:14px 0 6px;
-}
-
-.product-sub{
-color:#667085;
-font-size:14px;
-margin-bottom:10px;
-}
-
-.rating{
-color:#ffb000;
-margin-bottom:14px;
-}
-
-.price{
-font-size:32px;
-color:#111827;
-font-weight:950;
-margin-bottom:15px;
-}
-
-.add-cart{
-width:100%;
-border:none;
-border-radius:10px;
-background:#0057c8;
-color:white;
-padding:14px;
-font-size:14px;
-font-weight:900;
-margin-bottom:10px;
-cursor:pointer;
-}
-
-.book-install{
-width:100%;
-border-radius:10px;
-border:2px solid #0057c8;
-background:white;
-color:#0057c8;
-padding:13px;
-font-size:14px;
-font-weight:900;
-cursor:pointer;
-}
-
-.service-box,
-.reviews{
-margin:24px;
-background:white;
-border-radius:24px;
-padding:24px;
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-.service-box h2,
-.reviews h2{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.service-box p{
-color:#667085;
-line-height:1.45;
-margin-bottom:18px;
-}
-
-.service-list{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.service-list div{
-background:#f4f7fb;
-border-radius:14px;
-padding:14px;
-font-weight:900;
-}
-
-.review-card{
-background:#f4f7fb;
-border-radius:16px;
-padding:16px;
-margin-bottom:12px;
-}
-
-.review-card strong{
-display:block;
-margin-bottom:5px;
-}
-
-.review-card p{
-color:#475467;
-line-height:1.4;
-}
-
-.finance-banner{
-margin:24px;
-border-radius:24px;
-background:linear-gradient(135deg,#02060f,#07192f);
-color:white;
-padding:28px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.finance-title{
-font-size:30px;
-font-weight:950;
-margin-bottom:6px;
-}
-
-.finance-text{
-color:#d0d5dd;
-}
-
-.finance-btn{
-border:1px solid white;
-background:transparent;
-color:white;
-border-radius:12px;
-padding:14px 26px;
-font-weight:900;
-cursor:pointer;
-}
-
-.toast{
-position:fixed;
-left:50%;
-bottom:118px;
-transform:translateX(-50%);
-background:#050b16;
-color:white;
-padding:14px 20px;
-border-radius:999px;
-font-weight:900;
-box-shadow:0 12px 30px rgba(0,0,0,.25);
-display:none;
-z-index:2000;
-white-space:nowrap;
-}
-
-.toast.show{
-display:block;
+font-weight:1000;
+margin-top:18px;
 }
 
 .bottom-nav{
@@ -562,339 +342,228 @@ position:fixed;
 left:0;
 right:0;
 bottom:0;
-background:white;
+max-width:430px;
+margin:auto;
+background:#050505;
 display:grid;
-grid-template-columns:repeat(3,1fr);
-box-shadow:0 -10px 25px rgba(0,0,0,.15);
-z-index:999;
+grid-template-columns:repeat(4,1fr);
+border-top:1px solid #222;
+z-index:9000;
 }
 
 .bottom-nav a{
 text-align:center;
-padding:16px 5px;
+font-size:11px;
 font-weight:900;
-}
-
-.bottom-nav .middle{
-background:#0057c8;
+padding:10px 4px;
 color:white;
 }
 
 .bottom-nav span{
 display:block;
-font-size:12px;
-margin-top:4px;
+font-size:22px;
+color:#d99b23;
+margin-bottom:3px;
 }
 
-@media(max-width:768px){
-.top-strip{
-font-size:11px;
-gap:8px;
-}
-
-.logo-main{
-font-size:25px;
-}
-
-.hero h1{
-font-size:36px;
-}
-
-.trust-row{
-grid-template-columns:repeat(2,1fr);
-}
-
-.category-grid{
-display:flex;
-}
-
-.products-grid{
-grid-template-columns:1fr;
-}
-
-.finance-banner{
-display:block;
-}
-
-.finance-btn{
-width:100%;
-margin-top:15px;
-}
-
-.product-card img{
-height:220px;
-}
-
-.service-list{
-grid-template-columns:1fr;
-}
+@media(max-width:380px){
+.hero h1{font-size:38px}
+.hero{min-height:520px}
+.logo img{width:120px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-strip">
-<div>🚚 Free Shipping Nationwide</div>
-<div>🛠️ Professional Installation From $99</div>
-<div>⭐ 5.0 Rating</div>
-</div>
-
 <div id="mobileMenu" class="mobile-menu">
 <div class="menu-panel">
 <div class="menu-top">
-<div>
-<strong>National Lock Supply</strong>
-<span>Locks • Hardware • Access Control</span>
-</div>
-<button onclick="toggleMenu()">×</button>
+<img src="/images/nls-logo.png" alt="NLS Logo">
+<button class="close" onclick="toggleMenu()">×</button>
 </div>
 
-<a href="#products" onclick="toggleMenu()">🔒 Shop Locks</a>
+<a class="gold-link" href="#shop" onclick="toggleMenu()">🔒 SHOP LOCKS</a>
 <a href="#categories" onclick="toggleMenu()">🧰 Categories</a>
-<a href="tel:4435781686">📞 Call Now</a>
+<a href="#categories" onclick="toggleMenu()">🔐 Deadbolts</a>
+<a href="#categories" onclick="toggleMenu()">📱 Smart Locks</a>
+<a href="#categories" onclick="toggleMenu()">🚨 Panic Bars</a>
+<a href="#categories" onclick="toggleMenu()">🏢 Access Control</a>
 <a href="sms:4435781686">💬 Text Us</a>
-<a href="tel:4435781686">📅 Book Service</a>
+
+<a class="call-big" href="tel:4435781686">📞 (443) 578-1686</a>
 </div>
 </div>
 
-<header class="app-header">
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="app">
+
+<header class="header">
+<div class="top-icons">
+<div class="menu" onclick="toggleMenu()">☰</div>
 
 <div class="logo">
-<div class="logo-main">🔒 NATIONAL</div>
-<span class="logo-sub">LOCK SUPPLY</span>
+<img src="/images/nls-logo.png" alt="NLS National Lock Supply">
 </div>
 
-<div class="header-icons">
-<div class="search-icon" onclick="focusSearch()">⌕</div>
-<div class="cart" onclick="showToast('Cart coming soon')">
-🛒
-<div class="cart-count" id="cartCount">2</div>
+<div class="right-icons">
+<a href="tel:4435781686">☎</a>
+<div class="cart" onclick="addToCart()">🛒<span id="cartCount">0</span></div>
 </div>
+</div>
+
+<div class="search">
+<input id="searchInput" placeholder="Search locks, hardware, and more..." />
+<button onclick="focusSearch()">⌕</button>
 </div>
 </header>
 
-<div class="search-wrap">
-<div class="search-box">
-<span>🔍</span>
-<input id="searchInput" placeholder="Search smart locks, deadbolts, hardware..." />
-</div>
-</div>
+<div class="shipping">🚚 FREE SHIPPING on orders $99+</div>
 
 <section class="hero">
-<div class="hero-kicker">LOCKS • HARDWARE • ACCESS CONTROL</div>
-<h1>Premium Locks.<br>Delivered Fast.</h1>
-<p>Shop top brands with expert installation available in Maryland.</p>
+<div class="kicker">LOCKS. HARDWARE.<br>SECURITY.</div>
 
-<div class="hero-actions">
-<a href="#products" class="btn btn-blue">SHOP LOCKS</a>
-<a href="tel:4435781686" class="btn btn-outline">BOOK SERVICE</a>
+<h1>
+EVERYTHING<br>
+YOU NEED.
+<span>ONE TRUSTED SOURCE.</span>
+</h1>
+
+<p>
+Premium locks, commercial hardware, and access control solutions for professionals and homeowners.
+</p>
+
+<div class="btns">
+<a href="#shop" class="gold-btn">🔒 SHOP LOCKS</a>
+<a href="#categories" class="outline-btn">BROWSE CATEGORIES</a>
 </div>
 </section>
 
-<div class="trust-row">
-<div class="trust-item">
-<div class="trust-icon">🚚</div>
-<strong>FREE SHIPPING</strong>
-Nationwide
-</div>
-
-<div class="trust-item">
-<div class="trust-icon">🛡️</div>
-<strong>WARRANTY</strong>
-1 Year Included
-</div>
-
-<div class="trust-item">
-<div class="trust-icon">🛠️</div>
-<strong>PRO INSTALL</strong>
-From $99
-</div>
-
-<div class="trust-item">
-<div class="trust-icon">🏆</div>
-<strong>TOP RATED</strong>
-5 Star Service
-</div>
-</div>
-
-<section id="categories" class="section">
-<div class="section-head">
-<h2>TOP CATEGORIES</h2>
-<a href="#products">View All ›</a>
-</div>
-
-<div class="category-grid">
-<div class="cat-card" onclick="showToast('Smart Locks selected')">
-<img src="/images/IMG_9119.jpg">
-Smart Locks
-</div>
-
-<div class="cat-card" onclick="showToast('Deadbolts selected')">
-<img src="/images/IMG_9120.jpg">
-Deadbolts
-</div>
-
-<div class="cat-card" onclick="showToast('Keypads selected')">
-<img src="/images/IMG_9122.jpg">
-Keypads
-</div>
-
-<div class="cat-card" onclick="showToast('Commercial selected')">
-<img src="/images/IMG_9123.jpg">
-Commercial
-</div>
-
-<div class="cat-card" onclick="showToast('Access Control selected')">
-<img src="/images/IMG_9124.jpg">
-Access Control
-</div>
-
-<div class="cat-card" onclick="showToast('Panic Bars selected')">
-<img src="/images/IMG_9126.jpg">
-Panic Bars
-</div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-head">
-<h2>FEATURED PRODUCTS</h2>
-<a href="#products">Best Sellers ›</a>
-</div>
-</section>
-
-<div id="products" class="products-grid">
-
-<div class="product-card">
-<div class="badge">BEST SELLER</div>
-<div class="favorite">♡</div>
-<img src="/images/IMG_9119.jpg">
-<div class="product-title">Smart Keypad Deadbolt</div>
-<div class="product-sub">WiFi style keypad lock</div>
-<div class="rating">★★★★★ (42)</div>
-<div class="price">$249.00</div>
-<button class="add-cart" onclick="addToCart()">ADD TO CART</button>
-<button class="book-install" onclick="location.href='tel:4435781686'">BOOK SERVICE</button>
-</div>
-
-<div class="product-card">
-<div class="favorite">♡</div>
-<img src="/images/IMG_9120.jpg">
-<div class="product-title">Matte Black Deadbolt</div>
-<div class="product-sub">Single cylinder lock</div>
-<div class="rating">★★★★★ (31)</div>
-<div class="price">$89.00</div>
-<button class="add-cart" onclick="addToCart()">ADD TO CART</button>
-<button class="book-install" onclick="location.href='tel:4435781686'">BOOK SERVICE</button>
-</div>
-
-<div class="product-card">
-<div class="favorite">♡</div>
-<img src="/images/IMG_9122.jpg">
-<div class="product-title">Touchscreen Deadbolt</div>
-<div class="product-sub">Premium keypad lock</div>
-<div class="rating">★★★★★ (28)</div>
-<div class="price">$249.00</div>
-<button class="add-cart" onclick="addToCart()">ADD TO CART</button>
-<button class="book-install" onclick="location.href='tel:4435781686'">BOOK SERVICE</button>
-</div>
-
-</div>
-
-<section class="service-box">
-<h2>Professional Locksmith Installation</h2>
-<p>Need help after buying a lock? Citywide Lock & Key provides local Maryland installation, rekeying, lock changes, smart lock setup, and commercial hardware service.</p>
-
-<div class="service-list">
-<div>🔐 Smart Lock Install</div>
-<div>🚪 Deadbolt Install</div>
-<div>🏢 Commercial Hardware</div>
-<div>⚡ Access Control</div>
-</div>
-</section>
-
-<section class="reviews">
-<h2>Trusted By Local Customers</h2>
-
-<div class="review-card">
-<strong>★★★★★ Fast & Professional</strong>
-<p>Quick response, clean installation, and everything worked perfectly.</p>
-</div>
-
-<div class="review-card">
-<strong>★★★★★ Great Locksmith Service</strong>
-<p>Professional service and fair pricing. Highly recommend.</p>
-</div>
-
-<div class="review-card">
-<strong>★★★★★ Same-Day Help</strong>
-<p>They helped with a lock change the same day and explained everything clearly.</p>
-</div>
-</section>
-
-<section class="finance-banner">
+<section class="trust">
 <div>
-<div style="color:#98a2b3;font-size:13px;font-weight:900;">FINANCING AVAILABLE</div>
-<div class="finance-title">Buy Today, Pay Later</div>
-<div class="finance-text">Easy monthly payments at checkout.</div>
+<span class="ico">🚚</span>
+<strong>FREE SHIPPING</strong>
+Orders $99+
 </div>
-<button class="finance-btn" onclick="showToast('Financing page coming soon')">LEARN MORE</button>
+
+<div>
+<span class="ico">🛡️</span>
+<strong>TOP BRANDS</strong>
+Quality you can trust
+</div>
+
+<div>
+<span class="ico">🎧</span>
+<strong>EXPERT SUPPORT</strong>
+We're here to help
+</div>
+
+<div>
+<span class="ico">🔒</span>
+<strong>SECURE CHECKOUT</strong>
+Safe & easy shopping
+</div>
 </section>
 
-<div id="toast" class="toast">Added</div>
+<section id="categories" class="categories">
+<div class="section-title">
+<h2>SHOP BY CATEGORY</h2>
+<a href="#shop">View all →</a>
+</div>
+
+<div class="cat-scroll">
+<div class="cat">
+<img src="/images/IMG_9119.jpg" alt="Deadbolts">
+<div class="cat-content">
+<strong>DEAD BOLTS</strong>
+<span>Shop Now →</span>
+</div>
+</div>
+
+<div class="cat">
+<img src="/images/IMG_9120.jpg" alt="Smart Locks">
+<div class="cat-content">
+<strong>SMART LOCKS</strong>
+<span>Shop Now →</span>
+</div>
+</div>
+
+<div class="cat">
+<img src="/images/IMG_9122.jpg" alt="Panic Bars">
+<div class="cat-content">
+<strong>PANIC BARS</strong>
+<span>Shop Now →</span>
+</div>
+</div>
+
+<div class="cat">
+<img src="/images/IMG_9124.jpg" alt="Access Control">
+<div class="cat-content">
+<strong>ACCESS CONTROL</strong>
+<span>Shop Now →</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="shop" class="categories">
+<div class="section-title">
+<h2>FEATURED LOCKS</h2>
+<a href="tel:4435781686">Need install?</a>
+</div>
+
+<div class="cat-scroll">
+<div class="cat">
+<img src="/images/IMG_9119.jpg" alt="Smart Deadbolt">
+<div class="cat-content">
+<strong>SMART DEADBOLT</strong>
+<span>$249.00</span>
+</div>
+</div>
+
+<div class="cat">
+<img src="/images/IMG_9120.jpg" alt="Matte Deadbolt">
+<div class="cat-content">
+<strong>MATTE DEADBOLT</strong>
+<span>$89.00</span>
+</div>
+</div>
+
+<div class="cat">
+<img src="/images/IMG_9122.jpg" alt="Touchscreen Lock">
+<div class="cat-content">
+<strong>TOUCHSCREEN LOCK</strong>
+<span>$249.00</span>
+</div>
+</div>
+</div>
+</section>
 
 <nav class="bottom-nav">
-<a href="tel:4435781686">☎ CALL NOW<span>443-578-1686</span></a>
-<a class="middle" href="sms:4435781686">💬 TEXT US<span>Quick Response</span></a>
-<a href="tel:4435781686">📅 BOOK SERVICE<span>From $99</span></a>
+<a href="#categories"><span>🔐</span>Deadbolts</a>
+<a href="#categories"><span>📱</span>Smart Locks</a>
+<a href="tel:4435781686"><span>☎</span>Call</a>
+<a href="#" onclick="toggleMenu()"><span>•••</span>More</a>
 </nav>
 
+</div>
+
 <script>
-let cartCount = 2;
+let cartCount = 0;
 
-window.toggleMenu = function(){
+function toggleMenu(){
 const menu = document.getElementById("mobileMenu");
-if (!menu) {
-alert("Menu missing: mobileMenu");
-return;
-}
 menu.classList.toggle("open");
-};
+}
 
-window.focusSearch = function(){
+function focusSearch(){
 const search = document.getElementById("searchInput");
-if (search) {
 search.focus();
-} else {
-alert("Search missing: searchInput");
 }
-};
 
-window.addToCart = function(){
+function addToCart(){
 cartCount++;
-
-const count = document.getElementById("cartCount");
-if (count) count.innerText = cartCount;
-
-showToast("Added to cart");
-};
-
-window.showToast = function(message){
-const toast = document.getElementById("toast");
-if (!toast) {
-alert(message);
-return;
+document.getElementById("cartCount").innerText = cartCount;
 }
-
-toast.innerText = message;
-toast.classList.add("show");
-
-setTimeout(function(){
-toast.classList.remove("show");
-},1600);
-};
 </script>
 
 </body>
