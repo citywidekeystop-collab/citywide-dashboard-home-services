@@ -10,65 +10,41 @@
 html{scroll-behavior:smooth}
 body{background:#f4f7fb;color:#101828;padding-bottom:95px}
 a{text-decoration:none;color:inherit}
-button{border:0;cursor:pointer}
 
-.top-strip{
-background:#050b16;color:white;padding:9px 8px;display:flex;
-justify-content:space-around;align-items:center;font-size:12px;font-weight:900
-}
-
-.header{
-background:white;padding:18px 22px 14px;display:flex;align-items:center;
-justify-content:space-between;box-shadow:0 8px 24px rgba(0,0,0,.06);
-position:sticky;top:0;z-index:50
-}
-
+.top-strip{background:#050b16;color:white;padding:9px 8px;display:flex;justify-content:space-around;font-size:12px;font-weight:900}
+.header{background:white;padding:18px 22px 14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 24px rgba(0,0,0,.06);position:sticky;top:0;z-index:50}
 .menu-btn{font-size:31px;color:#111827;font-weight:900}
 .logo{text-align:center;line-height:1}
-.logo-main{font-size:25px;font-weight:950;letter-spacing:.5px}
+.logo-main{font-size:25px;font-weight:950}
 .logo-sub{display:block;color:#0057c8;font-size:12px;letter-spacing:4px;margin-top:4px;font-weight:900}
-.header-icons{display:flex;gap:18px;align-items:center;font-size:28px}
+.header-icons{display:flex;gap:18px;font-size:28px}
 
 .search-wrap{background:white;padding:0 24px 22px}
-.search-box{
-background:#f7f8fb;border:1px solid #e5e7eb;border-radius:999px;
-display:flex;align-items:center;gap:12px;padding:15px 18px;
-box-shadow:inset 0 1px 4px rgba(0,0,0,.04)
-}
-.search-box span{font-size:22px;color:#667085}
-.search-box input{border:0;outline:0;background:transparent;width:100%;font-size:16px;color:#344054}
+.search-box{background:#f7f8fb;border:1px solid #e5e7eb;border-radius:999px;display:flex;gap:12px;padding:15px 18px}
+.search-box span{font-size:22px}
+.search-box input{border:0;outline:0;background:transparent;width:100%;font-size:16px}
 
-.hero{
-margin:0 24px 18px;border-radius:24px;min-height:315px;
-background:linear-gradient(90deg,rgba(3,8,18,.96),rgba(3,8,18,.70)),
-url('/images/IMG_9119.jpg');
-background-size:cover;background-position:right center;color:white;
-padding:38px 32px;box-shadow:0 18px 45px rgba(0,0,0,.22);overflow:hidden
-}
-.hero-kicker{color:#0b84ff;font-size:13px;font-weight:950;letter-spacing:.3px;margin-bottom:15px}
-.hero h1{font-size:40px;line-height:1.04;letter-spacing:-1.3px;margin-bottom:16px;max-width:365px}
-.hero p{color:#e5e7eb;font-size:17px;line-height:1.48;max-width:355px;margin-bottom:24px}
+.hero{margin:0 24px 18px;border-radius:24px;min-height:315px;background:linear-gradient(90deg,rgba(3,8,18,.96),rgba(3,8,18,.70)),url('/images/IMG_9119.jpg');background-size:cover;background-position:right center;color:white;padding:38px 32px;box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.hero-kicker{color:#0b84ff;font-size:13px;font-weight:950;margin-bottom:15px}
+.hero h1{font-size:38px;line-height:1.04;margin-bottom:16px}
+.hero p{color:#e5e7eb;font-size:17px;line-height:1.48;margin-bottom:24px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{border-radius:12px;padding:15px 22px;font-weight:950;font-size:14px}
-.btn-blue{background:linear-gradient(135deg,#0071ff,#004fd1);color:white}
-.btn-outline{background:rgba(255,255,255,.04);color:white;border:1.5px solid rgba(255,255,255,.85)}
+.btn-blue{background:#0057c8;color:white}
+.btn-outline{color:white;border:1.5px solid white}
 
-.lockout-section{
-background:white;margin:0 24px 22px;border-radius:22px;padding:20px;
-box-shadow:0 14px 30px rgba(0,0,0,.08)
-}
+.emergency-box{margin:0 24px 22px;background:#0057c8;color:white;border-radius:22px;padding:22px;text-align:center;box-shadow:0 14px 30px rgba(0,0,0,.14)}
+.emergency-box h2{font-size:26px;font-weight:950;margin-bottom:10px}
+.emergency-box p{font-size:15px;line-height:1.45;margin-bottom:16px}
+.emergency-box a{display:block;background:white;color:#0057c8;padding:15px;border-radius:14px;font-weight:950}
+
+.lockout-section{background:white;margin:0 24px 22px;border-radius:22px;padding:20px;box-shadow:0 14px 30px rgba(0,0,0,.08)}
 .lockout-section h2{font-size:25px;font-weight:950;margin-bottom:14px;text-align:center}
 .lockout-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.lockout-card{
-background:#f7f8fb;border-radius:16px;padding:16px 10px;text-align:center;
-border:1px solid #e5e7eb;font-weight:900
-}
-.lockout-card .ico{font-size:30px;display:block;margin-bottom:8px}
+.lockout-card{background:#f7f8fb;border-radius:16px;padding:12px;text-align:center;border:1px solid #e5e7eb;font-weight:900}
+.lockout-card img{width:100%;height:115px;object-fit:cover;border-radius:12px;margin-bottom:10px;background:#ddd}
 .lockout-card p{font-size:12px;color:#667085;margin-top:5px;font-weight:700}
-.emergency-btn{
-display:block;margin-top:16px;background:#0057c8;color:white;text-align:center;
-padding:15px;border-radius:14px;font-weight:950
-}
+.emergency-btn{display:block;margin-top:16px;background:#0057c8;color:white;text-align:center;padding:15px;border-radius:14px;font-weight:950}
 
 .section{padding:0 24px 22px}
 .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
@@ -76,17 +52,11 @@ padding:15px;border-radius:14px;font-weight:950
 .section-head a{color:#0057c8;font-weight:900;font-size:14px}
 
 .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.service-card{
-background:white;border-radius:18px;padding:18px 12px;text-align:center;
-box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:900
-}
+.service-card{background:white;border-radius:18px;padding:18px 12px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:900}
 .service-card span{display:block;font-size:30px;margin-bottom:8px}
 .service-card p{font-size:12px;color:#667085;margin-top:5px;font-weight:700}
 
-.shop-banner{
-margin:0 24px 24px;border-radius:24px;background:linear-gradient(135deg,#02060f,#07192f);
-color:white;padding:26px;text-align:center
-}
+.shop-banner{margin:0 24px 24px;border-radius:24px;background:linear-gradient(135deg,#02060f,#07192f);color:white;padding:26px;text-align:center}
 .shop-banner h2{font-size:28px;font-weight:950;margin-bottom:8px}
 .shop-banner p{color:#d0d5dd;margin-bottom:16px}
 .shop-banner a{display:block;background:#0057c8;color:white;padding:15px;border-radius:12px;font-weight:950}
@@ -94,17 +64,12 @@ color:white;padding:26px;text-align:center
 .area-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .area{background:white;border-radius:14px;padding:13px;text-align:center;font-weight:900;box-shadow:0 8px 18px rgba(0,0,0,.06)}
 
-.bottom-nav{
-position:fixed;left:0;right:0;bottom:0;background:white;display:grid;
-grid-template-columns:repeat(4,1fr);box-shadow:0 -10px 25px rgba(0,0,0,.15);z-index:999
-}
+.floating-call{position:fixed;right:18px;bottom:105px;background:#0057c8;color:white;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:28px;box-shadow:0 10px 25px rgba(0,0,0,.25);z-index:9999}
+
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:white;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 -10px 25px rgba(0,0,0,.15);z-index:999}
 .bottom-nav a{text-align:center;padding:13px 4px;font-weight:950;font-size:13px}
 .bottom-nav .middle{background:#0057c8;color:white}
 .bottom-nav span{display:block;font-size:12px;margin-top:4px}
-
-@media(max-width:768px){
-.hero h1{font-size:36px}
-}
 </style>
 </head>
 
@@ -138,7 +103,7 @@ grid-template-columns:repeat(4,1fr);box-shadow:0 -10px 25px rgba(0,0,0,.15);z-in
 </div>
 
 <section class="hero">
-<div class="hero-kicker">24/7 EMERGENCY LOCKSMITH</div>
+<div class="hero-kicker">24/7 CAR LOCKOUTS • HOUSE LOCKOUTS • LOST CAR KEYS</div>
 
 <h1>
 Car Lockouts.<br>
@@ -156,33 +121,41 @@ Fast mobile locksmith service for automotive, residential, commercial, and acces
 </div>
 </section>
 
+<section class="emergency-box">
+<h2>Locked Out Right Now?</h2>
+<p>Car Lockout • House Lockout • Commercial Lockout • Lost Car Keys</p>
+<a href="tel:4435781686">📞 Call 443-578-1686</a>
+</section>
+
 <section class="lockout-section">
 <h2>Emergency Lockout Service</h2>
 
 <div class="lockout-grid">
+
 <div class="lockout-card">
-<span class="ico">🚗</span>
+<img src="/images/car-lockout.jpg" alt="Car Lockout">
 Car Lockouts
 <p>Fast vehicle unlock service.</p>
 </div>
 
 <div class="lockout-card">
-<span class="ico">🏠</span>
+<img src="/images/house-lockout.jpg" alt="House Lockout">
 House Lockouts
 <p>Locked out? We can help.</p>
 </div>
 
 <div class="lockout-card">
-<span class="ico">🏢</span>
+<img src="/images/commercial-lockout.jpg" alt="Commercial Lockout">
 Commercial Lockouts
 <p>Office and storefront access.</p>
 </div>
 
 <div class="lockout-card">
-<span class="ico">🔑</span>
+<img src="/images/lost-car-key.jpg" alt="Lost Car Key">
 Lost Car Keys
 <p>Replacement keys & programming.</p>
 </div>
+
 </div>
 
 <a class="emergency-btn" href="tel:4435781686">📞 CALL 443-578-1686</a>
@@ -203,48 +176,6 @@ Lost Car Keys
 <div class="service-card"><span>🚨</span>Panic Bars<p>Exit devices</p></div>
 <div class="service-card"><span>⚡</span>Access Control<p>Strikes, mag locks, readers</p></div>
 <div class="service-card"><span>📱</span>Smart Locks<p>Keypads & WiFi locks</p></div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-head">
-<h2>Automotive Locksmith</h2>
-<a href="tel:4435781686">Get Help ›</a>
-</div>
-
-<div class="service-grid">
-<div class="service-card"><span>🚗</span>Car Lockouts</div>
-<div class="service-card"><span>🔑</span>Lost Car Keys</div>
-<div class="service-card"><span>📡</span>Remote Fobs</div>
-<div class="service-card"><span>🚘</span>Push-To-Start Keys</div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-head">
-<h2>Residential Locksmith</h2>
-<a href="tel:4435781686">Book ›</a>
-</div>
-
-<div class="service-grid">
-<div class="service-card"><span>🏠</span>House Lockouts</div>
-<div class="service-card"><span>🔐</span>Lock Changes</div>
-<div class="service-card"><span>🛠️</span>Rekey Service</div>
-<div class="service-card"><span>📱</span>Smart Locks</div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-head">
-<h2>Commercial Locksmith</h2>
-<a href="tel:4435781686">Quote ›</a>
-</div>
-
-<div class="service-grid">
-<div class="service-card"><span>🏢</span>Office Lockouts</div>
-<div class="service-card"><span>🚨</span>Panic Bars</div>
-<div class="service-card"><span>⚡</span>Electric Strikes</div>
-<div class="service-card"><span>🧲</span>Mag Locks</div>
 </div>
 </section>
 
@@ -271,6 +202,8 @@ Lost Car Keys
 <div class="area">Baltimore</div>
 </div>
 </section>
+
+<a href="tel:4435781686" class="floating-call">📞</a>
 
 <nav class="bottom-nav">
 <a href="tel:4435781686">☎ CALL<span>443-578-1686</span></a>
