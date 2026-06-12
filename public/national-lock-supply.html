@@ -8,63 +8,65 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 html{scroll-behavior:smooth}
-body{background:#f4f4f4;color:#111;padding-bottom:90px}
+body{background:#f4f4f4;color:#111;padding-bottom:88px}
 a{text-decoration:none;color:inherit}
-button{cursor:pointer}
+button{cursor:pointer;border:0}
 
 .app{max-width:430px;margin:auto;background:#fff;min-height:100vh;overflow:hidden}
 
 .header{background:#050505;padding:22px 18px 16px;border-bottom:2px solid #d99b23}
 .top-icons{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .menu{font-size:36px;color:#d99b23;font-weight:900}
-.logo img{width:120px;display:block;margin:auto}
-.right-icons{display:flex;gap:20px;align-items:center;font-size:28px;color:#d99b23}
+.logo img{width:115px;display:block;margin:auto}
+.right-icons{display:flex;align-items:center;gap:20px;color:#d99b23;font-size:28px}
 .cart{position:relative}
-.cart span{position:absolute;top:-10px;right:-13px;background:#d99b23;color:#000;border-radius:50%;width:22px;height:22px;font-size:13px;display:grid;place-items:center;font-weight:900}
+.cart span{position:absolute;top:-10px;right:-13px;background:#d99b23;color:#000;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:900}
 
-.search{display:flex;border-radius:8px;overflow:hidden;background:#1c1c1c;border:1px solid #333}
-.search input{flex:1;background:#1c1c1c;border:0;outline:0;color:white;padding:17px;font-size:16px}
-.search button{width:65px;background:#d99b23;border:0;font-size:28px;color:#000}
+.search{display:flex;background:#1b1b1b;border:1px solid #333;border-radius:8px;overflow:hidden}
+.search input{flex:1;background:#1b1b1b;color:white;border:0;outline:0;padding:17px;font-size:16px}
+.search button{width:65px;background:#d99b23;color:#000;font-size:27px}
 
-.sale-banner{background:#d99b23;color:#000;text-align:center;padding:15px;font-weight:900;font-size:18px}
+.sale-bar{background:#d99b23;color:#000;text-align:center;font-weight:1000;padding:14px 10px;font-size:17px}
 
-.promo{background:linear-gradient(135deg,#090909,#222);color:white;padding:28px 20px;text-align:center}
-.promo h1{font-size:34px;line-height:1.05;font-weight:1000}
-.promo span{color:#d99b23}
-.promo p{margin-top:12px;font-size:16px;line-height:1.4;color:#ddd}
-.promo .btn{margin-top:18px;display:block;background:#d99b23;color:#000;padding:15px;border-radius:10px;font-weight:1000}
+.promo{background:linear-gradient(135deg,#080808,#222);color:#fff;padding:26px 18px;text-align:center}
+.promo h1{font-size:32px;line-height:1.05;font-weight:1000}
+.promo h1 span{color:#d99b23}
+.promo p{margin:12px auto 18px;max-width:350px;line-height:1.45;color:#ddd}
+.gold-btn{display:block;background:#d99b23;color:#000;padding:15px;border-radius:10px;font-weight:1000;text-align:center}
 
-.categories{padding:22px 16px;background:#fff}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.section-head h2{font-size:24px;font-weight:1000}
-.section-head a{color:#b67a00;font-weight:900}
+.section{padding:22px 15px;background:#fff}
+.section.dark{background:#050505;color:white}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.section-head h2{font-size:23px;font-weight:1000}
+.section-head a{color:#b87900;font-weight:900}
 
-.category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.cat-card{background:#050505;color:#d99b23;border:2px solid #d99b23;border-radius:14px;padding:18px 10px;text-align:center;font-weight:1000;font-size:15px;min-height:74px;display:grid;place-items:center}
+.category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.cat-card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.14);border:1px solid #ddd}
+.cat-card img{width:100%;height:135px;object-fit:cover;display:block;background:#eee}
+.cat-card span{display:block;padding:12px 8px;text-align:center;font-size:14px;font-weight:1000;color:#111;background:#fff}
 
-.products{padding:22px 16px;background:#f5f5f5}
 .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.product{background:white;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.1);overflow:hidden}
-.product img{width:100%;height:130px;object-fit:contain;background:#eee;padding:10px}
+.product{background:white;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.product img{width:100%;height:125px;object-fit:contain;background:#f1f1f1;padding:10px}
 .product-info{padding:12px;text-align:center}
-.product strong{display:block;font-size:14px;margin-bottom:8px}
-.product span{color:#d99b23;font-weight:900}
-.product button{margin-top:10px;width:100%;border:0;background:#d99b23;color:#000;padding:10px;border-radius:8px;font-weight:1000}
+.product-info strong{display:block;font-size:14px;margin-bottom:7px}
+.product-info span{display:block;color:#d99b23;font-weight:1000;margin-bottom:10px}
+.product-info button{width:100%;background:#d99b23;color:#000;border-radius:8px;padding:10px;font-weight:1000}
 
 .install{background:#050505;color:white;padding:24px 18px}
 .install h2{font-size:24px;margin-bottom:10px}
-.install p{color:#ddd;margin-bottom:14px}
-.install ul{list-style:none}
-.install li{padding:8px 0;border-bottom:1px solid #222;font-weight:800}
-.install a{display:block;margin-top:18px;background:#d99b23;color:#000;text-align:center;padding:15px;border-radius:10px;font-weight:1000}
+.install p{color:#ddd;margin-bottom:14px;line-height:1.4}
+.install ul{list-style:none;margin-bottom:18px}
+.install li{padding:9px 0;border-bottom:1px solid #222;font-weight:800}
+.install a{display:block;background:#d99b23;color:#000;text-align:center;padding:15px;border-radius:10px;font-weight:1000}
 
-.trust{background:white;color:#111;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:18px 8px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:#fff;color:#111;padding:18px 8px}
 .trust div{text-align:center;font-size:12px;font-weight:800}
 .trust span{display:block;font-size:25px;margin-bottom:5px}
 
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;padding:24px}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;padding:24px}
 .mobile-menu.open{display:block}
-.menu-panel{background:#070707;border:2px solid #d99b23;border-radius:20px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.menu-panel{background:#070707;border:2px solid #d99b23;border-radius:20px;padding:20px}
 .menu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
 .menu-top img{width:115px}
 .close{background:#1d1d1d;color:white;border:1px solid #555;width:44px;height:44px;border-radius:50%;font-size:28px}
@@ -77,9 +79,9 @@ button{cursor:pointer}
 .bottom-nav span{display:block;color:#d99b23;font-size:23px;margin-bottom:4px}
 
 @media(max-width:380px){
-.logo img{width:105px}
-.promo h1{font-size:30px}
-.cat-card{font-size:14px}
+.logo img{width:100px}
+.promo h1{font-size:28px}
+.cat-card img{height:120px}
 }
 </style>
 </head>
@@ -93,12 +95,11 @@ button{cursor:pointer}
 <button class="close" onclick="toggleMenu()">×</button>
 </div>
 
-<a class="gold-link" href="#categories" onclick="toggleMenu()">🔒 Shop Locks</a>
-<a href="#categories" onclick="toggleMenu()">🚪 Door Knobs</a>
-<a href="#categories" onclick="toggleMenu()">🔐 Deadbolts</a>
-<a href="#categories" onclick="toggleMenu()">⚡ Electric Strikes</a>
-<a href="#categories" onclick="toggleMenu()">🧲 Mag Locks</a>
-<a href="#categories" onclick="toggleMenu()">🚗 Auto Keys</a>
+<a class="gold-link" href="#categories" onclick="toggleMenu()">🔒 Shop Categories</a>
+<a href="#residential" onclick="toggleMenu()">🏠 Residential Locks</a>
+<a href="#commercial" onclick="toggleMenu()">🏢 Commercial Hardware</a>
+<a href="#automotive" onclick="toggleMenu()">🚗 Automotive Keys</a>
+<a href="#install" onclick="toggleMenu()">🔧 Installation</a>
 <a href="sms:4435781686">💬 Text Us</a>
 <a class="call-big" href="tel:4435781686">📞 (443) 578-1686</a>
 </div>
@@ -126,86 +127,122 @@ button{cursor:pointer}
 </div>
 </header>
 
-<div class="sale-banner">🚚 FREE SHIPPING on orders $99+</div>
+<div class="sale-bar">🚚 FREE SHIPPING on orders $99+</div>
 
 <section class="promo">
-<h1>LOCKS, KEYS & <span>ACCESS CONTROL</span></h1>
+<h1>NATIONAL LOCK <span>SUPPLY</span></h1>
 <p>Shop residential locks, commercial hardware, automotive remotes, and professional installation services.</p>
-<a class="btn" href="#categories">SHOP CATEGORIES</a>
+<a class="gold-btn" href="#categories">SHOP NOW</a>
 </section>
 
-<section id="categories" class="categories">
+<section id="categories" class="section">
 <div class="section-head">
 <h2>Shop By Category</h2>
 <a href="#products">View All →</a>
 </div>
 
 <div class="category-grid">
-<div class="cat-card">🚪 Door Knobs</div>
-<div class="cat-card">🔐 Deadbolts</div>
-<div class="cat-card">🔐 Double Deadbolts</div>
-<div class="cat-card">📱 Smart Locks</div>
-<div class="cat-card">🏢 Mortise Cylinders</div>
-<div class="cat-card">🚨 Panic Bars</div>
-<div class="cat-card">⚡ Electric Strikes</div>
-<div class="cat-card">🧲 Mag Locks</div>
-<div class="cat-card">📟 Buzzer Systems</div>
-<div class="cat-card">🎛️ Access Control</div>
-<div class="cat-card">🚗 Car Key Blanks</div>
-<div class="cat-card">🔑 Smart Key Remotes</div>
-<div class="cat-card">📡 Remote Key Fobs</div>
-<div class="cat-card">🚘 Push-To-Start Remotes</div>
+<div class="cat-card"><img src="/images/categories/door-knob.jpg"><span>Door Knobs</span></div>
+<div class="cat-card"><img src="/images/categories/deadbolt.jpg"><span>Deadbolts</span></div>
+<div class="cat-card"><img src="/images/categories/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
+<div class="cat-card"><img src="/images/categories/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
+<div class="cat-card"><img src="/images/categories/electric-strikes.jpg"><span>Electric Strikes</span></div>
+<div class="cat-card"><img src="/images/categories/magnetic-locks.jpg"><span>Mag Locks</span></div>
+<div class="cat-card"><img src="/images/categories/keypad-access-control.jpg"><span>Access Control</span></div>
+<div class="cat-card"><img src="/images/categories/buzzer-systems.jpg"><span>Buzzer Systems</span></div>
 </div>
 </section>
 
-<section id="products" class="products">
+<section id="residential" class="section">
+<div class="section-head">
+<h2>Residential Locks</h2>
+<a href="tel:4435781686">Need Help?</a>
+</div>
+
+<div class="category-grid">
+<div class="cat-card"><img src="/images/categories/deadbolt.jpg"><span>Deadbolts</span></div>
+<div class="cat-card"><img src="/images/categories/door-knob.jpg"><span>Door Knobs</span></div>
+<div class="cat-card"><img src="/images/IMG_9119.jpg"><span>Smart Locks</span></div>
+<div class="cat-card"><img src="/images/IMG_9120.jpg"><span>Keypad Locks</span></div>
+</div>
+</section>
+
+<section id="commercial" class="section">
+<div class="section-head">
+<h2>Commercial Hardware</h2>
+<a href="#categories">View All →</a>
+</div>
+
+<div class="category-grid">
+<div class="cat-card"><img src="/images/categories/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
+<div class="cat-card"><img src="/images/categories/electric-strikes.jpg"><span>Electric Strikes</span></div>
+<div class="cat-card"><img src="/images/categories/magnetic-locks.jpg"><span>Mag Locks</span></div>
+<div class="cat-card"><img src="/images/categories/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
+</div>
+</section>
+
+<section id="automotive" class="section">
+<div class="section-head">
+<h2>Automotive Keys</h2>
+<a href="tel:4435781686">Program Key</a>
+</div>
+
+<div class="category-grid">
+<div class="cat-card"><img src="/images/IMG_9124.jpg"><span>Car Key Blanks</span></div>
+<div class="cat-card"><img src="/images/IMG_9126.jpg"><span>Smart Keys</span></div>
+<div class="cat-card"><img src="/images/IMG_9127.jpg"><span>Remote Fobs</span></div>
+<div class="cat-card"><img src="/images/IMG_9128.jpg"><span>Push-To-Start</span></div>
+</div>
+</section>
+
+<section id="products" class="section">
 <div class="section-head">
 <h2>Recommended For You</h2>
-<a href="tel:4435781686">Need Help?</a>
+<a href="tel:4435781686">Need Install?</a>
 </div>
 
 <div class="product-grid">
 <div class="product">
-<img src="/images/IMG_9119.jpg" alt="Smart Deadbolt">
+<img src="/images/categories/deadbolt.jpg">
 <div class="product-info">
-<strong>Smart Keypad Deadbolt</strong>
-<span>$249.00</span>
-<button onclick="addToCart()">ADD TO CART</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/IMG_9120.jpg" alt="Deadbolt">
-<div class="product-info">
-<strong>Matte Black Deadbolt</strong>
+<strong>Deadbolt Lock</strong>
 <span>$89.00</span>
 <button onclick="addToCart()">ADD TO CART</button>
 </div>
 </div>
 
 <div class="product">
-<img src="/images/IMG_9122.jpg" alt="Touchscreen Lock">
+<img src="/images/categories/exit-push-bars.jpg">
 <div class="product-info">
-<strong>Touchscreen Lock</strong>
-<span>$249.00</span>
+<strong>Exit Push Bar</strong>
+<span>Call For Price</span>
 <button onclick="addToCart()">ADD TO CART</button>
 </div>
 </div>
 
 <div class="product">
-<img src="/images/IMG_9124.jpg" alt="Access Control">
+<img src="/images/categories/electric-strikes.jpg">
 <div class="product-info">
-<strong>Access Control Kit</strong>
-<span>Call For Price</span>
+<strong>Electric Strike</strong>
+<span>$249+</span>
+<button onclick="addToCart()">ADD TO CART</button>
+</div>
+</div>
+
+<div class="product">
+<img src="/images/categories/magnetic-locks.jpg">
+<div class="product-info">
+<strong>Mag Lock</strong>
+<span>$199+</span>
 <button onclick="addToCart()">ADD TO CART</button>
 </div>
 </div>
 </div>
 </section>
 
-<section class="install">
+<section id="install" class="install">
 <h2>Professional Installation Available</h2>
-<p>Buy your hardware and book installation with Citywide Lock & Key.</p>
+<p>Buy your hardware and book professional installation with Citywide Lock & Key.</p>
 <ul>
 <li>✓ Lock Installation</li>
 <li>✓ Electric Strike Installation</li>
