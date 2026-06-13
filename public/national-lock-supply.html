@@ -45,7 +45,7 @@ border:1px solid #ddd;
 text-align:center
 }
 
-.cat-card img{
+.cat-card img,.product img{
 width:100%;
 height:155px;
 object-fit:cover;
@@ -61,29 +61,48 @@ font-weight:1000;
 color:#111
 }
 
-.product img{
-width:100%;
-height:145px;
-object-fit:cover;
-background:#eee;
-display:block
-}
-
 .product-info{padding:14px}
 .product-info strong{display:block;font-size:17px;margin-bottom:8px}
 .product-info span{display:block;color:#d99b23;font-size:20px;font-weight:1000;margin-bottom:10px}
 .product-info button{width:100%;background:#d99b23;color:#000;border:0;border-radius:10px;padding:12px;font-weight:1000}
 
-.install{
+.ai-order,.install,.booking-section{
 background:#050505;
 color:white;
 padding:30px 18px;
 border-top:3px solid #d99b23
 }
-.install h2{font-size:30px;margin-bottom:12px}
-.install p{color:#ddd;margin-bottom:16px;line-height:1.4}
+
+.ai-order h2,.install h2,.booking-section h2{font-size:32px;margin-bottom:10px}
+.ai-order p,.install p,.booking-section p{color:#ddd;margin-bottom:16px;line-height:1.4}
 .install li{list-style:none;padding:10px 0;border-bottom:1px solid #222;font-weight:900}
-.install a{display:block;margin-top:18px;background:#d99b23;color:#000;text-align:center;padding:16px;border-radius:12px;font-weight:1000}
+
+.ai-order input,.ai-order select,.ai-order textarea,
+.booking-section input,.booking-section select,.booking-section textarea{
+width:100%;
+padding:15px;
+margin-bottom:12px;
+border-radius:12px;
+border:1px solid #333;
+background:#181818;
+color:white;
+font-size:16px
+}
+
+.ai-order textarea,.booking-section textarea{height:100px}
+
+.ai-order button,.booking-section button,.install a{
+width:100%;
+display:block;
+background:#d99b23;
+color:#000;
+border:0;
+border-radius:12px;
+padding:16px;
+font-size:18px;
+font-weight:1000;
+text-align:center
+}
 
 .mobile-menu{
 position:fixed;
@@ -108,41 +127,6 @@ padding:18px 0;
 border-bottom:1px solid #222
 }
 .mobile-menu .close{color:#d99b23}
-.booking-section{
-background:#0b0b0b;
-color:white;
-padding:30px 18px;
-border-top:3px solid #d99b23;
-}
-
-.booking-section input,
-.booking-section select,
-.booking-section textarea{
-width:100%;
-padding:15px;
-margin-bottom:12px;
-border-radius:12px;
-border:1px solid #333;
-background:#181818;
-color:white;
-font-size:16px;
-}
-
-.booking-section textarea{
-height:100px;
-}
-
-.booking-section button{
-width:100%;
-background:#d99b23;
-color:#000;
-border:0;
-border-radius:12px;
-padding:16px;
-font-size:18px;
-font-weight:1000;
-cursor:pointer;
-}
 
 .bottom-nav{
 position:fixed;
@@ -162,7 +146,7 @@ z-index:9999
 .logo img{width:120px}
 .promo h1{font-size:38px}
 .section-head h2{font-size:28px}
-.cat-card img{height:145px}
+.cat-card img,.product img{height:145px}
 }
 </style>
 </head>
@@ -218,7 +202,7 @@ z-index:9999
 <section id="residential" class="section">
 <div class="section-head">
 <h2>Residential Locks</h2>
-<a href="tel:4435781686">Need Help?</a>
+<a href="#booking">Need Help?</a>
 </div>
 
 <div class="category-grid">
@@ -232,7 +216,7 @@ z-index:9999
 <section id="commercial" class="section">
 <div class="section-head">
 <h2>Commercial Hardware</h2>
-<a href="#categories">View All →</a>
+<a href="#booking">Need Quote?</a>
 </div>
 
 <div class="category-grid">
@@ -248,7 +232,7 @@ z-index:9999
 <section id="automotive" class="section">
 <div class="section-head">
 <h2>Automotive Keys</h2>
-<a href="tel:4435781686">Program Key</a>
+<a href="#booking">Program Key</a>
 </div>
 
 <div class="category-grid">
@@ -262,7 +246,7 @@ z-index:9999
 <section id="products" class="section">
 <div class="section-head">
 <h2>Recommended For You</h2>
-<a href="tel:4435781686">Need Install?</a>
+<a href="#booking">Need Install?</a>
 </div>
 
 <div class="product-grid">
@@ -271,7 +255,7 @@ z-index:9999
 <div class="product-info">
 <strong>Deadbolt Lock</strong>
 <span>$89.00</span>
-<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
+<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
 </div>
 </div>
 
@@ -280,7 +264,7 @@ z-index:9999
 <div class="product-info">
 <strong>Exit Push Bar</strong>
 <span>Call For Price</span>
-<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
+<button onclick="document.getElementById('booking').scrollIntoView()">GET QUOTE</button>
 </div>
 </div>
 
@@ -289,7 +273,7 @@ z-index:9999
 <div class="product-info">
 <strong>Electric Strike</strong>
 <span>$249+</span>
-<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
+<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
 </div>
 </div>
 
@@ -298,10 +282,49 @@ z-index:9999
 <div class="product-info">
 <strong>Mag Lock</strong>
 <span>$199+</span>
-<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
+<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
 </div>
 </div>
 </div>
+</section>
+
+<section id="ai-order" class="ai-order">
+<h2>AI Lock Assistant</h2>
+<p>Tell us what you need and we’ll help you order the right lock or book installation.</p>
+
+<select id="aiNeed">
+<option>Residential Lock</option>
+<option>Commercial Hardware</option>
+<option>Access Control</option>
+<option>Automotive Key / Remote</option>
+<option>Not Sure - Need Help</option>
+</select>
+
+<select id="aiProduct">
+<option>Deadbolt</option>
+<option>Door Knob</option>
+<option>Smart Lock</option>
+<option>Exit Push Bar</option>
+<option>Electric Strike</option>
+<option>Mag Lock</option>
+<option>Buzzer System</option>
+<option>Smart Key Remote</option>
+<option>Remote Key Fob</option>
+</select>
+
+<select id="aiInstall">
+<option>Yes, I need installation</option>
+<option>No, product only</option>
+<option>Not sure</option>
+</select>
+
+<input id="aiName" placeholder="Your Name">
+<input id="aiPhone" placeholder="Phone Number">
+<input id="aiAddress" placeholder="Service / Shipping Address">
+<input id="aiTime" placeholder="Preferred Day / Time">
+<textarea id="aiNotes" placeholder="Notes or details"></textarea>
+
+<button onclick="sendAIOrder()">🤖 Submit AI Order</button>
 </section>
 
 <section id="install" class="install">
@@ -316,14 +339,16 @@ z-index:9999
 <li>✓ Auto Smart Key Programming</li>
 </ul>
 
-<a href="sms:4435781686?body=Hi, I want to book a lock installation. My name is: , address: , service needed: ">
-📅 BOOK INSTALLATION
-</a>
+<a href="#booking">📅 BOOK INSTALLATION</a>
+</section>
 
-<div class="booking-section">
+<section id="booking" class="booking-section">
+<h2>Book Installation / Order Hardware</h2>
+<p>This saves your request directly into the Citywide / NLS dashboard.</p>
+
 <input id="bookName" placeholder="Your Name">
 <input id="bookPhone" placeholder="Phone Number">
-<input id="bookAddress" placeholder="Service Address">
+<input id="bookAddress" placeholder="Service / Shipping Address">
 
 <select id="bookService">
 <option>Lock Installation</option>
@@ -333,19 +358,20 @@ z-index:9999
 <option>Mag Lock Installation</option>
 <option>Buzzer System Installation</option>
 <option>Car Key / Remote Programming</option>
+<option>Hardware Order Only</option>
 </select>
 
 <input id="bookTime" placeholder="Preferred Day / Time">
 <textarea id="bookNotes" placeholder="Notes"></textarea>
 
 <button onclick="sendBooking()">📅 Submit Booking</button>
-</div></section>
+</section>
 
 <nav class="bottom-nav">
 <a href="tel:4435781686"><span>☎️</span>Call</a>
 <a href="sms:4435781686"><span>💬</span>Text</a>
 <a href="#categories"><span>🔒</span>Shop</a>
-<a href="#install"><span>•••</span>More</a>
+<a href="#booking"><span>•••</span>Book</a>
 </nav>
 
 <div id="mobileMenu" class="mobile-menu">
@@ -356,7 +382,8 @@ z-index:9999
 <a href="#commercial" onclick="toggleMenu()">🏢 Commercial Hardware</a>
 <a href="#automotive" onclick="toggleMenu()">🚗 Automotive Keys</a>
 <a href="#products" onclick="toggleMenu()">🛒 Recommended Products</a>
-<a href="#install" onclick="toggleMenu()">📅 Book Installation</a>
+<a href="#ai-order" onclick="toggleMenu()">🤖 AI Lock Assistant</a>
+<a href="#booking" onclick="toggleMenu()">📅 Book / Order</a>
 <a href="tel:4435781686">📞 Call 443-578-1686</a>
 </div>
 
@@ -366,7 +393,6 @@ document.getElementById("mobileMenu").classList.toggle("open");
 }
 
 function sendBooking(){
-
 const name=document.getElementById("bookName").value;
 const phone=document.getElementById("bookPhone").value;
 const address=document.getElementById("bookAddress").value;
@@ -395,9 +421,40 @@ alert("Booking Submitted Successfully");
 .catch(err=>{
 alert("Booking Failed. Please Call 443-578-1686");
 });
-
 }
 
+function sendAIOrder(){
+const need=document.getElementById("aiNeed").value;
+const product=document.getElementById("aiProduct").value;
+const install=document.getElementById("aiInstall").value;
+const name=document.getElementById("aiName").value;
+const phone=document.getElementById("aiPhone").value;
+const address=document.getElementById("aiAddress").value;
+const time=document.getElementById("aiTime").value;
+const notes=document.getElementById("aiNotes").value;
+
+fetch("/api/booking",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+name,
+phone,
+address,
+service: need + " - " + product + " - " + install,
+time,
+notes
+})
+})
+.then(res=>res.json())
+.then(data=>{
+alert("AI Order Submitted Successfully");
+})
+.catch(err=>{
+alert("AI Order Failed. Please Call 443-578-1686");
+});
+}
 </script>
 
 </body>
