@@ -7,38 +7,42 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-body{background:#fff;color:#101828;padding-bottom:90px}
+html{scroll-behavior:smooth}
+body{background:#fff;color:#101828;padding-bottom:92px}
 a{text-decoration:none;color:inherit}
 
-.header{background:#050505;color:white;padding:20px 18px;border-bottom:2px solid #d99b23}
+.header{background:#050505;color:white;padding:22px 18px;border-bottom:2px solid #d99b23}
 .top-icons{display:flex;align-items:center;justify-content:space-between}
-.menu{font-size:34px;color:#d99b23}
-.logo img{width:120px}
-.right-icons{display:flex;gap:18px;font-size:26px;color:#d99b23}
+.menu{font-size:36px;color:#d99b23;font-weight:1000;cursor:pointer}
+.logo img{width:135px;display:block}
+.right-icons{display:flex;gap:18px;font-size:27px;color:#d99b23}
 
-.search{display:flex;background:#1b1b1b;border-radius:10px;margin-top:18px;overflow:hidden}
-.search input{flex:1;background:#1b1b1b;color:white;border:0;padding:16px;font-size:16px}
-.search button{width:60px;background:#d99b23;border:0;font-size:24px}
+.search{display:flex;background:#1b1b1b;border-radius:14px;margin-top:22px;overflow:hidden}
+.search input{flex:1;background:#1b1b1b;color:white;border:0;padding:17px;font-size:17px;outline:none}
+.search button{width:64px;background:#d99b23;border:0;font-size:24px}
 
-.sale-bar{background:#d99b23;text-align:center;font-weight:1000;padding:13px;color:#000}
+.sale-bar{background:#d99b23;text-align:center;font-weight:1000;padding:14px;color:#000;font-size:17px}
 
-.promo{background:#050505;color:white;text-align:center;padding:28px 18px}
-.promo h1{font-size:34px;font-weight:1000}
+.promo{background:#050505;color:white;text-align:center;padding:48px 22px}
+.promo h1{font-size:42px;font-weight:1000;line-height:1.08}
 .promo span{color:#d99b23}
-.promo p{color:#ddd;margin:12px 0 18px;line-height:1.4}
-.gold-btn{display:block;background:#d99b23;color:#000;padding:15px;border-radius:12px;font-weight:1000}
+.promo p{color:#ddd;margin:18px 0 26px;line-height:1.45;font-size:18px}
+.gold-btn{display:block;background:#d99b23;color:#000;padding:18px;border-radius:14px;font-weight:1000;font-size:18px}
 
-.section{padding:25px 18px;background:#fff}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.section-head h2{font-size:28px;font-weight:1000}
-.section-head a{color:#a87300;font-weight:900}
+.section{padding:28px 18px;background:#fff}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
+.section-head h2{font-size:30px;font-weight:1000}
+.section-head a{color:#a87300;font-weight:1000;font-size:16px}
 
 .category-grid,.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 
 .cat-card,.product{
-background:white;border-radius:16px;overflow:hidden;
+background:white;
+border-radius:16px;
+overflow:hidden;
 box-shadow:0 8px 24px rgba(0,0,0,.12);
-border:1px solid #ddd;text-align:center
+border:1px solid #ddd;
+text-align:center
 }
 
 .cat-card img{
@@ -51,7 +55,7 @@ display:block
 
 .cat-card span{
 display:block;
-padding:14px 8px;
+padding:15px 8px;
 font-size:17px;
 font-weight:1000;
 color:#111
@@ -61,7 +65,8 @@ color:#111
 width:100%;
 height:145px;
 object-fit:cover;
-background:#eee
+background:#eee;
+display:block
 }
 
 .product-info{padding:14px}
@@ -70,19 +75,60 @@ background:#eee
 .product-info button{width:100%;background:#d99b23;color:#000;border:0;border-radius:10px;padding:12px;font-weight:1000}
 
 .install{
-background:#050505;color:white;padding:28px 18px;border-top:3px solid #d99b23
+background:#050505;
+color:white;
+padding:30px 18px;
+border-top:3px solid #d99b23
 }
 .install h2{font-size:30px;margin-bottom:12px}
-.install p{color:#ddd;margin-bottom:16px}
-.install li{list-style:none;padding:9px 0;border-bottom:1px solid #222;font-weight:800}
-.install a{display:block;margin-top:18px;background:#d99b23;color:#000;text-align:center;padding:15px;border-radius:12px;font-weight:1000}
+.install p{color:#ddd;margin-bottom:16px;line-height:1.4}
+.install li{list-style:none;padding:10px 0;border-bottom:1px solid #222;font-weight:900}
+.install a{display:block;margin-top:18px;background:#d99b23;color:#000;text-align:center;padding:16px;border-radius:12px;font-weight:1000}
+
+.mobile-menu{
+position:fixed;
+top:0;
+left:-100%;
+width:82%;
+height:100vh;
+background:#050505;
+z-index:10000;
+padding:30px 22px;
+transition:.3s;
+border-right:3px solid #d99b23;
+box-shadow:12px 0 35px rgba(0,0,0,.45)
+}
+.mobile-menu.open{left:0}
+.mobile-menu a{
+display:block;
+color:white;
+font-size:21px;
+font-weight:900;
+padding:18px 0;
+border-bottom:1px solid #222
+}
+.mobile-menu .close{color:#d99b23}
 
 .bottom-nav{
-position:fixed;left:0;right:0;bottom:0;background:#050505;
-display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-index:9999
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+background:#050505;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border-top:2px solid #d99b23;
+z-index:9999
 }
-.bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900}
-.bottom-nav span{display:block;color:#d99b23;font-size:24px;margin-bottom:4px}
+.bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900;font-size:15px}
+.bottom-nav span{display:block;color:#d99b23;font-size:25px;margin-bottom:5px}
+
+@media(max-width:430px){
+.logo img{width:120px}
+.promo h1{font-size:38px}
+.section-head h2{font-size:28px}
+.cat-card img{height:145px}
+}
 </style>
 </head>
 
@@ -90,21 +136,21 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 
 <header class="header">
 <div class="top-icons">
-<div class="menu">☰</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
 
 <div class="logo">
 <img src="/images/nls-logo.png" alt="NLS Logo">
 </div>
 
 <div class="right-icons">
-<a href="tel:4435781686">☎</a>
-<span>🛒</span>
+<a href="tel:4435781686">☎️</a>
+<a href="#products">🛒</a>
 </div>
 </div>
 
 <div class="search">
 <input placeholder="Search locks, keys, hardware...">
-<button>⌕</button>
+<button onclick="document.getElementById('categories').scrollIntoView()">⌕</button>
 </div>
 </header>
 
@@ -123,47 +169,14 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 </div>
 
 <div class="category-grid">
-
-<div class="cat-card">
-<img src="/images/door-knob.jpg">
-<span>Door Knobs</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/deadbolt.jpg">
-<span>Deadbolts</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/mortise-cylinders.jpg">
-<span>Mortise Cylinders</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/exit-push-bars.jpg">
-<span>Exit Push Bars</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/electric-strikes.jpg">
-<span>Electric Strikes</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/magnetic-locks.jpg">
-<span>Mag Locks</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/keypad-access-control.jpg">
-<span>Access Control</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/buzzer-systems.jpg">
-<span>Buzzer Systems</span>
-</div>
-
+<div class="cat-card"><img src="/images/door-knob.jpg"><span>Door Knobs</span></div>
+<div class="cat-card"><img src="/images/deadbolt.jpg"><span>Deadbolts</span></div>
+<div class="cat-card"><img src="/images/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
+<div class="cat-card"><img src="/images/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
+<div class="cat-card"><img src="/images/electric-strike.jpg"><span>Electric Strikes</span></div>
+<div class="cat-card"><img src="/images/mag-locks.jpg"><span>Mag Locks</span></div>
+<div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
+<div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
 </div>
 </section>
 
@@ -174,27 +187,10 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 </div>
 
 <div class="category-grid">
-
-<div class="cat-card">
-<img src="/images/deadbolt.jpg">
-<span>Deadbolts</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/door-knob.jpg">
-<span>Door Knobs</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/IMG_9119.jpg">
-<span>Smart Locks</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/IMG_9120.jpg">
-<span>Keypad Locks</span>
-</div>
-
+<div class="cat-card"><img src="/images/deadbolt.jpg"><span>Deadbolts</span></div>
+<div class="cat-card"><img src="/images/door-knob.jpg"><span>Door Knobs</span></div>
+<div class="cat-card"><img src="/images/IMG_9119.jpg"><span>Smart Locks</span></div>
+<div class="cat-card"><img src="/images/IMG_9120.jpg"><span>Keypad Locks</span></div>
 </div>
 </section>
 
@@ -205,37 +201,12 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 </div>
 
 <div class="category-grid">
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/exit-push-bars.jpg">
-<span>Exit Push Bars</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/electric-strikes.jpg">
-<span>Electric Strikes</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/magnetic-locks.jpg">
-<span>Mag Locks</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/mortise-cylinders.jpg">
-<span>Mortise Cylinders</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/keypad-access-control.jpg">
-<span>Access Control</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/categories/commercial-category-cards%20(1)/buzzer-systems.jpg">
-<span>Buzzer Systems</span>
-</div>
-
+<div class="cat-card"><img src="/images/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
+<div class="cat-card"><img src="/images/electric-strike.jpg"><span>Electric Strikes</span></div>
+<div class="cat-card"><img src="/images/mag-locks.jpg"><span>Mag Locks</span></div>
+<div class="cat-card"><img src="/images/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
+<div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
+<div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
 </div>
 </section>
 
@@ -246,27 +217,10 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 </div>
 
 <div class="category-grid">
-
-<div class="cat-card">
-<img src="/images/lost-car-key.jpg">
-<span>Car Key Blanks</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/lost-car-key.jpg">
-<span>Smart Keys</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/lost-car-key.jpg">
-<span>Remote Fobs</span>
-</div>
-
-<div class="cat-card">
-<img src="/images/lost-car-key.jpg">
-<span>Push-To-Start</span>
-</div>
-
+<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Car Key Blanks</span></div>
+<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Smart Keys</span></div>
+<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Remote Fobs</span></div>
+<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Push-To-Start</span></div>
 </div>
 </section>
 
@@ -277,43 +231,41 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 </div>
 
 <div class="product-grid">
-
 <div class="product">
 <img src="/images/deadbolt.jpg">
 <div class="product-info">
 <strong>Deadbolt Lock</strong>
 <span>$89.00</span>
-<button>ADD TO CART</button>
+<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
 </div>
 </div>
 
 <div class="product">
-<img src="/images/categories/commercial-category-cards%20(1)/exit-push-bars.jpg">
+<img src="/images/exit-push-bars.jpg">
 <div class="product-info">
 <strong>Exit Push Bar</strong>
 <span>Call For Price</span>
-<button>ADD TO CART</button>
+<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
 </div>
 </div>
 
 <div class="product">
-<img src="/images/categories/commercial-category-cards%20(1)/electric-strikes.jpg">
+<img src="/images/electric-strike.jpg">
 <div class="product-info">
 <strong>Electric Strike</strong>
 <span>$249+</span>
-<button>ADD TO CART</button>
+<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
 </div>
 </div>
 
 <div class="product">
-<img src="/images/categories/commercial-category-cards%20(1)/magnetic-locks.jpg">
+<img src="/images/mag-locks.jpg">
 <div class="product-info">
 <strong>Mag Lock</strong>
 <span>$199+</span>
-<button>ADD TO CART</button>
+<button onclick="location.href='tel:4435781686'">ADD TO CART</button>
 </div>
 </div>
-
 </div>
 </section>
 
@@ -329,15 +281,36 @@ display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #d99b23;z-
 <li>✓ Auto Smart Key Programming</li>
 </ul>
 
-<a href="tel:4435781686">BOOK INSTALLATION</a>
+<a href="sms:4435781686?body=Hi, I want to book a lock installation. My name is: , address: , service needed: ">
+📅 BOOK INSTALLATION
+</a>
+
 </section>
 
 <nav class="bottom-nav">
-<a href="tel:4435781686"><span>☎</span>Call</a>
+<a href="tel:4435781686"><span>☎️</span>Call</a>
 <a href="sms:4435781686"><span>💬</span>Text</a>
 <a href="#categories"><span>🔒</span>Shop</a>
 <a href="#install"><span>•••</span>More</a>
 </nav>
+
+<div id="mobileMenu" class="mobile-menu">
+<a class="close" href="#" onclick="toggleMenu()">✕ Close</a>
+<a href="/">🏠 Locksmith Home</a>
+<a href="#categories" onclick="toggleMenu()">🔒 Shop Categories</a>
+<a href="#residential" onclick="toggleMenu()">🏠 Residential Locks</a>
+<a href="#commercial" onclick="toggleMenu()">🏢 Commercial Hardware</a>
+<a href="#automotive" onclick="toggleMenu()">🚗 Automotive Keys</a>
+<a href="#products" onclick="toggleMenu()">🛒 Recommended Products</a>
+<a href="#install" onclick="toggleMenu()">📅 Book Installation</a>
+<a href="tel:4435781686">📞 Call 443-578-1686</a>
+</div>
+
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
