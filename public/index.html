@@ -7,6 +7,7 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+html{scroll-behavior:smooth}
 body{background:#050505;color:white;padding-bottom:95px}
 a{text-decoration:none;color:inherit}
 
@@ -18,8 +19,8 @@ align-items:center;
 justify-content:space-between;
 border-bottom:2px solid #d9a021
 }
-.menu{font-size:34px}
-.logo{font-size:28px;font-weight:1000;line-height:.95}
+.menu{font-size:34px;color:#d9a021}
+.logo{font-size:28px;font-weight:1000;line-height:.95;text-align:center}
 .logo span{display:block;color:#d9a021;font-size:18px;letter-spacing:1px}
 .call-top{text-align:right;font-size:13px}
 .call-top b{color:#d9a021;font-size:22px}
@@ -34,11 +35,11 @@ font-weight:1000
 
 .hero{
 background:
-linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.55)),
+linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.45)),
 url('/images/house-lockout.jpg');
 background-size:cover;
 background-position:center;
-padding:48px 24px;
+padding:48px 24px
 }
 .hero h1{
 font-size:54px;
@@ -53,13 +54,14 @@ line-height:1.45;
 margin:18px 0 24px;
 color:#eee
 }
-.buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.buttons{display:grid;grid-template-columns:1fr;gap:12px}
 .btn{
-padding:16px;
+padding:17px;
 border-radius:8px;
 font-weight:1000;
 text-align:center;
-border:1px solid #d9a021
+border:1px solid #d9a021;
+font-size:18px
 }
 .gold{background:#d9a021;color:#000}
 .dark{background:#070707;color:white}
@@ -140,10 +142,7 @@ padding:22px;
 display:grid;
 gap:14px
 }
-.shop-banner h2{
-font-size:28px;
-line-height:1.05
-}
+.shop-banner h2{font-size:28px;line-height:1.05}
 .shop-banner h2 span{color:#d9a021}
 .shop-banner p{color:#ddd;line-height:1.4}
 .shop-banner a{
@@ -155,6 +154,38 @@ border-radius:8px;
 font-weight:1000
 }
 
+.booking-section{
+background:#0b0b0b;
+padding:30px 18px;
+color:#fff;
+border-top:3px solid #d9a021
+}
+.booking-section h2{font-size:32px;margin-bottom:10px}
+.booking-section p{color:#ccc;margin-bottom:15px}
+.booking-section input,
+.booking-section select,
+.booking-section textarea{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border-radius:12px;
+border:1px solid #333;
+background:#181818;
+color:#fff;
+font-size:16px
+}
+.booking-section textarea{height:100px}
+.booking-section button{
+width:100%;
+background:#d9a021;
+color:#000;
+border:0;
+padding:16px;
+border-radius:12px;
+font-weight:1000;
+font-size:18px
+}
+
 .badges{
 background:#fff;
 color:#111;
@@ -163,10 +194,7 @@ grid-template-columns:repeat(2,1fr);
 gap:12px;
 padding:20px
 }
-.badges div{
-font-weight:900;
-font-size:14px
-}
+.badges div{font-weight:900;font-size:14px}
 .badges span{
 display:block;
 color:#d9a021;
@@ -205,7 +233,6 @@ color:#000
 
 @media(max-width:430px){
 .hero h1{font-size:47px}
-.buttons{grid-template-columns:1fr}
 .card img{height:120px}
 }
 </style>
@@ -245,7 +272,7 @@ Commercial Locksmith • Rekey & More
 <div class="buttons">
 <a class="btn gold" href="tel:4435781686">📞 CALL NOW</a>
 <a class="btn dark" href="sms:4435781686">💬 TEXT NOW</a>
-<a class="btn dark" href="tel:4435781686">📅 BOOK SERVICE</a>
+<a class="btn dark" href="#booking">📅 BOOK SERVICE</a>
 </div>
 </section>
 
@@ -278,14 +305,16 @@ Commercial Locksmith • Rekey & More
 <a class="learn" href="tel:4435781686">CALL NOW</a>
 </div>
 </div>
+
 <div class="card">
 <img src="/images/rekey-service.jpg" alt="Rekey Service">
 <div class="card-body">
 <h3>Lock Rekey</h3>
-<p>Keep your existing locks and make old keys stop working. Residential and commercial rekey service available.</p>
+<p>Keep your existing locks and make old keys stop working.</p>
 <a class="learn" href="tel:4435781686">GET QUOTE</a>
 </div>
 </div>
+
 <div class="card">
 <img src="/images/lost-car-key.jpg" alt="Lost Car Keys">
 <div class="card-body">
@@ -329,6 +358,29 @@ Shop residential locks, commercial hardware, access control parts, and automotiv
 <a href="/national-lock-supply.html">🛒 SHOP LOCKS & KEYS</a>
 </section>
 
+<section id="booking" class="booking-section">
+<h2>Book Locksmith Service</h2>
+<p>Fill out the form and we’ll call or text you back fast.</p>
+
+<input id="bookName" placeholder="Your Name">
+<input id="bookPhone" placeholder="Phone Number">
+<input id="bookAddress" placeholder="Service Address">
+
+<select id="bookService">
+<option>Car Lockout</option>
+<option>House Lockout</option>
+<option>Lock Rekey</option>
+<option>Lost Car Key</option>
+<option>Commercial Locksmith</option>
+<option>Access Control</option>
+</select>
+
+<input id="bookTime" placeholder="Preferred Day / Time">
+<textarea id="bookNotes" placeholder="Notes"></textarea>
+
+<button onclick="sendBooking()">📅 Submit Booking</button>
+</section>
+
 <section class="badges">
 <div><span>👷</span>Expert Technicians<br><small>Skilled and experienced.</small></div>
 <div><span>👍</span>Satisfaction Guaranteed<br><small>We stand behind our work.</small></div>
@@ -339,10 +391,32 @@ Shop residential locks, commercial hardware, access control parts, and automotiv
 <nav class="bottom-nav">
 <a href="tel:4435781686"><span>☎</span>CALL</a>
 <a href="sms:4435781686"><span>💬</span>TEXT</a>
-<a class="book" href="#locksmith-services"><span>📅</span>BOOK</a>
+<a class="book" href="#booking"><span>📅</span>BOOK</a>
 <a href="#locksmith-services"><span>🔐</span>SERVICES</a>
 <a href="/national-lock-supply.html"><span>•••</span>SHOP</a>
 </nav>
+
+<script>
+function sendBooking(){
+const name=document.getElementById("bookName").value;
+const phone=document.getElementById("bookPhone").value;
+const address=document.getElementById("bookAddress").value;
+const service=document.getElementById("bookService").value;
+const time=document.getElementById("bookTime").value;
+const notes=document.getElementById("bookNotes").value;
+
+const msg=`New Citywide Booking Request
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Service Needed: ${service}
+Preferred Time: ${time}
+Notes: ${notes}`;
+
+window.location.href="sms:4435781686?body="+encodeURIComponent(msg);
+}
+</script>
 
 </body>
 </html>
