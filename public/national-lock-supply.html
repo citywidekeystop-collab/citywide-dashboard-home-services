@@ -364,6 +364,28 @@ z-index:9999
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("open");
 }
+
+function sendBooking(){
+const name = document.getElementById("bookName").value;
+const phone = document.getElementById("bookPhone").value;
+const address = document.getElementById("bookAddress").value;
+const service = document.getElementById("bookService").value;
+const time = document.getElementById("bookTime").value;
+const notes = document.getElementById("bookNotes").value;
+
+const msg =
+`New NLS Booking Request
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Service Needed: ${service}
+Preferred Time: ${time}
+Notes: ${notes}`;
+
+window.location.href =
+"sms:4435781686?body=" + encodeURIComponent(msg);
+}
 </script>
 
 </body>
