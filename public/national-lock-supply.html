@@ -285,7 +285,26 @@ z-index:9999
 📅 BOOK INSTALLATION
 </a>
 
-</section>
+<div class="booking-section">
+<input id="bookName" placeholder="Your Name">
+<input id="bookPhone" placeholder="Phone Number">
+<input id="bookAddress" placeholder="Service Address">
+
+<select id="bookService">
+<option>Lock Installation</option>
+<option>Deadbolt Installation</option>
+<option>Smart Lock Installation</option>
+<option>Electric Strike Installation</option>
+<option>Mag Lock Installation</option>
+<option>Buzzer System Installation</option>
+<option>Car Key / Remote Programming</option>
+</select>
+
+<input id="bookTime" placeholder="Preferred Day / Time">
+<textarea id="bookNotes" placeholder="Notes"></textarea>
+
+<button onclick="sendBooking()">📅 Submit Booking</button>
+</div></section>
 
 <nav class="bottom-nav">
 <a href="tel:4435781686"><span>☎️</span>Call</a>
