@@ -366,26 +366,38 @@ document.getElementById("mobileMenu").classList.toggle("open");
 }
 
 function sendBooking(){
-const name = document.getElementById("bookName").value;
-const phone = document.getElementById("bookPhone").value;
-const address = document.getElementById("bookAddress").value;
-const service = document.getElementById("bookService").value;
-const time = document.getElementById("bookTime").value;
-const notes = document.getElementById("bookNotes").value;
 
-const msg =
-`New NLS Booking Request
+const name=document.getElementById("bookName").value;
+const phone=document.getElementById("bookPhone").value;
+const address=document.getElementById("bookAddress").value;
+const service=document.getElementById("bookService").value;
+const time=document.getElementById("bookTime").value;
+const notes=document.getElementById("bookNotes").value;
 
-Name: ${name}
-Phone: ${phone}
-Address: ${address}
-Service Needed: ${service}
-Preferred Time: ${time}
-Notes: ${notes}`;
+fetch("/api/booking",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+name,
+phone,
+address,
+service,
+time,
+notes
+})
+})
+.then(res=>res.json())
+.then(data=>{
+alert("Booking Submitted Successfully");
+})
+.catch(err=>{
+alert("Booking Failed. Please Call 443-578-1686");
+});
 
-window.location.href =
-"sms:4435781686?body=" + encodeURIComponent(msg);
 }
+
 </script>
 
 </body>
