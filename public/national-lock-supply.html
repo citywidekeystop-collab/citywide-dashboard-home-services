@@ -8,41 +8,92 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 html{scroll-behavior:smooth}
-body{background:#fff;color:#101828;padding-bottom:92px}
+body{background:#f4f4f4;color:#101828;padding-bottom:92px}
 a{text-decoration:none;color:inherit}
 
-.header{background:#050505;color:white;padding:22px 18px;border-bottom:2px solid #d99b23}
-.top-icons{display:flex;align-items:center;justify-content:space-between}
+.header{
+background:#050505;
+color:white;
+padding:18px 28px;
+border-bottom:2px solid #d99b23;
+position:sticky;
+top:0;
+z-index:9999
+}
+
+.top-icons{
+max-width:1400px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
+}
+
 .menu{font-size:36px;color:#d99b23;font-weight:1000;cursor:pointer}
-.logo img{width:135px;display:block}
+.logo img{width:130px;display:block}
 .right-icons{display:flex;gap:18px;font-size:27px;color:#d99b23}
 
-.search{display:flex;background:#1b1b1b;border-radius:14px;margin-top:22px;overflow:hidden}
+.desktop-links{
+display:none;
+gap:26px;
+font-weight:900;
+align-items:center
+}
+.desktop-links a{color:white}
+.desktop-links a:hover{color:#d99b23}
+
+.search{
+max-width:900px;
+margin:20px auto 0;
+display:flex;
+background:#1b1b1b;
+border-radius:14px;
+overflow:hidden;
+border:1px solid #333
+}
 .search input{flex:1;background:#1b1b1b;color:white;border:0;padding:17px;font-size:17px;outline:none}
-.search button{width:64px;background:#d99b23;border:0;font-size:24px}
+.search button{width:70px;background:#d99b23;border:0;font-size:24px;cursor:pointer}
 
 .sale-bar{background:#d99b23;text-align:center;font-weight:1000;padding:14px;color:#000;font-size:17px}
 
-.promo{background:#050505;color:white;text-align:center;padding:48px 22px}
-.promo h1{font-size:42px;font-weight:1000;line-height:1.08}
+.promo{
+background:linear-gradient(135deg,#050505,#171717);
+color:white;
+text-align:center;
+padding:65px 22px;
+border-bottom:2px solid #d99b23
+}
+.promo h1{font-size:52px;font-weight:1000;line-height:1.05}
 .promo span{color:#d99b23}
-.promo p{color:#ddd;margin:18px 0 26px;line-height:1.45;font-size:18px}
-.gold-btn{display:block;background:#d99b23;color:#000;padding:18px;border-radius:14px;font-weight:1000;font-size:18px}
+.promo p{color:#ddd;margin:20px auto 28px;line-height:1.45;font-size:20px;max-width:850px}
+.gold-btn{display:inline-block;background:#d99b23;color:#000;padding:18px 55px;border-radius:14px;font-weight:1000;font-size:18px}
 
-.section{padding:28px 18px;background:#fff}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
-.section-head h2{font-size:30px;font-weight:1000}
-.section-head a{color:#a87300;font-weight:1000;font-size:16px}
+.section{padding:42px 24px;background:#f4f4f4}
+.section-inner{max-width:1400px;margin:auto}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:12px}
+.section-head h2{font-size:36px;font-weight:1000;color:#111}
+.section-head a{color:#a87300;font-weight:1000;font-size:17px}
 
-.category-grid,.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.category-grid,.product-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px
+}
 
 .cat-card,.product{
 background:white;
-border-radius:16px;
+border-radius:18px;
 overflow:hidden;
-box-shadow:0 8px 24px rgba(0,0,0,.12);
+box-shadow:0 10px 28px rgba(0,0,0,.14);
 border:1px solid #ddd;
-text-align:center
+text-align:center;
+transition:.25s
+}
+
+.cat-card:hover,.product:hover{
+transform:translateY(-4px);
+border-color:#d99b23
 }
 
 .cat-card img,.product img{
@@ -55,33 +106,38 @@ display:block
 
 .cat-card span{
 display:block;
-padding:15px 8px;
-font-size:17px;
+padding:16px 8px;
+font-size:18px;
 font-weight:1000;
 color:#111
 }
 
-.product-info{padding:14px}
-.product-info strong{display:block;font-size:17px;margin-bottom:8px}
-.product-info span{display:block;color:#d99b23;font-size:20px;font-weight:1000;margin-bottom:10px}
-.product-info button{width:100%;background:#d99b23;color:#000;border:0;border-radius:10px;padding:12px;font-weight:1000}
+.product-info{padding:16px}
+.product-info strong{display:block;font-size:18px;margin-bottom:8px;color:#111}
+.product-info span{display:block;color:#d99b23;font-size:22px;font-weight:1000;margin-bottom:12px}
+.product-info button{width:100%;background:#d99b23;color:#000;border:0;border-radius:10px;padding:13px;font-weight:1000;cursor:pointer}
 
 .ai-order,.install,.booking-section{
 background:#050505;
 color:white;
-padding:30px 18px;
+padding:45px 24px;
 border-top:3px solid #d99b23
 }
 
-.ai-order h2,.install h2,.booking-section h2{font-size:32px;margin-bottom:10px}
-.ai-order p,.install p,.booking-section p{color:#ddd;margin-bottom:16px;line-height:1.4}
-.install li{list-style:none;padding:10px 0;border-bottom:1px solid #222;font-weight:900}
+.ai-inner,.install-inner,.booking-inner{
+max-width:900px;
+margin:auto
+}
+
+.ai-order h2,.install h2,.booking-section h2{font-size:34px;margin-bottom:10px}
+.ai-order p,.install p,.booking-section p{color:#ddd;margin-bottom:18px;line-height:1.4;font-size:17px}
+.install li{list-style:none;padding:12px 0;border-bottom:1px solid #222;font-weight:900}
 
 .ai-order input,.ai-order select,.ai-order textarea,
 .booking-section input,.booking-section select,.booking-section textarea{
 width:100%;
-padding:15px;
-margin-bottom:12px;
+padding:16px;
+margin-bottom:13px;
 border-radius:12px;
 border:1px solid #333;
 background:#181818;
@@ -89,7 +145,7 @@ color:white;
 font-size:16px
 }
 
-.ai-order textarea,.booking-section textarea{height:100px}
+.ai-order textarea,.booking-section textarea{height:110px}
 
 .ai-order button,.booking-section button,.install a{
 width:100%;
@@ -98,10 +154,18 @@ background:#d99b23;
 color:#000;
 border:0;
 border-radius:12px;
-padding:16px;
+padding:17px;
 font-size:18px;
 font-weight:1000;
-text-align:center
+text-align:center;
+cursor:pointer
+}
+
+.status-msg{
+margin-top:12px;
+color:#d99b23;
+font-weight:1000;
+font-size:16px
 }
 
 .mobile-menu{
@@ -109,6 +173,7 @@ position:fixed;
 top:0;
 left:-100%;
 width:82%;
+max-width:380px;
 height:100vh;
 background:#050505;
 z-index:10000;
@@ -142,9 +207,22 @@ z-index:9999
 .bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900;font-size:15px}
 .bottom-nav span{display:block;color:#d99b23;font-size:25px;margin-bottom:5px}
 
+@media(min-width:992px){
+body{padding-bottom:0}
+.bottom-nav{display:none}
+.desktop-links{display:flex}
+.category-grid,.product-grid{grid-template-columns:repeat(4,1fr);gap:24px}
+.cat-card img,.product img{height:240px}
+.section{padding:50px 35px}
+.promo h1{font-size:60px}
+.promo{padding:75px 22px}
+}
+
 @media(max-width:430px){
+.header{padding:18px}
 .logo img{width:120px}
 .promo h1{font-size:38px}
+.promo p{font-size:18px}
 .section-head h2{font-size:28px}
 .cat-card img,.product img{height:145px}
 }
@@ -160,6 +238,16 @@ z-index:9999
 <div class="logo">
 <img src="/images/nls-logo.png" alt="NLS Logo">
 </div>
+
+<nav class="desktop-links">
+<a href="#categories">Shop</a>
+<a href="#residential">Residential</a>
+<a href="#commercial">Commercial</a>
+<a href="#automotive">Automotive</a>
+<a href="#ai-order">AI Assistant</a>
+<a href="#booking">Book Install</a>
+<a href="tel:4435781686">Call Now</a>
+</nav>
 
 <div class="right-icons">
 <a href="tel:4435781686">☎️</a>
@@ -177,11 +265,12 @@ z-index:9999
 
 <section class="promo">
 <h1>NATIONAL LOCK <span>SUPPLY</span></h1>
-<p>Shop residential locks, commercial hardware, automotive remotes, and professional installation services.</p>
+<p>Shop residential locks, commercial hardware, automotive remotes, access control parts, and professional installation services.</p>
 <a class="gold-btn" href="#categories">SHOP NOW</a>
 </section>
 
 <section id="categories" class="section">
+<div class="section-inner">
 <div class="section-head">
 <h2>Shop By Category</h2>
 <a href="#products">View All →</a>
@@ -197,9 +286,11 @@ z-index:9999
 <div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
 <div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
 </div>
+</div>
 </section>
 
 <section id="residential" class="section">
+<div class="section-inner">
 <div class="section-head">
 <h2>Residential Locks</h2>
 <a href="#booking">Need Help?</a>
@@ -211,9 +302,11 @@ z-index:9999
 <div class="cat-card"><img src="/images/IMG_9119.jpg"><span>Smart Locks</span></div>
 <div class="cat-card"><img src="/images/IMG_9120.jpg"><span>Keypad Locks</span></div>
 </div>
+</div>
 </section>
 
 <section id="commercial" class="section">
+<div class="section-inner">
 <div class="section-head">
 <h2>Commercial Hardware</h2>
 <a href="#booking">Need Quote?</a>
@@ -227,9 +320,11 @@ z-index:9999
 <div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
 <div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
 </div>
+</div>
 </section>
 
 <section id="automotive" class="section">
+<div class="section-inner">
 <div class="section-head">
 <h2>Automotive Keys</h2>
 <a href="#booking">Program Key</a>
@@ -241,9 +336,11 @@ z-index:9999
 <div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Remote Fobs</span></div>
 <div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Push-To-Start</span></div>
 </div>
+</div>
 </section>
 
 <section id="products" class="section">
+<div class="section-inner">
 <div class="section-head">
 <h2>Recommended For You</h2>
 <a href="#booking">Need Install?</a>
@@ -286,9 +383,11 @@ z-index:9999
 </div>
 </div>
 </div>
+</div>
 </section>
 
 <section id="ai-order" class="ai-order">
+<div class="ai-inner">
 <h2>AI Lock Assistant</h2>
 <p>Tell us what you need and we’ll help you order the right lock or book installation.</p>
 
@@ -325,9 +424,12 @@ z-index:9999
 <textarea id="aiNotes" placeholder="Notes or details"></textarea>
 
 <button onclick="sendAIOrder()">🤖 Submit AI Order</button>
+<p id="aiStatus" class="status-msg"></p>
+</div>
 </section>
 
 <section id="install" class="install">
+<div class="install-inner">
 <h2>Professional Installation Available</h2>
 <p>Buy locks and book professional installation with Citywide Lock & Key.</p>
 
@@ -340,9 +442,11 @@ z-index:9999
 </ul>
 
 <a href="#booking">📅 BOOK INSTALLATION</a>
+</div>
 </section>
 
 <section id="booking" class="booking-section">
+<div class="booking-inner">
 <h2>Book Installation / Order Hardware</h2>
 <p>This saves your request directly into the Citywide / NLS dashboard.</p>
 
@@ -365,6 +469,8 @@ z-index:9999
 <textarea id="bookNotes" placeholder="Notes"></textarea>
 
 <button onclick="sendBooking()">📅 Submit Booking</button>
+<p id="bookingStatus" class="status-msg"></p>
+</div>
 </section>
 
 <nav class="bottom-nav">
@@ -402,24 +508,15 @@ const notes=document.getElementById("bookNotes").value;
 
 fetch("/api/booking",{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-name,
-phone,
-address,
-service,
-time,
-notes
-})
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name,phone,address,service,time,notes})
 })
 .then(res=>res.json())
 .then(data=>{
-alert("Booking Submitted Successfully");
+document.getElementById("bookingStatus").innerText="✅ Booking submitted successfully. We will contact you shortly.";
 })
 .catch(err=>{
-alert("Booking Failed. Please Call 443-578-1686");
+document.getElementById("bookingStatus").innerText="❌ Booking failed. Please call 443-578-1686.";
 });
 }
 
@@ -435,9 +532,7 @@ const notes=document.getElementById("aiNotes").value;
 
 fetch("/api/booking",{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
+headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
 name,
 phone,
@@ -449,10 +544,10 @@ notes
 })
 .then(res=>res.json())
 .then(data=>{
-alert("AI Order Submitted Successfully");
+document.getElementById("aiStatus").innerText="✅ AI order submitted successfully. We will contact you shortly.";
 })
 .catch(err=>{
-alert("AI Order Failed. Please Call 443-578-1686");
+document.getElementById("aiStatus").innerText="❌ AI order failed. Please call 443-578-1686.";
 });
 }
 </script>
