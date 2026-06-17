@@ -8,263 +8,67 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 html{scroll-behavior:smooth}
-body{background:#f4f4f4;color:#101828;padding-bottom:92px}
+body{background:#f5f6f8;color:#111;padding-bottom:90px}
 a{text-decoration:none;color:inherit}
+:root{--blue:#0067b8;--orange:#ff4b00;--dark:#101828}
 
-.header{
-background:#050505;
-color:white;
-padding:18px 28px;
-border-bottom:2px solid #d99b23;
-position:sticky;
-top:0;
-z-index:9999
-}
+.header{background:var(--blue);color:white;padding:18px;position:sticky;top:0;z-index:9999}
+.top-row{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:auto}
+.menu{font-size:36px;cursor:pointer}
+.logo img{width:150px}
+.icons{display:flex;gap:18px;font-size:28px;align-items:center}
+.cart-count{background:red;color:white;border-radius:50%;padding:4px 9px;font-size:15px}
 
-.top-icons{
-max-width:1400px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px
-}
+.search{max-width:800px;margin:18px auto 0;display:flex;background:white;border-radius:12px;overflow:hidden}
+.search input{flex:1;border:0;padding:17px;font-size:18px}
+.search button{width:70px;border:0;background:var(--orange);color:white;font-size:24px}
 
-.menu{font-size:36px;color:#d99b23;font-weight:1000;cursor:pointer}
-.logo img{width:130px;display:block}
-.right-icons{display:flex;gap:18px;font-size:27px;color:#d99b23}
+.hero{background:white;text-align:center;padding:38px 18px}
+.hero h1{font-size:42px;color:var(--dark)}
+.hero span{color:var(--blue)}
+.hero p{margin:12px auto;max-width:650px;color:#555}
+.hero a{display:inline-block;background:var(--orange);color:white;padding:15px 40px;border-radius:10px;font-weight:900;margin-top:12px}
 
-.desktop-links{
-display:none;
-gap:26px;
-font-weight:900;
-align-items:center
-}
-.desktop-links a{color:white}
-.desktop-links a:hover{color:#d99b23}
+.section{padding:34px 18px}
+.inner{max-width:1200px;margin:auto}
+.section h2{font-size:32px;margin-bottom:20px}
 
-.search{
-max-width:900px;
-margin:20px auto 0;
-display:flex;
-background:#1b1b1b;
-border-radius:14px;
-overflow:hidden;
-border:1px solid #333
-}
-.search input{flex:1;background:#1b1b1b;color:white;border:0;padding:17px;font-size:17px;outline:none}
-.search button{width:70px;background:#d99b23;border:0;font-size:24px;cursor:pointer}
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.product{background:white;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.12);overflow:hidden;text-align:center}
+.product img{width:100%;height:190px;object-fit:cover;display:block}
+.product-body{padding:16px}
+.product h3{font-size:22px;margin-bottom:8px}
+.old{text-decoration:line-through;color:#888;font-size:18px}
+.price{color:red;font-size:28px;font-weight:1000;margin:8px 0}
+.product button{width:100%;background:var(--orange);color:white;border:0;border-radius:10px;padding:15px;font-size:17px;font-weight:1000}
 
-.sale-bar{background:#d99b23;text-align:center;font-weight:1000;padding:14px;color:#000;font-size:17px}
+.install{background:#101828;color:white;padding:34px 18px}
+.install li{list-style:none;padding:10px 0;border-bottom:1px solid #243044}
+.install a{display:block;background:var(--orange);color:white;text-align:center;padding:16px;border-radius:12px;margin-top:18px;font-weight:1000}
 
-.promo{
-background:linear-gradient(135deg,#050505,#171717);
-color:white;
-text-align:center;
-padding:65px 22px;
-border-bottom:2px solid #d99b23
-}
-.promo h1{font-size:52px;font-weight:1000;line-height:1.05}
-.promo span{color:#d99b23}
-.promo p{color:#ddd;margin:20px auto 28px;line-height:1.45;font-size:20px;max-width:850px}
-.gold-btn{display:inline-block;background:#d99b23;color:#000;padding:18px 55px;border-radius:14px;font-weight:1000;font-size:18px}
+.booking{background:white;padding:34px 18px}
+.booking input,.booking select,.booking textarea{width:100%;padding:15px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc;font-size:16px}
+.booking textarea{height:100px}
+.booking button{width:100%;background:var(--blue);color:white;border:0;border-radius:12px;padding:16px;font-size:18px;font-weight:1000}
 
-.section{padding:42px 24px;background:#f4f4f4}
-.section-inner{max-width:1400px;margin:auto}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:12px}
-.section-head h2{font-size:36px;font-weight:1000;color:#111}
-.section-head a{color:#a87300;font-weight:1000;font-size:17px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:99999;padding:20px}
+.modal-box{background:white;max-width:460px;margin:50px auto;padding:22px;border-radius:18px;color:#111}
+.close{float:right;font-size:24px;border:0;background:none}
+.modal img{width:100%;height:230px;object-fit:cover;border-radius:12px}
+.modal input,.modal select{width:100%;padding:14px;margin:8px 0;border:1px solid #ccc;border-radius:9px}
+.modal button.action{width:100%;padding:16px;background:var(--orange);color:white;border:0;border-radius:12px;font-weight:1000;margin-top:10px}
+.modal button.blue{background:var(--blue)}
 
-.category-grid,.product-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:16px
-}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:var(--blue);display:grid;grid-template-columns:repeat(4,1fr);z-index:9999}
+.bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900;font-size:14px}
+.bottom-nav span{display:block;font-size:24px}
 
-.cat-card,.product{
-background:white;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 10px 28px rgba(0,0,0,.14);
-border:1px solid #ddd;
-text-align:center;
-transition:.25s
-}
-
-.cat-card:hover,.product:hover{
-transform:translateY(-4px);
-border-color:#d99b23
-}
-
-.cat-card img,.product img{
-width:100%;
-height:155px;
-object-fit:cover;
-background:#eee;
-display:block
-}
-
-.cat-card span{
-display:block;
-padding:16px 8px;
-font-size:18px;
-font-weight:1000;
-color:#111
-}
-
-.product-info{padding:16px}
-.product-info strong{display:block;font-size:18px;margin-bottom:8px;color:#111}
-.product-info span{display:block;color:#d99b23;font-size:22px;font-weight:1000;margin-bottom:12px}
-.product-info button{width:100%;background:#d99b23;color:#000;border:0;border-radius:10px;padding:13px;font-weight:1000;cursor:pointer}
-
-.ai-order,.install,.booking-section{
-background:#050505;
-color:white;
-padding:45px 24px;
-border-top:3px solid #d99b23
-}
-
-.ai-inner,.install-inner,.booking-inner{
-max-width:900px;
-margin:auto
-}
-
-.ai-order h2,.install h2,.booking-section h2{font-size:34px;margin-bottom:10px}
-.ai-order p,.install p,.booking-section p{color:#ddd;margin-bottom:18px;line-height:1.4;font-size:17px}
-.install li{list-style:none;padding:12px 0;border-bottom:1px solid #222;font-weight:900}
-
-.ai-order input,.ai-order select,.ai-order textarea,
-.booking-section input,.booking-section select,.booking-section textarea{
-width:100%;
-padding:16px;
-margin-bottom:13px;
-border-radius:12px;
-border:1px solid #333;
-background:#181818;
-color:white;
-font-size:16px
-}
-
-.ai-order textarea,.booking-section textarea{height:110px}
-
-.ai-order button,.booking-section button,.install a{
-width:100%;
-display:block;
-background:#d99b23;
-color:#000;
-border:0;
-border-radius:12px;
-padding:17px;
-font-size:18px;
-font-weight:1000;
-text-align:center;
-cursor:pointer
-}
-
-.status-msg{
-margin-top:12px;
-color:#d99b23;
-font-weight:1000;
-font-size:16px
-}
-
-.mobile-menu{
-position:fixed;
-top:0;
-left:-100%;
-width:82%;
-max-width:380px;
-height:100vh;
-background:#050505;
-z-index:10000;
-padding:30px 22px;
-transition:.3s;
-border-right:3px solid #d99b23;
-box-shadow:12px 0 35px rgba(0,0,0,.45)
-}
-.mobile-menu.open{left:0}
-.mobile-menu a{
-display:block;
-color:white;
-font-size:21px;
-font-weight:900;
-padding:18px 0;
-border-bottom:1px solid #222
-}
-.mobile-menu .close{color:#d99b23}
-
-.bottom-nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-background:#050505;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-border-top:2px solid #d99b23;
-z-index:9999
-}
-.bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900;font-size:15px}
-.bottom-nav span{display:block;color:#d99b23;font-size:25px;margin-bottom:5px}
-
-@media(min-width:900px){
-
-body{
-padding-bottom:0;
-}
-
-.bottom-nav{
-display:none;
-}
-
-.desktop-links{
-display:flex;
-}
-
-.section{
-max-width:1400px;
-margin:auto;
-padding:50px 35px;
-}
-
-.category-grid,
-.product-grid{
-grid-template-columns:repeat(4,1fr);
-gap:24px;
-}
-
-.cat-card,
-.product{
-max-width:320px;
-margin:auto;
-}
-
-.cat-card img,
-.product img{
-width:100%;
-height:280px;
-object-fit:cover;
-object-position:center;
-display:block;
-}
-
-.promo h1{
-font-size:56px;
-}
-
-.promo{
-padding:70px 22px;
-}
-
-}
-
-@media(max-width:430px){
-.header{padding:18px}
-.logo img{width:120px}
-.promo h1{font-size:38px}
-.promo p{font-size:18px}
-.section-head h2{font-size:28px}
-.cat-card img,.product img{height:145px}
+@media(min-width:1000px){
+body{padding-bottom:0}
+.bottom-nav{display:none}
+.product-grid{grid-template-columns:repeat(4,1fr)}
+.product img{height:230px}
+.hero h1{font-size:58px}
 }
 </style>
 </head>
@@ -272,270 +76,250 @@ padding:70px 22px;
 <body>
 
 <header class="header">
-<div class="top-icons">
-<div class="menu" onclick="toggleMenu()">☰</div>
-
-<div class="logo">
-<img src="/images/nls-logo.png" alt="NLS Logo">
-</div>
-
-<nav class="desktop-links">
-<a href="#categories">Shop</a>
-<a href="#residential">Residential</a>
-<a href="#commercial">Commercial</a>
-<a href="#automotive">Automotive</a>
-<a href="#ai-order">AI Assistant</a>
-<a href="#booking">Book Install</a>
-<a href="tel:4435781686">Call Now</a>
-</nav>
-
-<div class="right-icons">
+<div class="top-row">
+<div class="menu">☰</div>
+<div class="logo"><img src="/images/nls-logo.png" alt="NLS Logo"></div>
+<div class="icons">
 <a href="tel:4435781686">☎️</a>
-<a href="#products">🛒</a>
+<span onclick="openCheckout()">🛒 <b id="cartCount" class="cart-count">0</b></span>
 </div>
 </div>
 
 <div class="search">
 <input placeholder="Search locks, keys, hardware...">
-<button onclick="document.getElementById('categories').scrollIntoView()">⌕</button>
+<button>⌕</button>
 </div>
 </header>
 
-<div class="sale-bar">🚚 FREE SHIPPING on orders $99+</div>
-
-<section class="promo">
+<section class="hero">
 <h1>NATIONAL LOCK <span>SUPPLY</span></h1>
-<p>Shop residential locks, commercial hardware, automotive remotes, access control parts, and professional installation services.</p>
-<a class="gold-btn" href="#categories">SHOP NOW</a>
-</section>
-
-<section id="categories" class="section">
-<div class="section-inner">
-<div class="section-head">
-<h2>Shop By Category</h2>
-<a href="#products">View All →</a>
-</div>
-
-<div class="category-grid">
-<div class="cat-card"><img src="/images/door-knob.jpg"><span>Door Knobs</span></div>
-<div class="cat-card"><img src="/images/deadbolt.jpg"><span>Deadbolts</span></div>
-<div class="cat-card"><img src="/images/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
-<div class="cat-card"><img src="/images/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
-<div class="cat-card"><img src="/images/electric-strike.jpg"><span>Electric Strikes</span></div>
-<div class="cat-card"><img src="/images/mag-locks.jpg"><span>Mag Locks</span></div>
-<div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
-<div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
-</div>
-</div>
-</section>
-
-<section id="residential" class="section">
-<div class="section-inner">
-<div class="section-head">
-<h2>Residential Locks</h2>
-<a href="#booking">Need Help?</a>
-</div>
-
-<div class="category-grid">
-<div class="cat-card"><img src="/images/deadbolt.jpg"><span>Deadbolts</span></div>
-<div class="cat-card"><img src="/images/door-knob.jpg"><span>Door Knobs</span></div>
-<div class="cat-card"><img src="/images/IMG_9119.jpg"><span>Smart Locks</span></div>
-<div class="cat-card"><img src="/images/IMG_9120.jpg"><span>Keypad Locks</span></div>
-</div>
-</div>
-</section>
-
-<section id="commercial" class="section">
-<div class="section-inner">
-<div class="section-head">
-<h2>Commercial Hardware</h2>
-<a href="#booking">Need Quote?</a>
-</div>
-
-<div class="category-grid">
-<div class="cat-card"><img src="/images/exit-push-bars.jpg"><span>Exit Push Bars</span></div>
-<div class="cat-card"><img src="/images/electric-strike.jpg"><span>Electric Strikes</span></div>
-<div class="cat-card"><img src="/images/mag-locks.jpg"><span>Mag Locks</span></div>
-<div class="cat-card"><img src="/images/mortise-cylinders.jpg"><span>Mortise Cylinders</span></div>
-<div class="cat-card"><img src="/images/access-control.jpg"><span>Access Control</span></div>
-<div class="cat-card"><img src="/images/buzzer-system.jpg"><span>Buzzer Systems</span></div>
-</div>
-</div>
-</section>
-
-<section id="automotive" class="section">
-<div class="section-inner">
-<div class="section-head">
-<h2>Automotive Keys</h2>
-<a href="#booking">Program Key</a>
-</div>
-
-<div class="category-grid">
-<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Car Key Blanks</span></div>
-<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Smart Keys</span></div>
-<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Remote Fobs</span></div>
-<div class="cat-card"><img src="/images/lost-car-key.jpg"><span>Push-To-Start</span></div>
-</div>
-</div>
+<p>Shop locks, keys, remotes, access control, commercial hardware, and professional installation.</p>
+<a href="#products">SHOP NOW</a>
 </section>
 
 <section id="products" class="section">
-<div class="section-inner">
-<div class="section-head">
-<h2>Recommended For You</h2>
-<a href="#booking">Need Install?</a>
-</div>
+<div class="inner">
+<h2>Featured Products</h2>
 
 <div class="product-grid">
+
 <div class="product">
 <img src="/images/deadbolt.jpg">
-<div class="product-info">
-<strong>Deadbolt Lock</strong>
-<span>$89.00</span>
-<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
+<div class="product-body">
+<h3>Deadbolt Lock</h3>
+<div><span class="old">$119.00</span></div>
+<div class="price">$89.00</div>
+<button onclick="openProduct('Deadbolt Lock',89,'/images/deadbolt.jpg','Residential deadbolt lock. Product only or professional installation available.')">VIEW DETAILS</button>
+</div>
+</div>
+
+<div class="product">
+<img src="/images/door-knob.jpg">
+<div class="product-body">
+<h3>Door Knob</h3>
+<div><span class="old">$79.00</span></div>
+<div class="price">$59.00</div>
+<button onclick="openProduct('Door Knob',59,'/images/door-knob.jpg','Residential entry knob. Great for homes, bedrooms, and offices.')">VIEW DETAILS</button>
+</div>
+</div>
+
+<div class="product">
+<img src="/images/mortise-cylinders.jpg">
+<div class="product-body">
+<h3>Mortise Cylinder</h3>
+<div><span class="old">$69.00</span></div>
+<div class="price">$49.00</div>
+<button onclick="openProduct('Mortise Cylinder',49,'/images/mortise-cylinders.jpg','Commercial mortise cylinder for storefront and business doors.')">VIEW DETAILS</button>
 </div>
 </div>
 
 <div class="product">
 <img src="/images/exit-push-bars.jpg">
-<div class="product-info">
-<strong>Exit Push Bar</strong>
-<span>Call For Price</span>
-<button onclick="document.getElementById('booking').scrollIntoView()">GET QUOTE</button>
+<div class="product-body">
+<h3>Exit Push Bar</h3>
+<div><span class="old">$399.00</span></div>
+<div class="price">$289+</div>
+<button onclick="openProduct('Exit Push Bar',289,'/images/exit-push-bars.jpg','Commercial exit device / panic bar. Installation available.')">VIEW DETAILS</button>
 </div>
 </div>
 
 <div class="product">
 <img src="/images/electric-strike.jpg">
-<div class="product-info">
-<strong>Electric Strike</strong>
-<span>$249+</span>
-<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
+<div class="product-body">
+<h3>Electric Strike</h3>
+<div><span class="old">$329.00</span></div>
+<div class="price">$249+</div>
+<button onclick="openProduct('Electric Strike',249,'/images/electric-strike.jpg','Electric strike hardware for access control systems.')">VIEW DETAILS</button>
 </div>
 </div>
 
 <div class="product">
 <img src="/images/mag-locks.jpg">
-<div class="product-info">
-<strong>Mag Lock</strong>
-<span>$199+</span>
-<button onclick="document.getElementById('booking').scrollIntoView()">BUY / INSTALL</button>
+<div class="product-body">
+<h3>Mag Lock</h3>
+<div><span class="old">$279.00</span></div>
+<div class="price">$199+</div>
+<button onclick="openProduct('Mag Lock',199,'/images/mag-locks.jpg','Magnetic lock for glass or metal doors. Install available.')">VIEW DETAILS</button>
 </div>
 </div>
+
+<div class="product">
+<img src="/images/access-control.jpg">
+<div class="product-body">
+<h3>Access Control</h3>
+<div><span class="old">$499.00</span></div>
+<div class="price">Quote</div>
+<button onclick="openProduct('Access Control System',0,'/images/access-control.jpg','Keypads, card readers, electric strikes, mag locks, buzzers and door access.')">VIEW DETAILS</button>
+</div>
+</div>
+
+<div class="product">
+<img src="/images/lost-car-key.jpg">
+<div class="product-body">
+<h3>Remote Key Fob</h3>
+<div><span class="old">$129.00</span></div>
+<div class="price">$89+</div>
+<button onclick="openProduct('Remote Key Fob',89,'/images/lost-car-key.jpg','Automotive remote key fob. Programming service available.')">VIEW DETAILS</button>
+</div>
+</div>
+
 </div>
 </div>
 </section>
 
-<section id="ai-order" class="ai-order">
-<div class="ai-inner">
-<h2>AI Lock Assistant</h2>
-<p>Tell us what you need and we’ll help you order the right lock or book installation.</p>
-
-<select id="aiNeed">
-<option>Residential Lock</option>
-<option>Commercial Hardware</option>
-<option>Access Control</option>
-<option>Automotive Key / Remote</option>
-<option>Not Sure - Need Help</option>
-</select>
-
-<select id="aiProduct">
-<option>Deadbolt</option>
-<option>Door Knob</option>
-<option>Smart Lock</option>
-<option>Exit Push Bar</option>
-<option>Electric Strike</option>
-<option>Mag Lock</option>
-<option>Buzzer System</option>
-<option>Smart Key Remote</option>
-<option>Remote Key Fob</option>
-</select>
-
-<select id="aiInstall">
-<option>Yes, I need installation</option>
-<option>No, product only</option>
-<option>Not sure</option>
-</select>
-
-<input id="aiName" placeholder="Your Name">
-<input id="aiPhone" placeholder="Phone Number">
-<input id="aiAddress" placeholder="Service / Shipping Address">
-<input id="aiTime" placeholder="Preferred Day / Time">
-<textarea id="aiNotes" placeholder="Notes or details"></textarea>
-
-<button onclick="sendAIOrder()">🤖 Submit AI Order</button>
-<p id="aiStatus" class="status-msg"></p>
-</div>
-</section>
-
-<section id="install" class="install">
-<div class="install-inner">
+<section class="install">
+<div class="inner">
 <h2>Professional Installation Available</h2>
-<p>Buy locks and book professional installation with Citywide Lock & Key.</p>
-
 <ul>
 <li>✓ Lock Installation</li>
+<li>✓ Deadbolt Installation</li>
+<li>✓ Smart Lock Installation</li>
 <li>✓ Electric Strike Installation</li>
 <li>✓ Mag Lock Installation</li>
-<li>✓ Buzzer System Installation</li>
-<li>✓ Auto Smart Key Programming</li>
+<li>✓ Car Key Programming</li>
 </ul>
-
-<a href="#booking">📅 BOOK INSTALLATION</a>
+<a href="#booking">BOOK INSTALLATION</a>
 </div>
 </section>
 
-<section id="booking" class="booking-section">
-<div class="booking-inner">
+<section id="booking" class="booking">
+<div class="inner">
 <h2>Book Installation / Order Hardware</h2>
-<p>This saves your request directly into the Citywide / NLS dashboard.</p>
-
 <input id="bookName" placeholder="Your Name">
 <input id="bookPhone" placeholder="Phone Number">
 <input id="bookAddress" placeholder="Service / Shipping Address">
-
 <select id="bookService">
-<option>Lock Installation</option>
+<option>Hardware Order Only</option>
+<option>Product + Installation</option>
 <option>Deadbolt Installation</option>
 <option>Smart Lock Installation</option>
-<option>Electric Strike Installation</option>
-<option>Mag Lock Installation</option>
-<option>Buzzer System Installation</option>
-<option>Car Key / Remote Programming</option>
-<option>Hardware Order Only</option>
+<option>Commercial Hardware Quote</option>
+<option>Access Control Quote</option>
 </select>
-
-<input id="bookTime" placeholder="Preferred Day / Time">
+<input id="bookTime" placeholder="Preferred Time">
 <textarea id="bookNotes" placeholder="Notes"></textarea>
-
-<button onclick="sendBooking()">📅 Submit Booking</button>
-<p id="bookingStatus" class="status-msg"></p>
+<button onclick="sendBooking()">Submit Request</button>
+<p id="bookingStatus"></p>
 </div>
 </section>
 
-<nav class="bottom-nav">
-<a href="tel:4435781686"><span>☎️</span>Call</a>
-<a href="sms:4435781686"><span>💬</span>Text</a>
-<a href="#categories"><span>🔒</span>Shop</a>
-<a href="#booking"><span>•••</span>Book</a>
-</nav>
-
-<div id="mobileMenu" class="mobile-menu">
-<a class="close" href="#" onclick="toggleMenu()">✕ Close</a>
-<a href="/">🏠 Locksmith Home</a>
-<a href="#categories" onclick="toggleMenu()">🔒 Shop Categories</a>
-<a href="#residential" onclick="toggleMenu()">🏠 Residential Locks</a>
-<a href="#commercial" onclick="toggleMenu()">🏢 Commercial Hardware</a>
-<a href="#automotive" onclick="toggleMenu()">🚗 Automotive Keys</a>
-<a href="#products" onclick="toggleMenu()">🛒 Recommended Products</a>
-<a href="#ai-order" onclick="toggleMenu()">🤖 AI Lock Assistant</a>
-<a href="#booking" onclick="toggleMenu()">📅 Book / Order</a>
-<a href="tel:4435781686">📞 Call 443-578-1686</a>
+<div id="productModal" class="modal">
+<div class="modal-box">
+<button class="close" onclick="closeProduct()">✕</button>
+<img id="modalImg">
+<h2 id="modalTitle"></h2>
+<h3 id="modalPrice" style="color:red;font-size:30px;margin:10px 0;"></h3>
+<p id="modalDesc" style="line-height:1.4;margin-bottom:15px;"></p>
+<button class="action" onclick="addToCart()">ADD TO CART</button>
+<button class="action blue" onclick="openCheckout()">CHECKOUT / REQUEST ORDER</button>
+</div>
 </div>
 
+<div id="checkoutModal" class="modal">
+<div class="modal-box">
+<button class="close" onclick="closeCheckout()">✕</button>
+<h2>Checkout / Order Request</h2>
+<p id="cartSummary" style="margin:12px 0;font-weight:900;"></p>
+<input id="cartName" placeholder="Your Name">
+<input id="cartPhone" placeholder="Phone Number">
+<input id="cartAddress" placeholder="Shipping / Install Address">
+<select id="cartType">
+<option>Product Only</option>
+<option>Product + Installation</option>
+<option>Need Quote First</option>
+</select>
+<button class="action" onclick="submitCartOrder()">SUBMIT ORDER</button>
+<p id="cartStatus" style="margin-top:10px;font-weight:900;"></p>
+</div>
+</div>
+
+<nav class="bottom-nav">
+<a href="tel:4435781686"><span>☎️</span>Call</a>
+<a href="#products"><span>🔎</span>Shop</a>
+<a onclick="openCheckout()"><span>🛒</span>Cart</a>
+<a href="#booking"><span>📅</span>Book</a>
+</nav>
+
 <script>
-function toggleMenu(){
-document.getElementById("mobileMenu").classList.toggle("open");
+let selectedProduct = {};
+let cart = [];
+
+function openProduct(name, price, img, desc){
+selectedProduct = {name, price, img, desc};
+document.getElementById("modalTitle").innerText = name;
+document.getElementById("modalPrice").innerText = price > 0 ? "$" + price : "Request Quote";
+document.getElementById("modalImg").src = img;
+document.getElementById("modalDesc").innerText = desc;
+document.getElementById("productModal").style.display = "block";
+}
+
+function closeProduct(){
+document.getElementById("productModal").style.display = "none";
+}
+
+function addToCart(){
+cart.push(selectedProduct);
+document.getElementById("cartCount").innerText = cart.length;
+alert("Added to cart: " + selectedProduct.name);
+}
+
+function openCheckout(){
+document.getElementById("productModal").style.display = "none";
+document.getElementById("checkoutModal").style.display = "block";
+let total = cart.reduce((sum,item)=>sum + Number(item.price),0);
+document.getElementById("cartSummary").innerText = cart.length + " item(s) - Estimated Total: $" + total;
+}
+
+function closeCheckout(){
+document.getElementById("checkoutModal").style.display = "none";
+}
+
+function submitCartOrder(){
+const name=document.getElementById("cartName").value;
+const phone=document.getElementById("cartPhone").value;
+const address=document.getElementById("cartAddress").value;
+const type=document.getElementById("cartType").value;
+const items=cart.map(i=>i.name + " $" + i.price).join(", ");
+
+fetch("/api/booking",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+name,phone,address,
+service:"NLS Cart Order - " + type,
+time:"ASAP",
+notes:"Items: " + items
+})
+})
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("cartStatus").innerText="✅ Order submitted. We will contact you shortly.";
+cart=[];
+document.getElementById("cartCount").innerText="0";
+})
+.catch(err=>{
+document.getElementById("cartStatus").innerText="❌ Order failed. Please call 443-578-1686.";
+});
 }
 
 function sendBooking(){
@@ -553,41 +337,10 @@ body:JSON.stringify({name,phone,address,service,time,notes})
 })
 .then(res=>res.json())
 .then(data=>{
-document.getElementById("bookingStatus").innerText="✅ Booking submitted successfully. We will contact you shortly.";
+document.getElementById("bookingStatus").innerText="✅ Request submitted successfully.";
 })
 .catch(err=>{
-document.getElementById("bookingStatus").innerText="❌ Booking failed. Please call 443-578-1686.";
-});
-}
-
-function sendAIOrder(){
-const need=document.getElementById("aiNeed").value;
-const product=document.getElementById("aiProduct").value;
-const install=document.getElementById("aiInstall").value;
-const name=document.getElementById("aiName").value;
-const phone=document.getElementById("aiPhone").value;
-const address=document.getElementById("aiAddress").value;
-const time=document.getElementById("aiTime").value;
-const notes=document.getElementById("aiNotes").value;
-
-fetch("/api/booking",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-name,
-phone,
-address,
-service: need + " - " + product + " - " + install,
-time,
-notes
-})
-})
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("aiStatus").innerText="✅ AI order submitted successfully. We will contact you shortly.";
-})
-.catch(err=>{
-document.getElementById("aiStatus").innerText="❌ AI order failed. Please call 443-578-1686.";
+document.getElementById("bookingStatus").innerText="❌ Failed. Please call 443-578-1686.";
 });
 }
 </script>
