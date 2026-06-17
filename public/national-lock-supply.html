@@ -327,6 +327,21 @@ document.getElementById("productModal").style.display="block";
 
 function closeProduct(){document.getElementById("productModal").style.display="none";}
 
+  function updatePrice(){
+
+let option=document.querySelector('input[name="installOption"]:checked').value;
+
+let base=selectedProduct.price || 0;
+
+let total=base;
+
+if(option==="install"){
+total=base+125;
+}
+
+if(option==="install_rekey"){
+total=base+185;
+}
 function changeQty(num){
 qty=Math.max(1,qty+num);
 document.getElementById("qty").value=qty;
