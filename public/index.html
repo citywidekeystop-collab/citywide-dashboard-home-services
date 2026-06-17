@@ -234,7 +234,66 @@ color:#000
 @media(max-width:430px){
 .hero h1{font-size:47px}
 .card img{height:120px}
+}@media (min-width: 1000px){
+
+.hero{
+max-width:1400px;
+margin:auto;
+min-height:500px;
+padding:80px 60px;
 }
+
+.services-grid,
+.cards,
+.service-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+.card,
+.service-card{
+max-width:none;
+}
+
+.card img,
+.service-card img,
+.category-card img,
+.product-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+object-position:center;
+display:block;
+}
+
+.hero h1{
+font-size:72px;
+line-height:1;
+}
+
+.hero p{
+font-size:24px;
+}
+
+.top{
+padding:20px 50px;
+}
+
+.logo{
+font-size:34px;
+}
+
+.booking-section,
+.shop-banner,
+.badges,
+.services{
+max-width:1400px;
+margin:auto;
+}
+
+}
+
 </style>
 </head>
 
