@@ -8,56 +8,64 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
 html{scroll-behavior:smooth}
-body{background:#f5f6f8;color:#111;padding-bottom:90px}
+body{background:#f5f7fb;color:#111;padding-bottom:90px}
 a{text-decoration:none;color:inherit}
-:root{--blue:#0067b8;--orange:#ff4b00;--dark:#101828}
+:root{--blue:#0067b8;--orange:#ff4b00;--dark:#071827;--green:#22c55e}
 
 .header{background:var(--blue);color:white;padding:18px;position:sticky;top:0;z-index:9999}
-.top-row{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:auto}
-.menu{font-size:36px;cursor:pointer}
+.top-row{display:flex;align-items:center;justify-content:space-between;max-width:1250px;margin:auto}
+.menu{font-size:36px}
 .logo img{width:150px}
-.icons{display:flex;gap:18px;font-size:28px;align-items:center}
+.icons{display:flex;gap:18px;align-items:center;font-size:28px}
 .cart-count{background:red;color:white;border-radius:50%;padding:4px 9px;font-size:15px}
 
-.search{max-width:800px;margin:18px auto 0;display:flex;background:white;border-radius:12px;overflow:hidden}
+.search{max-width:850px;margin:18px auto 0;display:flex;background:white;border-radius:12px;overflow:hidden}
 .search input{flex:1;border:0;padding:17px;font-size:18px}
 .search button{width:70px;border:0;background:var(--orange);color:white;font-size:24px}
 
 .hero{background:white;text-align:center;padding:38px 18px}
 .hero h1{font-size:42px;color:var(--dark)}
 .hero span{color:var(--blue)}
-.hero p{margin:12px auto;max-width:650px;color:#555}
+.hero p{margin:12px auto;max-width:700px;color:#555}
 .hero a{display:inline-block;background:var(--orange);color:white;padding:15px 40px;border-radius:10px;font-weight:900;margin-top:12px}
 
 .section{padding:34px 18px}
-.inner{max-width:1200px;margin:auto}
+.inner{max-width:1250px;margin:auto}
 .section h2{font-size:32px;margin-bottom:20px}
 
 .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .product{background:white;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.12);overflow:hidden;text-align:center}
 .product img{width:100%;height:190px;object-fit:cover;display:block}
 .product-body{padding:16px}
-.product h3{font-size:22px;margin-bottom:8px}
-.old{text-decoration:line-through;color:#888;font-size:18px}
+.product h3{font-size:21px;margin-bottom:8px}
+.old{text-decoration:line-through;color:#888;font-size:17px}
 .price{color:red;font-size:28px;font-weight:1000;margin:8px 0}
+.stock{color:var(--green);font-weight:900;margin-bottom:10px}
 .product button{width:100%;background:var(--orange);color:white;border:0;border-radius:10px;padding:15px;font-size:17px;font-weight:1000}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:99999;padding:18px;overflow:auto}
+.modal-box{background:white;max-width:540px;margin:30px auto;padding:22px;border-radius:18px;color:#111}
+.close{float:right;font-size:28px;border:0;background:none;color:#0067b8}
+.modal img{width:100%;height:230px;object-fit:contain;border-radius:12px;background:#f8f8f8}
+.modal h2{font-size:30px;margin-top:14px}
+.modal-price{color:red;font-size:36px;font-weight:1000;margin:10px 0}
+.detail-section{margin:16px 0;padding:14px;background:#f3f6fb;border-radius:12px}
+.detail-section h3{margin-bottom:8px;color:var(--blue)}
+.detail-section ul{padding-left:20px;line-height:1.8}
+.option{display:block;padding:12px;margin:8px 0;background:white;border:1px solid #ddd;border-radius:10px}
+.qty-row{display:flex;align-items:center;gap:12px;margin:15px 0}
+.qty-row button{width:42px;height:42px;border:0;background:var(--blue);color:white;border-radius:8px;font-size:22px}
+.qty-row input{width:70px;text-align:center;padding:12px;font-size:18px}
+.action{width:100%;padding:16px;background:var(--orange);color:white;border:0;border-radius:12px;font-weight:1000;margin-top:10px;font-size:17px}
+.blue{background:var(--blue)}
+.dark{background:#111827}
+
+.checkout input,.checkout select,.checkout textarea{width:100%;padding:14px;margin:8px 0;border:1px solid #ccc;border-radius:9px;font-size:16px}
+.checkout textarea{height:90px}
 
 .install{background:#101828;color:white;padding:34px 18px}
 .install li{list-style:none;padding:10px 0;border-bottom:1px solid #243044}
 .install a{display:block;background:var(--orange);color:white;text-align:center;padding:16px;border-radius:12px;margin-top:18px;font-weight:1000}
-
-.booking{background:white;padding:34px 18px}
-.booking input,.booking select,.booking textarea{width:100%;padding:15px;margin-bottom:12px;border-radius:10px;border:1px solid #ccc;font-size:16px}
-.booking textarea{height:100px}
-.booking button{width:100%;background:var(--blue);color:white;border:0;border-radius:12px;padding:16px;font-size:18px;font-weight:1000}
-
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:99999;padding:20px}
-.modal-box{background:white;max-width:460px;margin:50px auto;padding:22px;border-radius:18px;color:#111}
-.close{float:right;font-size:24px;border:0;background:none}
-.modal img{width:100%;height:230px;object-fit:cover;border-radius:12px}
-.modal input,.modal select{width:100%;padding:14px;margin:8px 0;border:1px solid #ccc;border-radius:9px}
-.modal button.action{width:100%;padding:16px;background:var(--orange);color:white;border:0;border-radius:12px;font-weight:1000;margin-top:10px}
-.modal button.blue{background:var(--blue)}
 
 .bottom-nav{position:fixed;left:0;right:0;bottom:0;background:var(--blue);display:grid;grid-template-columns:repeat(4,1fr);z-index:9999}
 .bottom-nav a{text-align:center;color:white;padding:12px 4px;font-weight:900;font-size:14px}
@@ -86,7 +94,7 @@ body{padding-bottom:0}
 </div>
 
 <div class="search">
-<input placeholder="Search locks, keys, hardware...">
+<input id="searchInput" placeholder="Search locks, keys, hardware..." onkeyup="searchProducts()">
 <button>⌕</button>
 </div>
 </header>
@@ -100,90 +108,7 @@ body{padding-bottom:0}
 <section id="products" class="section">
 <div class="inner">
 <h2>Featured Products</h2>
-
-<div class="product-grid">
-
-<div class="product">
-<img src="/images/deadbolt.jpg">
-<div class="product-body">
-<h3>Deadbolt Lock</h3>
-<div><span class="old">$119.00</span></div>
-<div class="price">$89.00</div>
-<button onclick="openProduct('Deadbolt Lock',89,'/images/deadbolt.jpg','Residential deadbolt lock. Product only or professional installation available.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/door-knob.jpg">
-<div class="product-body">
-<h3>Door Knob</h3>
-<div><span class="old">$79.00</span></div>
-<div class="price">$59.00</div>
-<button onclick="openProduct('Door Knob',59,'/images/door-knob.jpg','Residential entry knob. Great for homes, bedrooms, and offices.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/mortise-cylinders.jpg">
-<div class="product-body">
-<h3>Mortise Cylinder</h3>
-<div><span class="old">$69.00</span></div>
-<div class="price">$49.00</div>
-<button onclick="openProduct('Mortise Cylinder',49,'/images/mortise-cylinders.jpg','Commercial mortise cylinder for storefront and business doors.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/exit-push-bars.jpg">
-<div class="product-body">
-<h3>Exit Push Bar</h3>
-<div><span class="old">$399.00</span></div>
-<div class="price">$289+</div>
-<button onclick="openProduct('Exit Push Bar',289,'/images/exit-push-bars.jpg','Commercial exit device / panic bar. Installation available.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/electric-strike.jpg">
-<div class="product-body">
-<h3>Electric Strike</h3>
-<div><span class="old">$329.00</span></div>
-<div class="price">$249+</div>
-<button onclick="openProduct('Electric Strike',249,'/images/electric-strike.jpg','Electric strike hardware for access control systems.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/mag-locks.jpg">
-<div class="product-body">
-<h3>Mag Lock</h3>
-<div><span class="old">$279.00</span></div>
-<div class="price">$199+</div>
-<button onclick="openProduct('Mag Lock',199,'/images/mag-locks.jpg','Magnetic lock for glass or metal doors. Install available.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/access-control.jpg">
-<div class="product-body">
-<h3>Access Control</h3>
-<div><span class="old">$499.00</span></div>
-<div class="price">Quote</div>
-<button onclick="openProduct('Access Control System',0,'/images/access-control.jpg','Keypads, card readers, electric strikes, mag locks, buzzers and door access.')">VIEW DETAILS</button>
-</div>
-</div>
-
-<div class="product">
-<img src="/images/lost-car-key.jpg">
-<div class="product-body">
-<h3>Remote Key Fob</h3>
-<div><span class="old">$129.00</span></div>
-<div class="price">$89+</div>
-<button onclick="openProduct('Remote Key Fob',89,'/images/lost-car-key.jpg','Automotive remote key fob. Programming service available.')">VIEW DETAILS</button>
-</div>
-</div>
-
-</div>
+<div class="product-grid" id="productGrid"></div>
 </div>
 </section>
 
@@ -198,28 +123,7 @@ body{padding-bottom:0}
 <li>✓ Mag Lock Installation</li>
 <li>✓ Car Key Programming</li>
 </ul>
-<a href="#booking">BOOK INSTALLATION</a>
-</div>
-</section>
-
-<section id="booking" class="booking">
-<div class="inner">
-<h2>Book Installation / Order Hardware</h2>
-<input id="bookName" placeholder="Your Name">
-<input id="bookPhone" placeholder="Phone Number">
-<input id="bookAddress" placeholder="Service / Shipping Address">
-<select id="bookService">
-<option>Hardware Order Only</option>
-<option>Product + Installation</option>
-<option>Deadbolt Installation</option>
-<option>Smart Lock Installation</option>
-<option>Commercial Hardware Quote</option>
-<option>Access Control Quote</option>
-</select>
-<input id="bookTime" placeholder="Preferred Time">
-<textarea id="bookNotes" placeholder="Notes"></textarea>
-<button onclick="sendBooking()">Submit Request</button>
-<p id="bookingStatus"></p>
+<a onclick="openCheckout()">CHECKOUT / REQUEST ORDER</a>
 </div>
 </section>
 
@@ -228,26 +132,61 @@ body{padding-bottom:0}
 <button class="close" onclick="closeProduct()">✕</button>
 <img id="modalImg">
 <h2 id="modalTitle"></h2>
-<h3 id="modalPrice" style="color:red;font-size:30px;margin:10px 0;"></h3>
-<p id="modalDesc" style="line-height:1.4;margin-bottom:15px;"></p>
-<button class="action" onclick="addToCart()">ADD TO CART</button>
-<button class="action blue" onclick="openCheckout()">CHECKOUT / REQUEST ORDER</button>
+<div class="modal-price" id="modalPrice"></div>
+<p id="modalDesc"></p>
+
+<div class="detail-section">
+<h3>Features</h3>
+<ul id="modalFeatures"></ul>
+</div>
+
+<div class="detail-section">
+<h3>Specifications</h3>
+<ul id="modalSpecs"></ul>
+</div>
+
+<div class="detail-section">
+<h3>Installation Options</h3>
+<label class="option"><input type="radio" name="installOption" value="Product Only" checked> Product Only</label>
+<label class="option"><input type="radio" name="installOption" value="Product + Installation"> Product + Professional Installation</label>
+<label class="option"><input type="radio" name="installOption" value="Need Quote First"> Need Quote First</label>
+</div>
+
+<div class="detail-section">
+<h3>Warranty</h3>
+<p id="modalWarranty"></p>
+</div>
+
+<div class="qty-row">
+<button onclick="changeQty(-1)">-</button>
+<input id="qty" value="1" readonly>
+<button onclick="changeQty(1)">+</button>
+</div>
+
+<button class="action" onclick="addToCart()">🛒 ADD TO CART</button>
+<button class="action blue" onclick="addToCart();openCheckout();">CHECKOUT / REQUEST ORDER</button>
+<button class="action dark" onclick="location.href='tel:4435781686'">📞 CALL 443-578-1686</button>
 </div>
 </div>
 
 <div id="checkoutModal" class="modal">
-<div class="modal-box">
+<div class="modal-box checkout">
 <button class="close" onclick="closeCheckout()">✕</button>
 <h2>Checkout / Order Request</h2>
 <p id="cartSummary" style="margin:12px 0;font-weight:900;"></p>
+
 <input id="cartName" placeholder="Your Name">
 <input id="cartPhone" placeholder="Phone Number">
 <input id="cartAddress" placeholder="Shipping / Install Address">
+
 <select id="cartType">
 <option>Product Only</option>
 <option>Product + Installation</option>
 <option>Need Quote First</option>
 </select>
+
+<textarea id="cartNotes" placeholder="Notes / door type / preferred time"></textarea>
+
 <button class="action" onclick="submitCartOrder()">SUBMIT ORDER</button>
 <p id="cartStatus" style="margin-top:10px;font-weight:900;"></p>
 </div>
@@ -257,58 +196,178 @@ body{padding-bottom:0}
 <a href="tel:4435781686"><span>☎️</span>Call</a>
 <a href="#products"><span>🔎</span>Shop</a>
 <a onclick="openCheckout()"><span>🛒</span>Cart</a>
-<a href="#booking"><span>📅</span>Book</a>
+<a onclick="openCheckout()"><span>📅</span>Order</a>
 </nav>
 
 <script>
+const products = [
+{
+name:"Deadbolt Lock",
+price:89,
+old:119,
+img:"/images/deadbolt.jpg",
+desc:"Residential grade deadbolt designed for front doors, side doors, rental properties, and office entrances.",
+features:["Pick resistant cylinder","Heavy duty steel bolt","Includes keys","Satin nickel finish","Fits most standard doors"],
+specs:["Door Thickness: 1-3/8 inch to 1-3/4 inch","Backset: Adjustable","Use: Residential exterior doors","Finish: Satin Nickel"],
+warranty:"1 year manufacturer warranty. 90 day installation warranty when installed by Citywide."
+},
+{
+name:"Door Knob",
+price:59,
+old:79,
+img:"/images/door-knob.jpg",
+desc:"Residential entry door knob with keyed access for homes, offices, rentals, and storage rooms.",
+features:["Includes 2 keys","Adjustable latch","Interior and exterior use","Smooth turning operation"],
+specs:["Door Thickness: Standard residential doors","Finish: Satin Nickel","Use: Entry or interior door"],
+warranty:"1 year manufacturer warranty. 90 day installation warranty available."
+},
+{
+name:"Mortise Cylinder",
+price:49,
+old:69,
+img:"/images/mortise-cylinders.jpg",
+desc:"Commercial mortise cylinder for storefront and business doors.",
+features:["Commercial grade cylinder","Includes keys","Rekey available","Compatible with most storefront locks"],
+specs:["Type: Mortise cylinder","Use: Storefront / commercial doors","Keying: Standard or rekey service available"],
+warranty:"1 year manufacturer warranty."
+},
+{
+name:"Exit Push Bar",
+price:289,
+old:399,
+img:"/images/exit-push-bars.jpg",
+desc:"Commercial panic exit device for emergency exit doors.",
+features:["Heavy duty commercial hardware","Inside push operation","Outside trim available","ADA style emergency egress"],
+specs:["Use: Commercial exit doors","Door Type: Metal or wood depending hardware","Install: Professional install recommended"],
+warranty:"5 year hardware warranty on selected models."
+},
+{
+name:"Electric Strike",
+price:249,
+old:329,
+img:"/images/electric-strike.jpg",
+desc:"Electric strike hardware for access control systems and buzzer entry.",
+features:["Works with keypad systems","Commercial access control use","Remote release compatible","Professional wiring available"],
+specs:["Use: Commercial doors","Power: Depends on system","Install: Professional install required"],
+warranty:"1 year manufacturer warranty."
+},
+{
+name:"Mag Lock",
+price:199,
+old:279,
+img:"/images/mag-locks.jpg",
+desc:"Magnetic lock for glass, aluminum, or metal doors.",
+features:["Strong holding force","Access control compatible","Glass and metal door options","Exit button setup available"],
+specs:["Use: Commercial access control","Door Type: Glass / aluminum / metal","Install: Professional install required"],
+warranty:"1 year manufacturer warranty."
+},
+{
+name:"Access Control System",
+price:0,
+old:0,
+img:"/images/access-control.jpg",
+desc:"Complete access control setup including keypad, reader, electric strike, mag lock, buzzer, and wiring options.",
+features:["Keypad entry","Card reader option","Electric strike or mag lock","Remote buzzer option","Commercial setup"],
+specs:["Use: Offices, stores, buildings","Install: Custom quote required","Hardware: Depends on door type"],
+warranty:"Warranty depends on selected hardware."
+},
+{
+name:"Remote Key Fob",
+price:89,
+old:129,
+img:"/images/lost-car-key.jpg",
+desc:"Automotive remote key fob with programming service available.",
+features:["Replacement remote","Programming available","Smart key options","Vehicle compatibility check required"],
+specs:["Use: Automotive key replacement","Programming: Required for most vehicles","Compatibility: Make/model/year needed"],
+warranty:"Limited warranty after programming."
+}
+];
+
 let selectedProduct = {};
 let cart = [];
+let qty = 1;
 
-function openProduct(name, price, img, desc){
-selectedProduct = {name, price, img, desc};
-document.getElementById("modalTitle").innerText = name;
-document.getElementById("modalPrice").innerText = price > 0 ? "$" + price : "Request Quote";
-document.getElementById("modalImg").src = img;
-document.getElementById("modalDesc").innerText = desc;
-document.getElementById("productModal").style.display = "block";
+function renderProducts(list=products){
+const grid=document.getElementById("productGrid");
+grid.innerHTML="";
+list.forEach((p,i)=>{
+grid.innerHTML += `
+<div class="product">
+<img src="${p.img}" onclick="openProduct(${i})">
+<div class="product-body">
+<h3>${p.name}</h3>
+${p.old ? `<div><span class="old">$${p.old}</span></div>` : ""}
+<div class="price">${p.price ? "$"+p.price : "Quote"}</div>
+<div class="stock">✓ In Stock</div>
+<button onclick="openProduct(${i})">VIEW DETAILS</button>
+</div>
+</div>`;
+});
 }
 
-function closeProduct(){
-document.getElementById("productModal").style.display = "none";
+function searchProducts(){
+const q=document.getElementById("searchInput").value.toLowerCase();
+const filtered=products.filter(p=>p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q));
+renderProducts(filtered);
+}
+
+function openProduct(index){
+selectedProduct=products[index];
+qty=1;
+document.getElementById("qty").value=qty;
+document.getElementById("modalTitle").innerText=selectedProduct.name;
+document.getElementById("modalPrice").innerText=selectedProduct.price ? "$"+selectedProduct.price : "Request Quote";
+document.getElementById("modalImg").src=selectedProduct.img;
+document.getElementById("modalDesc").innerText=selectedProduct.desc;
+document.getElementById("modalFeatures").innerHTML=selectedProduct.features.map(x=>"<li>"+x+"</li>").join("");
+document.getElementById("modalSpecs").innerHTML=selectedProduct.specs.map(x=>"<li>"+x+"</li>").join("");
+document.getElementById("modalWarranty").innerText=selectedProduct.warranty;
+document.getElementById("productModal").style.display="block";
+}
+
+function closeProduct(){document.getElementById("productModal").style.display="none";}
+
+function changeQty(num){
+qty=Math.max(1,qty+num);
+document.getElementById("qty").value=qty;
+}
+
+function getInstallOption(){
+return document.querySelector('input[name="installOption"]:checked').value;
 }
 
 function addToCart(){
-cart.push(selectedProduct);
-document.getElementById("cartCount").innerText = cart.length;
+cart.push({...selectedProduct, qty:qty, option:getInstallOption()});
+document.getElementById("cartCount").innerText=cart.length;
 alert("Added to cart: " + selectedProduct.name);
 }
 
 function openCheckout(){
-document.getElementById("productModal").style.display = "none";
-document.getElementById("checkoutModal").style.display = "block";
-let total = cart.reduce((sum,item)=>sum + Number(item.price),0);
-document.getElementById("cartSummary").innerText = cart.length + " item(s) - Estimated Total: $" + total;
+document.getElementById("productModal").style.display="none";
+document.getElementById("checkoutModal").style.display="block";
+let total=cart.reduce((sum,item)=>sum + (Number(item.price) * Number(item.qty)),0);
+let items=cart.map(i=>`${i.qty}x ${i.name} - ${i.option}`).join(" | ");
+document.getElementById("cartSummary").innerText=cart.length ? `${cart.length} item(s): ${items} | Estimated Total: $${total}` : "Cart is empty. You can still submit a quote request.";
 }
 
-function closeCheckout(){
-document.getElementById("checkoutModal").style.display = "none";
-}
+function closeCheckout(){document.getElementById("checkoutModal").style.display="none";}
 
 function submitCartOrder(){
 const name=document.getElementById("cartName").value;
 const phone=document.getElementById("cartPhone").value;
 const address=document.getElementById("cartAddress").value;
 const type=document.getElementById("cartType").value;
-const items=cart.map(i=>i.name + " $" + i.price).join(", ");
+const notes=document.getElementById("cartNotes").value;
+const items=cart.map(i=>`${i.qty}x ${i.name} $${i.price} - ${i.option}`).join(", ");
 
 fetch("/api/booking",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
 name,phone,address,
-service:"NLS Cart Order - " + type,
+service:"NLS Store Order - " + type,
 time:"ASAP",
-notes:"Items: " + items
+notes:"Items: " + items + " | Customer Notes: " + notes
 })
 })
 .then(res=>res.json())
@@ -322,27 +381,7 @@ document.getElementById("cartStatus").innerText="❌ Order failed. Please call 4
 });
 }
 
-function sendBooking(){
-const name=document.getElementById("bookName").value;
-const phone=document.getElementById("bookPhone").value;
-const address=document.getElementById("bookAddress").value;
-const service=document.getElementById("bookService").value;
-const time=document.getElementById("bookTime").value;
-const notes=document.getElementById("bookNotes").value;
-
-fetch("/api/booking",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name,phone,address,service,time,notes})
-})
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("bookingStatus").innerText="✅ Request submitted successfully.";
-})
-.catch(err=>{
-document.getElementById("bookingStatus").innerText="❌ Failed. Please call 443-578-1686.";
-});
-}
+renderProducts();
 </script>
 
 </body>
