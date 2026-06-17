@@ -147,9 +147,9 @@ body{padding-bottom:0}
 
 <div class="detail-section">
 <h3>Installation Options</h3>
-<label class="option"><input type="radio" name="installOption" value="Product Only" checked> Product Only</label>
-<label class="option"><input type="radio" name="installOption" value="Product + Installation"> Product + Professional Installation</label>
-<label class="option"><input type="radio" name="installOption" value="Need Quote First"> Need Quote First</label>
+<label class="option"><input type="radio" name="installOption" value="product" checked onchange="updatePrice()"> Product Only</label>
+<label class="option"><input type="radio" name="installOption" value="install" onchange="updatePrice()"> Product + Installation</label>
+<label class="option"><input type="radio" name="installOption" value="install_rekey" onchange="updatePrice()"> Product + Installation + Rekey</label>
 </div>
 
 <div class="detail-section">
