@@ -1,0 +1,131 @@
+/* Citywide SEO Website Styles */
+
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+color: #172033;
+background: #ffffff;
+line-height: 1.6;
+}
+
+a {
+color: inherit;
+}
+
+header {
+position: sticky;
+top: 0;
+z-index: 1000;
+background: #ffffff;
+border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+max-width: 1200px;
+margin: auto;
+padding: 15px 20px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo {
+font-size: 23px;
+font-weight: 900;
+}
+
+.logo span {
+color: #0867ff;
+}
+
+.hero {
+background:
+linear-gradient(
+135deg,
+#06101e,
+#0b2340,
+#0d4c91
+);
+
+color: white;
+padding: 80px 20px;
+}
+
+.hero-container {
+max-width: 1200px;
+margin: auto;
+}
+
+.hero h1 {
+font-size: clamp(40px, 6vw, 68px);
+line-height: 1.05;
+max-width: 850px;
+}
+
+.container {
+max-width: 1200px;
+margin: auto;
+padding: 65px 20px;
+}
+
+.services {
+display: grid;
+grid-template-columns:
+repeat(3, 1fr);
+
+gap: 20px;
+}
+
+.service-card {
+padding: 25px;
+border: 1px solid #e1e8f0;
+border-radius: 16px;
+background: white;
+}
+
+.gray-section {
+background: #f7f9fc;
+}
+
+.areas {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.area {
+padding: 9px 14px;
+border: 1px solid #dce3ec;
+border-radius: 999px;
+background: white;
+}
+
+.cta {
+background: #0867ff;
+color: white;
+text-align: center;
+}
+
+footer {
+background: #07111f;
+color: #cbd7e8;
+padding: 40px 20px;
+}
+
+@media (max-width: 800px) {
+
+.services {
+grid-template-columns: 1fr;
+}
+
+}
+
