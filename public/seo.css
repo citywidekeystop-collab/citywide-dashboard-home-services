@@ -128,4 +128,29 @@ grid-template-columns: 1fr;
 }
 
 }
+/* Citywide SEO page text visibility fix */
+main,
+section {
+color: #172033;
+}
 
+main h1,
+main h2,
+main h3,
+main h4,
+main p,
+main li {
+color: #172033;
+}
+
+main a {
+color: #0867ff;
+}
+
+main .hero,
+main .hero h1,
+main .hero h2,
+main .hero p,
+main .hero a {
+color: white;
+}
