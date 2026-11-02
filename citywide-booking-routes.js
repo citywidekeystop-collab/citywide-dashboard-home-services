@@ -4,7 +4,7 @@ const ALLOWED = new Set(["Parkville","Perry Hall","White Marsh","Essex","Other B
 const SERVICE = new Set(["Lock change","Lock rekey","Mailbox lock / key","Locksmith consultation","Other lock / key question"]);
 const trim=(x,n=250)=>String(x||"").trim().slice(0,n);
 function validate(b) {
- const data={name:trim(b.name,100),phone:trim(b.phone,50),email:trim(b.email,150),location:trim(b.location,60),address:trim(b.address,250),service:trim(b.service,80),requested:trim(b.requested,120),details:trim(b.details,500)};
+ const data={name:trim(b.name,100),phone:trim(b.phone,50),email:trim(b.email,150),location:trim(b.location,60),address:trim(b.address,250),service:trim(b.service,80),requested:trim(b.requested,120),details:trim(b.details,120)};
  if(!data.name||!data.phone||!ALLOWED.has(data.location)||!SERVICE.has(data.service))throw Error("Please provide name, phone, service and location.");
  return data;
 }
@@ -47,7 +47,7 @@ module.exports=function installBooking(app){
    p.set("mode","payment");p.set("success_url","https://citywidelockandkey.com/booking-success/?session_id={CHECKOUT_SESSION_ID}");p.set("cancel_url","https://citywidelockandkey.com/booking-cancelled/");
    p.set("line_items[0][price_data][currency]","usd");p.set("line_items[0][price_data][unit_amount]","2500");
    p.set("line_items[0][price_data][product_data][name]","Citywide Locksmith Appointment Request - $25 Credit");
-   p.set("line_items[0][quantity]","1");p.set("metadata[booking]",JSON.stringify(d));
+   p.set("line_items[0][quantity]","1");p.set("metadata[booking]",JSON.stringify({name:d.name.slice(0,55),phone:d.phone.slice(0,25),email:d.email.slice(0,65),location:d.location,service:d.service,address:d.address.slice(0,55),requested:d.requested.slice(0,35),details:d.details.slice(0,55)}));
    p.set("customer_creation","always");p.set("phone_number_collection[enabled]","true");
    if(d.email)p.set("customer_email",d.email);
    const r=await fetch("https://api.stripe.com/v1/checkout/sessions",{method:"POST",headers:{"Authorization":"Bearer "+process.env.STRIPE_SECRET_KEY,"Content-Type":"application/x-www-form-urlencoded"},body:p});
