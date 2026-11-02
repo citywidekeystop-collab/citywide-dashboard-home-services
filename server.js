@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 
 let bookings = [];
 
+// Stripe webhook must receive raw body before JSON parsing.
+require("./citywide-booking-routes")(app);
 app.use(express.json());
 
 // Static files
