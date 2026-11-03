@@ -21,6 +21,24 @@ h1{font-size:clamp(34px,7vw,64px);line-height:1.08;margin:12px 0 20px}p{line-hei
 footer{padding:26px;text-align:center;color:#4d5b68}
 @media (max-width:550px){.wrap{padding:32px 20px}}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-517483837496"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-517483837496');
+  // Track intent to call; this is not proof of a connected phone call.
+  document.addEventListener('click', function(event) {
+    var link = event.target.closest('a[href^="tel:"]');
+    if (!link) return;
+    gtag('event', 'citywide_phone_click', {
+      event_category: 'lead_engagement',
+      campaign_area: 'baltimore_city',
+      service: 'vehicle_lockout',
+      transport_type: 'beacon'
+    });
+  });
+</script>
 </head>
 <body>
 <header><strong>CITYWIDE ROADSIDE LOCK &amp; KEY</strong><span>Mobile Vehicle Lockout Assistance · Baltimore City, Maryland</span></header>
