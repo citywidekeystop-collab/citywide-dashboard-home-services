@@ -37,3 +37,16 @@ body.cw-unified :is(.button,.btn,.call-link,.call-button):focus-visible,body.cw-
 @keyframes cw-pulse{0%,100%{opacity:.2}50%{opacity:1}}
 @media(max-width:760px){body.cw-unified .cw-lock-art{width:85px;right:2%;top:19%;opacity:.13}body.cw-unified .cw-motion-banner{min-height:43px}body.cw-unified .cw-motion-group{gap:17px;padding-right:17px}body.cw-unified .cw-motion-switch{font-size:10px;padding:5px 8px;margin-right:6px}body.cw-unified .cw-county-hero{padding:25px 20px;margin:16px 0}}
 @media(prefers-reduced-motion:reduce){body.cw-unified,body.cw-unified .hero,body.cw-unified .hero:before,body.cw-unified .hero h1,body.cw-unified .cw-county-hero,body.cw-unified .cw-county-hero:before,body.cw-unified .cw-motion-track,body.cw-unified .cw-lock-art *{animation:none!important}body.cw-unified .cw-motion-group[aria-hidden="true"]{display:none}body.cw-unified .cw-motion-track{width:auto;flex-wrap:wrap}body.cw-unified .cw-motion-viewport{mask-image:none}}
+
+/* Compact mobile service-page menu replaces the oversized multiline links. */
+body.cw-unified .cw-service-mobile-menu{display:none}
+@media(max-width:850px){
+ body.cw-unified header .nav{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding:14px 18px!important}
+ body.cw-unified header .nav > nav{display:none!important}
+ body.cw-unified header .nav > .cw-service-mobile-menu{display:block;position:relative;margin:0}
+ body.cw-unified .cw-service-mobile-menu > summary{list-style:none;cursor:pointer;background:#f0f8fd;border:1px solid #9fbbcd;border-radius:11px;color:#063a66;padding:11px 17px;font:800 15px Arial,sans-serif}
+ body.cw-unified .cw-service-mobile-menu > summary::-webkit-details-marker{display:none}
+ body.cw-unified .cw-service-mobile-menu > nav{position:absolute;right:0;top:calc(100% + 8px);width:min(350px,calc(100vw - 34px));z-index:2000;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;background:#fff;border:1px solid #bed3e1;border-radius:15px;box-shadow:0 14px 34px #082a4650;padding:8px!important}
+ body.cw-unified .cw-service-mobile-menu > nav a{display:block!important;white-space:normal!important;border-bottom:1px solid #e0e9ef;padding:12px!important;font:800 15px Arial,sans-serif;color:#063a66!important;text-decoration:none!important}
+ body.cw-unified .cw-service-mobile-menu > nav a:last-child{border-bottom:0;background:#063a66;border-radius:9px;color:#fff!important;text-align:center;margin-top:6px}
+}

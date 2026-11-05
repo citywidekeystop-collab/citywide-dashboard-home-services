@@ -69,13 +69,10 @@ if(date.value<date.min){date.setCustomValidity("Please select today or a future 
 date.setCustomValidity("");
 var d=new FormData(form),status=form.querySelector(".cw-booking-status"),button=form.querySelector("button[type=submit]");
 var payload={name:str(d.get("name")),phone:str(d.get("phone")),address:str(d.get("address")),service:str(d.get("service")),location:"Other Maryland",requested:str(d.get("date"))+" "+str(d.get("time"))+" Eastern",details:str(d.get("details"))};
-button.disabled=true;status.hidden=false;status.textContent="Opening secure checkout…";
-try{
-var response=await fetch("/api/citywide/checkout",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"same-origin",body:JSON.stringify(payload)});
-var result=await response.json();if(!response.ok||!result.url||!result.url.startsWith("https://"))throw new Error("Checkout unavailable");
+button.disabled=true;status.hidden=false;
+status.textContent="Opening secure Stripe checkout. Please confirm your service, address and preferred appointment time on Stripe.";
 document.dispatchEvent(new Event("citywide:booking-checkout-start"));
-window.location.assign(result.url);
-}catch(error){status.textContent="Secure booking checkout is currently unavailable; no payment was processed. Please text dispatch or call (443) 578-1686.";button.disabled=false}
+window.location.assign("https://book.stripe.com/4gMdR95Emexret90xw3VC00");
 });
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();

@@ -3,6 +3,16 @@
 function init(){
 var body=document.body;if(!body||body.dataset.cwThemeLoaded)return;
 body.dataset.cwThemeLoaded="1";body.classList.add("cw-unified");
+
+var primaryNav=body.querySelector("header .nav > nav");
+if(primaryNav&&!body.querySelector(".cw-service-mobile-menu")){
+  var menu=document.createElement("details");menu.className="cw-service-mobile-menu";
+  var summary=document.createElement("summary");summary.textContent="☰ Menu";menu.appendChild(summary);
+  var links=primaryNav.cloneNode(true);links.setAttribute("aria-label","Mobile page navigation");
+  menu.appendChild(links);primaryNav.insertAdjacentElement("afterend",menu);
+  menu.addEventListener("click",function(e){if(e.target.closest("a"))menu.open=false});
+}
+
 var text=["24/7 MOBILE LOCKSMITH","HOUSE & CAR LOCKOUTS","LOCK REKEY & LOCK CHANGE","SMART LOCK INSTALLATION","DEADBOLTS & DOOR HARDWARE","HARFORD COUNTY & BALTIMORE"];
 var bar=document.createElement("div");bar.className="cw-motion-banner";bar.setAttribute("aria-label","Citywide locksmith services");
 var viewport=document.createElement("div");viewport.className="cw-motion-viewport";

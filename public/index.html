@@ -100,27 +100,11 @@ bookingForm.addEventListener('submit',async event=>{
     details:String(data.get('details')||'')+' Payment preference: '+String(data.get('payment')||'$25 booking fee')
   };
   status.hidden=false;
-  status.textContent='Opening secure $25 booking checkout...';
+  status.textContent='Opening secure Stripe checkout. Please confirm your service, address and preferred appointment time at Stripe.';
   submitButton.disabled=true;
-  try{
-    const response=await fetch('/api/citywide/checkout',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    });
-    const result=await response.json();
-    if(!response.ok||!result.url)throw new Error(result.error||'Checkout unavailable');
-    document.dispatchEvent(new Event('citywide:booking-checkout-start'));
-    window.location.assign(result.url);
-  }catch(error){
-    status.textContent='Secure appointment checkout is currently unavailable. You can call 443-578-1686 or use the backup Stripe payment page: ';
-    const backup=document.createElement('a');
-    backup.href='https://book.stripe.com/4gMdR95Emexret90xw3VC00';
-    backup.textContent='Open backup checkout';
-    backup.rel='noopener noreferrer';
-    status.append(backup);
-    submitButton.disabled=false;
-  }
+  document.dispatchEvent(new Event('citywide:booking-checkout-start'));
+  window.location.assign("https://book.stripe.com/4gMdR95Emexret90xw3VC00");
+
 });
 bookingDate.addEventListener('input',()=>bookingDate.setCustomValidity(''));
 
