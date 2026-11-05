@@ -25,6 +25,31 @@ var date=form.elements.date,now=new Date();
 date.min=[now.getFullYear(),String(now.getMonth()+1).padStart(2,"0"),String(now.getDate()).padStart(2,"0")].join("-");
 var anchor=document.body.querySelector(":scope > footer, :scope > .sticky");
 if(anchor)document.body.insertBefore(section,anchor);else document.body.appendChild(section);
+// Make the booking options visible without requiring a scroll to the footer.
+var banner=document.createElement("aside");
+banner.id="cw-top-dispatch-banner";
+banner.className="cw-action-banner";
+banner.setAttribute("aria-label","Book a locksmith appointment or text dispatch");
+banner.innerHTML='<div class="cw-action-inner"><div class="cw-action-copy"><span class="cw-action-eyebrow">CITYWIDE ROADSIDE LOCK & KEY · MARYLAND</span><strong class="cw-action-headline">Need a locksmith? <span>Book or text dispatch.</span></strong><p class="cw-action-subtitle">Request a service time online or send your details directly to our dispatch team. <span>Reply times vary.</span></p></div><div class="cw-action-buttons"><a class="cw-action-book" href="#cw-booking-area">📅 Book Appointment</a><a class="cw-action-text" href="sms:+14435781686" id="cw-banner-text">💬 Text Dispatch</a></div></div>';
+var motion=document.querySelector(".cw-motion-banner");
+var topHeader=document.body.querySelector(":scope > header, :scope > .site-header");
+if(motion&&motion.parentNode===document.body)motion.insertAdjacentElement("afterend",banner);
+else if(topHeader)topHeader.insertAdjacentElement("afterend",banner);
+else document.body.insertBefore(banner,document.body.firstChild);
+banner.querySelector(".cw-action-book").addEventListener("click",function(e){
+  e.preventDefault();section.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  if(window.history&&window.history.replaceState)window.history.replaceState(null,"","#cw-booking-area");
+});
+var bannerText=banner.querySelector("#cw-banner-text");
+bannerText.addEventListener("click",function(){
+  var d=new FormData(form),msg=["Hi Citywide dispatch, I need locksmith service."];
+  var service=str(d.get("service"))||suggest(window.location.pathname);
+  if(service)msg.push("Service: "+service);
+  if(str(d.get("address")))msg.push("Location: "+str(d.get("address")));
+  if(str(d.get("details")))msg.push("Details: "+str(d.get("details")));
+  msg.push("Please confirm pricing and availability.");
+  bannerText.href="sms:"+NUMBER+"?body="+encodeURIComponent(msg.join("\n"));
+});
 var sms=section.querySelector("#cw-booking-sms");
 sms.addEventListener("click",function(){
 var d=new FormData(form),msg=["Hi, Citywide dispatch. I need locksmith service."];
