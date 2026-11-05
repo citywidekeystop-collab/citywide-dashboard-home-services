@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 const express = require("express");
-const ALLOWED = new Set(["Parkville","Perry Hall","White Marsh","Essex","Other Baltimore County"]);
-const SERVICE = new Set(["Lock change","Lock rekey","Mailbox lock / key","Locksmith consultation","Other lock / key question"]);
+const ALLOWED = new Set(["Parkville","Perry Hall","White Marsh","Essex","Other Baltimore County","Other Maryland"]);
+const SERVICE = new Set(["Lock change","Lock rekey","Mailbox lock / key","Locksmith consultation","Other lock / key question","House lockout","Car lockout","Business lockout","Lock replacement","Rekeying","Keypad / Wi-Fi lock installation","Keypad + handle bundle","Mailbox lock","Commercial locksmith service","Lock repair","Other locksmith service"]);
 const trim=(x,n=250)=>String(x||"").trim().slice(0,n);
 function validate(b) {
  const data={name:trim(b.name,100),phone:trim(b.phone,50),email:trim(b.email,150),location:trim(b.location,60),address:trim(b.address,250),service:trim(b.service,80),requested:trim(b.requested,120),details:trim(b.details,120)};
