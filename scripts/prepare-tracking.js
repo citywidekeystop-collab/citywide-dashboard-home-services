@@ -1,7 +1,7 @@
 // Apply the shared conversion configuration to existing large static landing pages.
 const fs = require('node:fs');
 const path = require('node:path');
-const pages = ['index.html','commercial-mag-lock.html','baltimore-car-lockout.html','parkville/index.html','perry-hall/index.html','white-marsh/index.html','essex/index.html'];
+const pages = ['index.html','city.html','commercial-mag-lock.html','baltimore-car-lockout.html','parkville/index.html','perry-hall/index.html','white-marsh/index.html','essex/index.html'];
 for (const page of pages) {
   const file = path.join(__dirname, '..', 'public', page);
   let html = fs.readFileSync(file, 'utf8');
