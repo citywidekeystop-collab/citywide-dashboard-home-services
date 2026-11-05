@@ -77,7 +77,51 @@ const bookingDate=bookingForm.elements.date;const today=new Date();bookingDate.m
 document.querySelectorAll('[data-booking-open]').forEach(button=>button.addEventListener('click',()=>bookingDialog.showModal()));
 bookingDialog.querySelector('.booking-close').addEventListener('click',()=>bookingDialog.close());
 bookingDialog.addEventListener('click',event=>{if(event.target===bookingDialog){const box=bookingDialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)bookingDialog.close()}});
-bookingForm.addEventListener('submit',event=>{event.preventDefault();if(!bookingForm.reportValidity())return;if(bookingDate.value<bookingDate.min){bookingDate.setCustomValidity('Choose today or a future date.');bookingDate.reportValidity();return}bookingDate.setCustomValidity('');const data=new FormData(bookingForm);const message=['CITYWIDE APPOINTMENT REQUEST','Name: '+data.get('name'),'Phone: '+data.get('phone'),'Service address: '+data.get('address'),'Service: '+data.get('service'),'Preferred date: '+data.get('date'),'Preferred time (Eastern): '+data.get('time'),'Details: '+(data.get('details')||'Not provided'),'Payment preference: '+data.get('payment'),'Please confirm my quote with 10% off the service, the $25 booking fee, and appointment availability. I understand the appointment is not guaranteed until payment and Citywide confirmation.'].join('\n');const status=document.getElementById('booking-status');status.hidden=false;status.textContent='Your text message is ready to send. The appointment has not been confirmed. Send it in your messaging app, or call Citywide if messages do not open.';window.location.href='https://book.stripe.com/4gMdR95Emexret90xw3VC00'});bookingDate.addEventListener('input',()=>bookingDate.setCustomValidity(''));
+bookingForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(!bookingForm.reportValidity())return;
+  if(bookingDate.value<bookingDate.min){
+    bookingDate.setCustomValidity('Choose today or a future date.');
+    bookingDate.reportValidity();
+    return;
+  }
+  bookingDate.setCustomValidity('');
+  const data=new FormData(bookingForm);
+  const submitButton=bookingForm.querySelector('button[type="submit"]');
+  const status=document.getElementById('booking-status');
+  const payload={
+    name:data.get('name'),
+    phone:data.get('phone'),
+    address:data.get('address'),
+    service:data.get('service'),
+    location:'Other Maryland',
+    requested:String(data.get('date'))+' '+String(data.get('time'))+' Eastern',
+    details:String(data.get('details')||'')+' Payment preference: '+String(data.get('payment')||'$25 booking fee')
+  };
+  status.hidden=false;
+  status.textContent='Opening secure $25 booking checkout...';
+  submitButton.disabled=true;
+  try{
+    const response=await fetch('/api/citywide/checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const result=await response.json();
+    if(!response.ok||!result.url)throw new Error(result.error||'Checkout unavailable');
+    document.dispatchEvent(new Event('citywide:booking-checkout-start'));
+    window.location.assign(result.url);
+  }catch(error){
+    status.textContent='Secure appointment checkout is currently unavailable. You can call 443-578-1686 or use the backup Stripe payment page: ';
+    const backup=document.createElement('a');
+    backup.href='https://book.stripe.com/4gMdR95Emexret90xw3VC00';
+    backup.textContent='Open backup checkout';
+    backup.rel='noopener noreferrer';
+    status.append(backup);
+    submitButton.disabled=false;
+  }
+});
+bookingDate.addEventListener('input',()=>bookingDate.setCustomValidity(''));
 
 (()=>{const form=document.getElementById('car-key-form');if(!form)return;const years=form.elements.year;for(let y=new Date().getFullYear()+1;y>=1980;y--){const o=document.createElement('option');o.textContent=String(y);o.value=String(y);years.append(o)}const makes=['Acura','Audi','BMW','Buick','Cadillac','Chevrolet','Chrysler','Dodge','Fiat','Ford','Genesis','GMC','Honda','Hyundai','Infiniti','Jaguar','Jeep','Kia','Land Rover','Lexus','Lincoln','Mazda','Mercedes-Benz','Mini','Mitsubishi','Nissan','Porsche','Ram','Subaru','Tesla','Toyota','Volkswagen','Volvo','Other'];for(const m of makes){const o=document.createElement('option');o.value=m;o.textContent=m;form.elements.make.append(o)}form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);const fields=['CITYWIDE CAR KEY REQUEST','Year: '+d.get('year'),'Make: '+d.get('make'),'Model: '+d.get('model'),'Key type: '+d.get('keytype'),'Issue: '+d.get('issue'),'Name: '+d.get('name'),'Phone: '+d.get('phone'),'Location: '+d.get('location'),'Notes: '+(d.get('notes')||'None'),'Please confirm availability and quote.'];window.location.href='sms:+14435781686?body='+encodeURIComponent(fields.join('\n'))})})();
 </script></body></html>
