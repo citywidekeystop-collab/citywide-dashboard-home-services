@@ -1,0 +1,39 @@
+
+/* Shared Citywide home-page-inspired styling and motion for public service pages */
+:root{--cw-blue:#063a66;--cw-sky:#7ec0e7;--cw-gold:#95894e;--cw-pale:#dceff9}
+body.cw-unified{background:radial-gradient(ellipse at 95% 20%,#d8edf9 0%,transparent 40%),radial-gradient(ellipse at 0% 85%,#e8f7fe 0%,transparent 46%),linear-gradient(#fff,#f0f8fd);background-size:145% 145%;animation:cw-bg-drift 27s ease-in-out infinite alternate}
+body.cw-unified .hero:not(.cw-image-hero){background:linear-gradient(125deg,#07182b,#063a66 55%,#086fb0)!important;background-size:220% 220%!important;animation:cw-hero-flow 19s ease-in-out infinite alternate}
+body.cw-unified .hero,body.cw-unified .cw-county-hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:3px solid var(--cw-gold)}
+body.cw-unified .hero:before,body.cw-unified .cw-county-hero:before{content:"";position:absolute;inset:-23%;pointer-events:none;z-index:0;background:radial-gradient(circle at 75% 32%,#7ec0e744,transparent 32%),radial-gradient(circle at 8% 87%,#448ec02d,transparent 33%);animation:cw-halo 15s ease-in-out infinite alternate}
+body.cw-unified .hero>:not(.cw-lock-art),body.cw-unified .cw-county-hero>:not(.cw-lock-art){position:relative;z-index:1}
+body.cw-unified .hero h1,body.cw-unified .cw-county-hero h1{color:#fff!important;text-shadow:0 2px 18px #00162f44;animation:cw-rise .7s ease both}
+body.cw-unified .hero p,body.cw-unified .hero .lead,body.cw-unified .hero .hero-description,body.cw-unified .cw-county-hero p{color:#eaf5ff}
+body.cw-unified .cw-lock-art{position:absolute;right:4%;top:20%;width:135px;max-width:25vw;z-index:0;opacity:.22;filter:drop-shadow(0 0 20px #7ec0e7);pointer-events:none}
+body.cw-unified .cw-lock-art svg{width:100%;height:auto;display:block}
+body.cw-unified .cw-lock-art .cw-shackle{animation:cw-unlock 5.4s ease-in-out infinite}
+body.cw-unified .cw-lock-art .cw-wifi{animation:cw-pulse 3s ease-in-out infinite}
+body.cw-unified .cw-motion-banner{display:flex;align-items:center;min-height:46px;background:linear-gradient(100deg,#063a66,#0b5683,#063a66);color:white;border-block:1px solid #95894e;overflow:hidden;font:700 12px/1.3 Arial,sans-serif;letter-spacing:.3px}
+body.cw-unified .cw-motion-viewport{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 4%,black 96%,transparent)}
+body.cw-unified .cw-motion-track{display:flex;width:max-content;animation:cw-scroll 52s linear infinite}
+body.cw-unified .cw-motion-group{display:flex;align-items:center;gap:28px;flex:none;white-space:nowrap;padding:12px 28px 12px 0}
+body.cw-unified .cw-motion-group span:before{content:"◆";font-size:9px;color:#e6ce90;margin-right:13px}
+body.cw-unified .cw-motion-switch{margin:5px 10px;border:1px solid #ffffff80;border-radius:999px;padding:5px 10px;background:#ffffff17;color:#fff;cursor:pointer;font:700 11px Arial,sans-serif;white-space:nowrap}
+body.cw-unified.cw-motion-paused .cw-motion-track,body.cw-unified.cw-motion-paused .cw-lock-art *,body.cw-unified.cw-motion-paused .hero,body.cw-unified.cw-motion-paused .hero:before,body.cw-unified.cw-motion-paused .cw-county-hero,body.cw-unified.cw-motion-paused .cw-county-hero:before{animation-play-state:paused!important}
+body.cw-unified .cw-county-hero{background:linear-gradient(115deg,#06182d,#063a66 55%,#087bb4);background-size:200% 200%;animation:cw-hero-flow 19s ease-in-out infinite alternate;padding:30px clamp(20px,4vw,45px);margin:20px 0 25px;border-radius:18px;box-shadow:0 15px 35px #063a6629}
+body.cw-unified .cw-county-hero h1{font-size:clamp(30px,4.6vw,56px);line-height:1.15;margin:0 0 14px}
+body.cw-unified .cw-county-hero p{font-size:17px;line-height:1.65;max-width:800px;margin:0}
+body.cw-unified :is(.card,.service-card){border:1px solid #c5ddeb;border-radius:16px;box-shadow:0 9px 28px #063a6614;transition:transform .2s,box-shadow .2s,border-color .2s}
+body.cw-unified :is(.card,.service-card):hover{transform:translateY(-3px);box-shadow:0 16px 34px #063a6624;border-color:#7ec0e7}
+body.cw-unified section.gray,body.cw-unified section.alt{background:#dceff987}
+body.cw-unified :is(.button,.btn,.call-link,.call-button):not(.white):not(.outline){border-radius:999px;box-shadow:0 5px 14px #063a6629;transition:transform .2s,box-shadow .2s}
+body.cw-unified :is(.button,.btn,.call-link,.call-button):hover{transform:translateY(-2px);box-shadow:0 8px 20px #063a6633}
+body.cw-unified :is(.button,.btn,.call-link,.call-button):focus-visible,body.cw-unified .cw-motion-switch:focus-visible{outline:3px solid #e0b866;outline-offset:3px}
+@keyframes cw-scroll{to{transform:translateX(-50%)}}
+@keyframes cw-hero-flow{from{background-position:0% 40%}to{background-position:100% 65%}}
+@keyframes cw-bg-drift{from{background-position:0 0}to{background-position:100% 100%}}
+@keyframes cw-halo{from{transform:translate(-3%,-2%) scale(1)}to{transform:translate(4%,2%) scale(1.13)}}
+@keyframes cw-rise{from{opacity:.1;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cw-unlock{0%,20%,100%{transform:translateY(0)}45%,68%{transform:translateY(-7px)}}
+@keyframes cw-pulse{0%,100%{opacity:.2}50%{opacity:1}}
+@media(max-width:760px){body.cw-unified .cw-lock-art{width:85px;right:2%;top:19%;opacity:.13}body.cw-unified .cw-motion-banner{min-height:43px}body.cw-unified .cw-motion-group{gap:17px;padding-right:17px}body.cw-unified .cw-motion-switch{font-size:10px;padding:5px 8px;margin-right:6px}body.cw-unified .cw-county-hero{padding:25px 20px;margin:16px 0}}
+@media(prefers-reduced-motion:reduce){body.cw-unified,body.cw-unified .hero,body.cw-unified .hero:before,body.cw-unified .hero h1,body.cw-unified .cw-county-hero,body.cw-unified .cw-county-hero:before,body.cw-unified .cw-motion-track,body.cw-unified .cw-lock-art *{animation:none!important}body.cw-unified .cw-motion-group[aria-hidden="true"]{display:none}body.cw-unified .cw-motion-track{width:auto;flex-wrap:wrap}body.cw-unified .cw-motion-viewport{mask-image:none}}
