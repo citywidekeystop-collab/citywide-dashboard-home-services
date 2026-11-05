@@ -59,21 +59,22 @@ module.exports=function installBooking(app){
   try{const d=validate(req.body);await alertCitywide(d,false);res.json({ok:true});}
   catch(e){res.status(e.message.includes("not configured")?503:400).json({error:e.message});}
  });
+ // Verified, active Stripe-hosted booking link for Citywide's $25 booking credit.
+ // The hosted checkout independently collects contact information, service,
+ // address and preferred appointment date/time as required custom fields.
+ // The payment link is administered in the connected NLS Stripe account.
+ const CITYWIDE_BOOKING_LINK="https://book.stripe.com/4gMdR95Emexret90xw3VC00";
  app.post("/api/citywide/checkout",express.json({limit:"12kb"}),async(req,res)=>{
   try{
-   const d=validate(req.body);
-   if(!process.env.STRIPE_SECRET_KEY) return res.status(503).json({error:"Secure checkout is not yet configured."});
-   const p=new URLSearchParams();
-   p.set("mode","payment");p.set("success_url","https://citywidelockandkey.com/booking-success/?session_id={CHECKOUT_SESSION_ID}");p.set("cancel_url","https://citywidelockandkey.com/booking-cancelled/");
-   p.set("line_items[0][price_data][currency]","usd");p.set("line_items[0][price_data][unit_amount]","2500");
-   p.set("line_items[0][price_data][product_data][name]","Citywide Locksmith Appointment Request - $25 Credit");
-   p.set("line_items[0][quantity]","1");p.set("metadata[booking]",JSON.stringify({name:d.name.slice(0,55),phone:d.phone.slice(0,25),email:d.email.slice(0,65),location:d.location,service:d.service,address:d.address.slice(0,55),requested:d.requested.slice(0,35),details:d.details.slice(0,55)}));
-   p.set("customer_creation","always");p.set("phone_number_collection[enabled]","true");
-   if(d.email)p.set("customer_email",d.email);
-   const r=await fetch("https://api.stripe.com/v1/checkout/sessions",{method:"POST",headers:{"Authorization":"Bearer "+process.env.STRIPE_SECRET_KEY,"Content-Type":"application/x-www-form-urlencoded"},body:p});
-   const s=await r.json();
-   if(!r.ok||!s.url)throw Error("Checkout could not be started.");
-   res.json({url:s.url});
-  }catch(e){res.status(400).json({error:e.message});}
+   validate(req.body);
+   res.set("Cache-Control","no-store");
+   return res.json({
+    url:CITYWIDE_BOOKING_LINK,
+    hosted_checkout:true,
+    notice:"Please re-enter and confirm your service address and preferred appointment time at secure Stripe checkout."
+   });
+  }catch(e){
+   return res.status(400).json({error:e.message||"Please complete the required booking details."});
+  }
  });
 };
