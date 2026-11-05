@@ -1,1 +1,52 @@
-<link rel="icon" href="/favicon.ico?v=20261104" sizes="16x16 32x32 48x48 64x64" type="image/x-icon"><link rel="icon" href="/citywide-favicon-48.png?v=20261104" sizes="48x48" type="image/png"><link rel="icon" href="/citywide-favicon-192.png?v=20261104" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261104" sizes="180x180"><!doctype html><title>Payment Received | Citywide</title><meta name="viewport" content="width=device-width,initial-scale=1"><main style="max-width:650px;margin:70px auto;font:18px Arial"><h1>Payment received</h1><p>Your $25 appointment request payment was received. Your appointment is not confirmed until Citywide contacts you to verify availability.</p><a href="tel:+14435781686">Call 443-578-1686</a></main>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking Payment | Citywide</title>
+<link rel="icon" href="/favicon.ico?v=20261104" sizes="16x16 32x32 48x48 64x64" type="image/x-icon">
+<link rel="icon" href="/citywide-favicon-48.png?v=20261104" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261104" sizes="180x180">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16693027016"></script>
+<script src="/citywide-tracking.js?v=20261104" defer></script>
+</head>
+<body>
+<main style="max-width:650px;margin:70px auto;font:18px/1.5 Arial;padding:0 18px">
+<h1 id="booking-heading">Verifying your payment</h1>
+<p id="booking-message" role="status" aria-live="polite">Checking the booking payment securely.</p>
+<a href="tel:+14435781686">Call Citywide at 443-578-1686</a>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  const heading = document.getElementById('booking-heading');
+  const message = document.getElementById('booking-message');
+  const sessionId = new URLSearchParams(window.location.search).get('session_id') || '';
+  if (!/^cs_(test_|live_)[A-Za-z0-9_]+$/.test(sessionId)) {
+    heading.textContent = 'Payment not verified';
+    message.textContent = 'Please contact Citywide if you completed a payment.';
+    return;
+  }
+  try {
+    const response = await fetch('/api/citywide/booking-status?session_id=' + encodeURIComponent(sessionId), { cache: 'no-store' });
+    if (!response.ok) throw new Error('Verification unavailable');
+    const data = await response.json();
+    if (data.paid !== true) throw new Error('Not verified');
+    heading.textContent = 'Payment received';
+    message.textContent = 'Your $25 appointment request payment was received. Your appointment is not confirmed until Citywide contacts you to verify availability.';
+    const key = 'citywide-booking-paid:' + sessionId;
+    let alreadyTracked = false;
+    try {
+      alreadyTracked = sessionStorage.getItem(key) === '1';
+      if (!alreadyTracked) sessionStorage.setItem(key, '1');
+    } catch (_) {}
+    if (!alreadyTracked && typeof window.citywideTrackConfirmedBooking === 'function') {
+      window.citywideTrackConfirmedBooking(sessionId);
+    }
+  } catch (error) {
+    heading.textContent = 'Payment status not verified';
+    message.textContent = 'We could not verify this booking payment yet. If you paid, please contact Citywide; do not pay again until your payment is checked.';
+  }
+});
+</script>
+</body>
+</html>
