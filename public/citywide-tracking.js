@@ -26,11 +26,20 @@
     gtag('event', 'citywide_quote_submitted', { transport_type: 'beacon' });
   });
 
+  // Checkout was created successfully, but payment has not been completed.
+  document.addEventListener('citywide:booking-checkout-start', function () {
+    gtag('event', 'citywide_booking_checkout_start', { transport_type: 'beacon' });
+  });
+
   // Called only after the server verifies a paid Stripe Checkout session.
   // Keep the existing conversion label; its Google Ads action still needs
   // verification in account 688-013-2960 before reporting can be relied on.
   window.citywideTrackConfirmedBooking = function (sessionId) {
     if (typeof sessionId !== 'string' || !/^cs_(test_|live_)[A-Za-z0-9_]+$/.test(sessionId)) return;
+    if (sessionId.indexOf('cs_test_') === 0) {
+      gtag('event', 'citywide_booking_paid_test', { transport_type: 'beacon' });
+      return;
+    }
     gtag('event', 'citywide_booking_paid', {
       value: 25.0,
       currency: 'USD',
