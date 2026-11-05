@@ -35,6 +35,26 @@ module.exports=function installBooking(app){
   }
   res.json({received:true});
  });
+ // Verify Checkout server-side before a payment is counted as a conversion.
+ app.get("/api/citywide/booking-status",async(req,res)=>{
+  res.set("Cache-Control","no-store");
+  const id=String(req.query.session_id||"");
+  if(id.length>200||!/^cs_(test_|live_)[A-Za-z0-9_]+$/.test(id))return res.status(400).json({paid:false});
+  if(!process.env.STRIPE_SECRET_KEY)return res.status(503).json({paid:false});
+  try{
+   const r=await fetch("https://api.stripe.com/v1/checkout/sessions/"+encodeURIComponent(id),{
+    headers:{"Authorization":"Bearer "+process.env.STRIPE_SECRET_KEY}
+   });
+   if(!r.ok)return res.status(502).json({paid:false});
+   const session=await r.json();
+   const paid=session.id===id&&session.payment_status==="paid"&&session.mode==="payment"&&
+    session.currency==="usd"&&session.amount_total===2500&&typeof session.metadata?.booking==="string";
+   return res.json({paid:paid});
+  }catch(e){
+   console.error("Booking payment verification failed:",e.message);
+   return res.status(502).json({paid:false});
+  }
+ });
  app.post("/api/citywide/quote",express.json({limit:"12kb"}),async(req,res)=>{
   try{const d=validate(req.body);await alertCitywide(d,false);res.json({ok:true});}
   catch(e){res.status(e.message.includes("not configured")?503:400).json({error:e.message});}
