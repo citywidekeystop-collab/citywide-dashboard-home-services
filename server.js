@@ -27,6 +27,11 @@ app.get("/", (req, res) => {
 res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+// Dedicated Bel Air $59 rekey Google Ads landing page
+app.get(["/bel-air", "/bel-air/"], (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "bel-air.html"));
+});
+
 // National Lock Supply Page
 app.get("/national-lock-supply", (req, res) => {
 res.sendFile(path.join(__dirname, "public", "national-lock-supply.html"));
