@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /admin.html
+Disallow: /provider.html
+
+Sitemap: https://citywidelockandkey.com/sitemap.xml

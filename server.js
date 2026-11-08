@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -126,7 +127,15 @@ app.get([
 "/commercial-locksmith-baltimore-md",
 "/access-control-baltimore-md"
 ], (req, res) => {
-res.sendFile(path.join(__dirname, "public", "city.html"));
+const words = req.path.slice(1).split("-");
+const labels = {md: "MD", havre: "Havre", de: "de", grace: "Grace"};
+const title = words.map(word => labels[word] || word[0].toUpperCase() + word.slice(1)).join(" ");
+const description = `Citywide Roadside Lock & Key provides ${title} service. Call 443-578-1686 for mobile locksmith help, lockouts, rekeying and lock replacement.`;
+const html = fs.readFileSync(path.join(__dirname, "public", "city.html"), "utf8")
+.replace("<title>Citywide Locksmith Service</title>", `<title>${title} | Citywide Roadside Lock & Key</title><meta name="description" content="${description}"><link rel="canonical" href="https://citywidelockandkey.com${req.path}">`)
+.replace('id="pageTitle">Citywide Locksmith Service', `id="pageTitle">${title}`)
+.replace('<p id="pageText"></p>', `<p id="pageText">${description}</p>`);
+res.type("html").send(html);
 });
 
 app.listen(PORT, () => {
