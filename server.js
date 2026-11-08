@@ -32,6 +32,42 @@ app.get(["/bel-air", "/bel-air/"], (req, res) => {
   res.sendFile(path.join(__dirname, "public", "bel-air.html"));
 });
 
+// One distinct, indexable page URL per ZIP code and community for the $59 mobile-only rekey offer.
+const promoZipCodes = new Set([
+  "21001","21005","21009","21010","21013","21014","21015","21017","21018",
+  "21028","21034","21040","21047","21050","21078","21082","21084","21085",
+  "21087","21111","21130","21132","21154","21160","21161"
+]);
+const promoCommunities = {
+  "bel-air-north-md": "Bel Air North, MD",
+  "bel-air-south-md": "Bel Air South, MD",
+  "fallston-md": "Fallston, MD",
+  "forest-hill-md": "Forest Hill, MD",
+  "abingdon-md": "Abingdon, MD",
+  "churchville-md": "Churchville, MD"
+};
+const rekeyTemplatePath = path.join(__dirname, "public", "rekey-area-template.html");
+app.get("/rekey-:area", (req, res, next) => {
+  const part = req.params.area;
+  const zip = promoZipCodes.has(part);
+  const community = promoCommunities[part];
+  if (!zip && !community) return next();
+  const area = zip ? "ZIP code " + part + ", MD" : community;
+  const intro = zip
+    ? "For homes, apartments, rentals and businesses in Maryland ZIP code " + part + ", Citywide provides mobile rekeying by appointment. Tell dispatch your address and lock type so we can confirm travel availability, total pricing and the correct keying service before arrival."
+    : "For homeowners, rentals, property managers and local businesses in " + community + ", Citywide's mobile locksmith team travels to the property for compatible lock rekeying. Contact dispatch with your street address and lock details for availability and a full quote.";
+  const pagePath = "rekey-" + part;
+  const metaTitle = "$59 Mobile Rekey " + (zip ? part + " MD" : community) + " | Citywide We Come to You";
+  const metaDescription = "$59 rekey special per eligible cylinder in " + area + ". Mobile-only Citywide locksmith comes to your location. Book by Nov 10, 2026. Call 443-578-1686.";
+  const html = fs.readFileSync(rekeyTemplatePath, "utf8")
+    .replaceAll("{{META_TITLE}}", metaTitle)
+    .replaceAll("{{META_DESCRIPTION}}", metaDescription)
+    .replaceAll("{{CANONICAL_PATH}}", pagePath)
+    .replaceAll("{{AREA}}", area)
+    .replaceAll("{{INTRO}}", intro);
+  res.type("html").send(html);
+});
+
 // National Lock Supply Page
 app.get("/national-lock-supply", (req, res) => {
 res.sendFile(path.join(__dirname, "public", "national-lock-supply.html"));
