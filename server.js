@@ -11,7 +11,11 @@ let bookings = [];
 require("./citywide-booking-routes")(app);
 app.use(express.json());
 
-// Static files
+// Static files: do not expose the internal ZIP/community page template directly.
+app.use((req, res, next) => {
+  if (req.path === "/rekey-area-template.html") return res.status(404).end();
+  next();
+});
 app.use(express.static(path.join(__dirname, "public")));
 
 // Health Check
