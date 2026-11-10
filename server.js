@@ -31,12 +31,12 @@ app.get("/", (req, res) => {
 res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Dedicated Bel Air $59 rekey Google Ads landing page
+// Dedicated Bel Air $39 rekey Google Ads landing page
 app.get(["/bel-air", "/bel-air/"], (req, res) => {
   res.sendFile(path.join(__dirname, "public", "bel-air.html"));
 });
 
-// One distinct, indexable page URL per ZIP code and community for the $59 mobile-only rekey offer.
+// One distinct, indexable page URL per ZIP code and community for the $39 mobile-only rekey offer.
 const promoZipCodes = new Set([
   "21001","21005","21009","21010","21013","21014","21015","21017","21018",
   "21028","21034","21040","21047","21050","21078","21082","21084","21085",
@@ -61,8 +61,8 @@ app.get("/rekey-:area", (req, res, next) => {
     ? "For homes, apartments, rentals and businesses in Maryland ZIP code " + part + ", Citywide provides mobile rekeying by appointment. Tell dispatch your address and lock type so we can confirm travel availability, total pricing and the correct keying service before arrival."
     : "For homeowners, rentals, property managers and local businesses in " + community + ", Citywide's mobile locksmith team travels to the property for compatible lock rekeying. Contact dispatch with your street address and lock details for availability and a full quote.";
   const pagePath = "rekey-" + part;
-  const metaTitle = "$59 Mobile Rekey " + (zip ? part + " MD" : community) + " | Citywide We Come to You";
-  const metaDescription = "$59 rekey special per eligible cylinder in " + area + ". Mobile-only Citywide locksmith comes to your location. Book by Nov 10, 2026. Call 443-578-1686.";
+  const metaTitle = "$39 Mobile Rekey " + (zip ? part + " MD" : community) + " | Citywide We Come to You";
+  const metaDescription = "$39 rekey special per eligible cylinder in " + area + ". Mobile-only Citywide locksmith comes to your location. Call 443-578-1686.";
   const html = fs.readFileSync(rekeyTemplatePath, "utf8")
     .replaceAll("{{META_TITLE}}", metaTitle)
     .replaceAll("{{META_DESCRIPTION}}", metaDescription)
