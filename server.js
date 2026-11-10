@@ -155,6 +155,18 @@ ${rows || "<tr><td colspan='7'>No bookings yet.</td></tr>"}
 `);
 });
 
+// Legacy Google Ads sitelink URLs. Serve real location pages instead of 404s.
+app.get(["/aberdeen-md-locksmith", "/fallston-md-locksmith"], (req, res) => {
+  const city = req.path.startsWith("/aberdeen") ? "Aberdeen" : "Fallston";
+  const title = "Locksmith in " + city + ", MD";
+  const description = "Citywide Roadside Lock & Key provides mobile locksmith service in " + city + ", Maryland, including lockouts, rekeying, lock changes and lock installation. Call 443-578-1686 for availability and a quote.";
+  const html = fs.readFileSync(path.join(__dirname, "public", "city.html"), "utf8")
+    .replace("<title>Citywide Locksmith Service</title>", `<title>${title} | Citywide Roadside Lock & Key</title><meta name="description" content="${description}"><link rel="canonical" href="https://citywidelockandkey.com${req.path}">`)
+    .replace('id="pageTitle">Citywide Locksmith Service', `id="pageTitle">${title}`)
+    .replace('<p id="pageText"></p>', `<p id="pageText">${description}</p>`);
+  res.type("html").send(html);
+});
+
 // City Pages
 app.get([
 "/locksmith-edgewood-md",
