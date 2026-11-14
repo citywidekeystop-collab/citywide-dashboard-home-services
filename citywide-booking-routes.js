@@ -31,9 +31,12 @@ module.exports=function installBooking(app){
    try {
     if(session.metadata?.offer==="bowie-crofton-keypad-369") {
       await require("./citywide-keypad-booking").notifyPaidBooking(session);
-    } else {
-      const d=JSON.parse(session.metadata?.booking||"{}");
+    } else if(session.amount_total===2500 && typeof session.metadata?.booking==="string" && session.metadata.booking.length>2) {
+      const d=JSON.parse(session.metadata.booking);
       await alertCitywide(d,true,session.id);
+    } else {
+      // NLS store orders and unrelated Stripe events are not Citywide bookings.
+      console.info("Ignoring unrelated paid checkout", session.id);
     }
    } catch(e){console.error("PAID booking notification failed",session.id,e.message);return res.sendStatus(500);}
   }
