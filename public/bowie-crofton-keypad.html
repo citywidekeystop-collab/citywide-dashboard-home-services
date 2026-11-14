@@ -104,7 +104,7 @@ footer{padding:20px;text-align:center;background:#071224;color:#b7c5d8;font-size
       <label>Preferred Time <span class="required">*</span><select name="time" required><option value="">Select a window</option><option value="Morning (8 AM–12 PM)">Morning (8 AM–12 PM)</option><option value="Afternoon (12–4 PM)">Afternoon (12–4 PM)</option><option value="Evening (4–8 PM)">Evening (4–8 PM)</option></select></label>
      </div>
      <label>Door Details / Questions (optional)<textarea name="notes" rows="3" maxlength="500" placeholder="Tell us about your door or installation needs"></textarea></label>
-     <div class="paynotice">After dispatch receives your request, <strong>we will call you</strong> to confirm the time and installation details. You can pay $369 securely online using the existing NLS Stripe merchant checkout, or ask dispatch about payment over the phone.</div>
+     <div class="paynotice" id="paymentNotice">After dispatch receives your request, <strong>we will call you</strong> to confirm the time and installation details. You can pay $369 securely online using the existing NLS Stripe merchant checkout, or ask dispatch about payment over the phone.</div>
      <label>Payment Preference <span class="required">*</span></label>
      <div class="choices">
       <label class="choice"><input type="radio" name="paymentPreference" value="online" checked><span>💳 Pay $369 Securely Online</span></label>
@@ -128,6 +128,22 @@ const form=document.getElementById("bookingForm"),box=document.getElementById("s
 const d=form.querySelector('[name="date"]');
 const today=new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 d.min=/^\d{4}-\d{2}-\d{2}$/.test(today)?today:new Date().toISOString().slice(0,10);
+fetch("/api/bowie-crofton/health").then(r=>r.json()).then(config=>{
+  if(!config.onlinePaymentsConfigured){
+    const online=form.querySelector('[name="paymentPreference"][value="online"]');
+    online.disabled=true;
+    form.querySelector('[name="paymentPreference"][value="phone"]').checked=true;
+    online.nextElementSibling.textContent="Online checkout being connected";
+    document.getElementById("paymentNotice").textContent="Dispatch will call to confirm your appointment, answer questions and arrange payment by phone. Online Stripe checkout is currently being connected; no online payment is collected from this form.";
+  }
+  if(!config.automaticDispatchTextConfigured){
+    const note=document.createElement("div");
+    note.className="paynotice";
+    note.textContent="Dispatch text: After submitting, use the prepared text message to send your booking directly to dispatch. Tap Send in your text app. Automatic texting is not yet enabled.";
+    document.getElementById("paymentNotice").after(note);
+  }
+}).catch(()=>{document.getElementById("paymentNotice").textContent="Dispatch will call to confirm. If online checkout is unavailable, arrange payment by phone. Your text app may be needed to send your booking details.";});
+
 function message(t){box.textContent=t;box.classList.add("visible");box.scrollIntoView({behavior:"smooth",block:"nearest"});}
 async function submit(event){
 event.preventDefault();fallback.classList.remove("show");
