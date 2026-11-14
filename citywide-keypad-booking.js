@@ -107,6 +107,7 @@ async function stripeCheckout(b,id) {
   return result.url;
 }
 module.exports=function installBowieKeypad(app,saveBooking){
+  console.info("BOWIE_KEYPAD_CONFIG", JSON.stringify({stripe:Boolean(process.env.STRIPE_SECRET_KEY),sms:Boolean(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_FROM_NUMBER),email:Boolean(process.env.RESEND_API_KEY && process.env.BOOKING_NOTIFY_EMAIL && process.env.BOOKING_FROM_EMAIL),webhook:Boolean(process.env.STRIPE_WEBHOOK_SECRET)}));
   // Public readiness check contains no secret values or customer details.
   app.get("/api/bowie-crofton/health", (req,res) => {
     res.set("Cache-Control","no-store");
