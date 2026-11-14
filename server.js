@@ -11,6 +11,13 @@ let bookings = [];
 require("./citywide-booking-routes")(app);
 app.use(express.json());
 
+// Bowie & Crofton $369 keypad installation booking; private notification flow.
+require("./citywide-keypad-booking")(app);
+
+app.get(["/bowie-crofton-keypad","/bowie-crofton-keypad/"], (req,res) => {
+  res.redirect(301, "/bowie-crofton-keypad.html");
+});
+
 // Static files: do not expose the internal ZIP/community page template directly.
 app.use((req, res, next) => {
   if (req.path === "/rekey-area-template.html") return res.status(404).end();
