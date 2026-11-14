@@ -21,7 +21,7 @@ function validated(v) {
   if (!b.name || b.name.length < 2) throw new Error("Enter your full name.");
   if (!/^\+?[\d\s().-]{10,28}$/.test(b.phone) || b.phone.replace(/\D/g,"").length < 10) throw new Error("Enter a valid phone number.");
   if (b.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) throw new Error("Enter a valid email or leave it blank.");
-  if (!["Bowie","Crofton"].includes(b.city)) throw new Error("Select Bowie or Crofton, Maryland.");
+  if (!["Bowie","Crofton","Annapolis"].includes(b.city)) throw new Error("Select Bowie, Crofton or Annapolis, Maryland.");
   if (b.address.length < 6) throw new Error("Enter the installation street address.");
   if (!["Black","Satin Nickel"].includes(b.finish)) throw new Error("Choose a lock finish.");
   if (!["Curved lever","Straight lever","Round knob"].includes(b.hardware)) throw new Error("Choose a handle or knob.");
@@ -32,7 +32,7 @@ function validated(v) {
   return b;
 }
 function message(b, id, prefix="NEW BOOKING") {
-  return [prefix+" - CITYWIDE Bowie/Crofton WiFi Keypad $369 INSTALLED",
+  return [prefix+" - CITYWIDE Bowie/Crofton/Annapolis WiFi Keypad $369 INSTALLED",
     "Request #"+id, b.name, "Call: "+b.phone,
     "Address: "+b.address+", "+b.city+", MD",
     "Bundle: "+b.finish+" keypad + "+b.hardware,
@@ -97,7 +97,7 @@ async function stripeCheckout(b,id) {
   assign("mode","payment");
   assign("line_items[0][price_data][currency]","usd");
   assign("line_items[0][price_data][unit_amount]",PRICE_CENTS);
-  assign("line_items[0][price_data][product_data][name]","Citywide Bowie & Crofton Wi-Fi keypad lock bundle — installation included");
+  assign("line_items[0][price_data][product_data][name]","Citywide Bowie, Crofton & Annapolis Wi-Fi keypad lock bundle — installation included");
   assign("line_items[0][price_data][product_data][description]","One smart keypad deadbolt plus one selected keyless handle or knob, standard professional installation and setup, appointment subject to dispatch confirmation.");
   assign("line_items[0][quantity]",1);
   assign("success_url",SITE+"/bowie-crofton-keypad.html?payment=success&session_id={CHECKOUT_SESSION_ID}");
@@ -168,7 +168,7 @@ module.exports=function installBowieKeypad(app,saveBooking){
       bookings.set(id,record);
       if(typeof saveBooking==="function") saveBooking({
         id, name:b.name,phone:b.phone,address:b.address+", "+b.city+", MD",
-        service:"Bowie/Crofton $369 Wi-Fi keypad installation bundle",
+        service:"Bowie/Crofton/Annapolis $369 Wi-Fi keypad installation bundle",
         time:b.date+" "+b.time,
         notes:b.finish+" keypad + "+b.hardware+"; "+b.notes+"; Payment: "+b.paymentPreference,
         status:"Appointment request — dispatch confirmation required",
