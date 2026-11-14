@@ -79,6 +79,15 @@ async function notifyPaidBooking(session) {
   return out;
 }
 async function stripeCheckout(b,id) {
+  if(process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN){
+    const r=await fetch("https://els-stripe-backend.onrender.com/citywide/keypad-checkout",{
+      method:"POST",headers:{"Content-Type":"application/json","x-citywide-checkout-token":process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN},
+      body:JSON.stringify({booking:b,bookingId:id})
+    });
+    const result=await r.json();
+    if(!r.ok||!result.url)throw new Error(result.error||"NLS secure checkout is unavailable. Dispatch can help by phone.");
+    return result.url;
+  }
   const key=process.env.STRIPE_SECRET_KEY;
   if (!key) throw new Error("Stripe checkout is not configured on this website");
   const bookingMetadata=JSON.stringify({...b,notes:clean(b.notes,120)});
@@ -111,7 +120,7 @@ module.exports=function installBowieKeypad(app,saveBooking){
   // Public readiness check contains no secret values or customer details.
   app.get("/api/bowie-crofton/health", (req,res) => {
     res.set("Cache-Control","no-store");
-    res.json({ok:true,onlinePaymentsConfigured:Boolean(process.env.STRIPE_SECRET_KEY),automaticDispatchTextConfigured:Boolean(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_FROM_NUMBER),dispatchEmailConfigured:Boolean(process.env.RESEND_API_KEY && process.env.BOOKING_NOTIFY_EMAIL && process.env.BOOKING_FROM_EMAIL),paymentWebhookConfigured:Boolean(process.env.STRIPE_WEBHOOK_SECRET)});
+    res.json({ok:true,onlinePaymentsConfigured:Boolean(process.env.STRIPE_SECRET_KEY || process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN),automaticDispatchTextConfigured:Boolean(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_FROM_NUMBER),dispatchEmailConfigured:Boolean(process.env.RESEND_API_KEY && process.env.BOOKING_NOTIFY_EMAIL && process.env.BOOKING_FROM_EMAIL),paymentWebhookConfigured:Boolean(process.env.STRIPE_WEBHOOK_SECRET)});
   });
   app.post("/api/bowie-crofton/booking",express.json({limit:"12kb"}),async(req,res)=>{
     res.set("Cache-Control","no-store");
@@ -154,7 +163,17 @@ module.exports=function installBowieKeypad(app,saveBooking){
   app.get("/api/bowie-crofton/payment-status",async(req,res)=>{
     res.set("Cache-Control","no-store");
     const id=clean(req.query.session_id,120);
-    if(!/^cs_(live|test)_[A-Za-z0-9_]+$/.test(id)||!process.env.STRIPE_SECRET_KEY)return res.status(400).json({paid:false});
+    if(!/^cs_(live|test)_[A-Za-z0-9_]+$/.test(id))return res.status(400).json({paid:false});
+    if(process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN) {
+      try {
+        const r=await fetch("https://els-stripe-backend.onrender.com/citywide/keypad-payment-status?session_id="+encodeURIComponent(id),{
+          headers:{"x-citywide-checkout-token":process.env.CITYWIDE_CHECKOUT_SHARED_TOKEN}
+        });
+        const status=await r.json();
+        return res.status(r.ok?200:502).json({paid:Boolean(r.ok&&status.paid)});
+      }catch(e){return res.status(502).json({paid:false});}
+    }
+    if(!process.env.STRIPE_SECRET_KEY)return res.status(503).json({paid:false});
     try {
       const r=await fetch("https://api.stripe.com/v1/checkout/sessions/"+encodeURIComponent(id),{headers:{"Authorization":"Bearer "+process.env.STRIPE_SECRET_KEY}});
       if(!r.ok) return res.status(502).json({paid:false});
