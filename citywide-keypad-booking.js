@@ -129,6 +129,20 @@ module.exports=function installBowieKeypad(app,saveBooking){
           authenticated:response.status===200,ready:Boolean(response.ok && data.ready && data.amountCents===PRICE_CENTS && data.offer===OFFER),
           amountCents:data.amountCents||null
         }));
+        // Optional one-time no-charge integration test, enabled only by a temporary Render setting.
+        if(process.env.BOWIE_CHECKOUT_SMOKE_TEST==="true" && response.ok && data.ready){
+          try{
+            const url=await stripeCheckout({
+              name:"INTERNAL CHECKOUT TEST - NOT A CUSTOMER",phone:"0000000000",
+              city:"Bowie",address:"TEST ONLY - NO INSTALLATION ADDRESS",
+              finish:"Black",hardware:"Curved lever",date:"2026-11-14",
+              time:"Morning (8 AM–12 PM)",paymentPreference:"online"
+            },"ABCD1234567890");
+            console.info("BOWIE_CHECKOUT_UNPAID_SMOKE_TEST",JSON.stringify({sessionCreated:typeof url==="string"&&url.startsWith("https://checkout.stripe.com/"),charged:false}));
+          }catch(e){
+            console.error("BOWIE_CHECKOUT_UNPAID_SMOKE_TEST",JSON.stringify({sessionCreated:false,error:e.message}));
+          }
+        }
       }catch(e){
         console.error("BOWIE_NLS_PRIVATE_CHECKOUT",JSON.stringify({ready:false,error:e.name}));
       }
