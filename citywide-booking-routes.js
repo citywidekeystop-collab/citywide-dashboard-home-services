@@ -29,8 +29,12 @@ module.exports=function installBooking(app){
   if(event.type==="checkout.session.completed"&&event.data.object.payment_status==="paid"){
    const session=event.data.object;
    try {
-    const d=JSON.parse(session.metadata?.booking||"{}");
-    await alertCitywide(d,true,session.id);
+    if(session.metadata?.offer==="bowie-crofton-keypad-369") {
+      await require("./citywide-keypad-booking").notifyPaidBooking(session);
+    } else {
+      const d=JSON.parse(session.metadata?.booking||"{}");
+      await alertCitywide(d,true,session.id);
+    }
    } catch(e){console.error("PAID booking notification failed",session.id,e.message);return res.sendStatus(500);}
   }
   res.json({received:true});
